@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOVA | Welcome</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'app' %>
+
+   
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Start Top Bar -->
+    <nav class="top-bar">
+        <div class="top-bar-title">
+            <a href="/yova"><img src="<%=asset_path('logo.png')%>"></a>
+        </div>
+        <div class="top-bar-right">
+            <button data-open="login" type="button" class="button login">Login</button>
+        </div>
+    </nav>
+    <!-- End Top Bar -->
+    <!-- Start Content -->
+    <section class="box-section">
+        <div class="row expanded floating-box">
+            <div class="columns">
+                <div class="row box">
+                    <div class="columns login small-4 small-centered">
+                        <div class="button-group expanded">
+                            <a class="button facebook"> <i class="fa fa-facebook" aria-hidden="true"></i> </a>
+                            <a class="button google"> <i class="fa fa-google-plus" aria-hidden="true"></i> </a>
+                        </div>
+                        <h3>Sing In</h3>
+                        <form method="post">
+                            <div class="row">
+                                <div class="columns">
+                                    <input class="input" placeholder="Email Address" type="email" name="email" id="email"> </label>
+                                </div>
+                                <div class="columns">
+                                    <input class="input" placeholder="Password" type="password" name="pass" id="password"> </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns small-6">
+                                    <input id="remmember" type="checkbox">
+                                    <label for="remmember">Remember me</label>
+                                </div>
+                                <div class="columns small-6 text-right"> <a class="password-reset" href="#">Forgot Password?</a> </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns">
+                                    <button class="button expanded sing-in" id="loginSubmit">Log In</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns new text-center"> New User? <a href="#">Sign Up</a> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Content -->
+    <!-- load JS-->
+    <script src="js/libs.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/ajaxScripts.js"></script>
+</body>
+
+</html>
