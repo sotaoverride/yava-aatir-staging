@@ -21,39 +21,49 @@
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">
-  <div class="container">
     
-    <form class="navbar-form navbar-left">
-        <div class="form-group" style="display:inline;">
-          <div class="input-group">
-            <input class="form-control search" type="text">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+  <div class="container">
+     <div class="navbar-header">
+       
+        <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+     
+    
+      <form class="navbar-form navbar-left">
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input class="form-control search" type="text">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
           </div>
-        </div>
       </form>
       
-      <div class="navbar-brand">
-              <a href="deals.html"><%= image_tag("logo.png") %></a>
-      </div>
+        <div class="navbar-brand">
+                <a href="deals.html"><%= image_tag("logo.png") %></a>
+        </div>
     
    
-      <div class="navbar-right">
-        <div class="right_head">
-           <div class="user_pic">
-                              <%= image_tag("nike.png") %>
+        <div class="navbar-right">
+          <div class="right_head">
+             <div class="user_pic">
+                  <%= image_tag("nike.png") %>
+            </div>
+                   
+                    <!-- Cart Icon -->
+            <div class="cart_icon">
+              <div class="top-bar-right"> <span id="cartImage" class="cart-item">0</span> </div>
+            </div>
           </div>
-                 
-                  <!-- Cart Icon -->
-                  <div class="cart_icon">
-                      <div class="top-bar-right"> <span id="cartImage" class="cart-item">0</span> </div>
-                  </div>
+          
         </div>
-        
-      </div>
       
       
       
     </div>
+  </div>
     
   </div>
 </nav>
