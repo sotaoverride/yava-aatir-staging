@@ -1,4 +1,75 @@
 /*!
+login
+*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body {background: #456;font-family: 'Open Sans', sans-serif;}
+.login { width: 400px;font-size: 16px;text-align: center;}
+/* Reset top and bottom margins from certain elements */
+.login-header,.login p { margin-top: 0;margin-bottom: 0;}
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {width: 0;margin-right: auto;margin-left: auto;border: 12px solid transparent;border-bottom-color: #28d;}
+.login-header {background: #28d;padding: 20px;font-size: 1.4em;font-weight: normal;text-align: center;text-transform: uppercase;color: #fff;}
+.login-container {background: #ebebeb;padding: 12px;}
+/* Every row inside .login-container is defined with p tags */
+.login p {padding: 12px;}
+.login input {
+    box-sizing: border-box;display: block;width: 100%;border-width: 1px;border-style: solid;padding: 16px;outline: 0;font-family: inherit;font-size: 0.95em;
+    height: 40px;
+border-radius: 3px;
+background-color: #8181cd;
+box-shadow: 0 5px 20px 0 #b7b7c6;
+margin: 20px 0;
+padding: 0;
+float: left;
+font-size: 13px;
+font-style: normal;
+}
+.login input[type="email"],.login input[type="password"] {background: #fff;border-color: #bbb;color: #555;}
+/* Text fields' focus effect */
+.login input[type="email"]:focus, .login input[type="password"]:focus {  border-color: #888;}
+.login input[type="submit"] {background: #28d;border-color: transparent;color: #fff;cursor: pointer;height: 40px;
+border-radius: 3px;
+background-color: #8181cd;
+box-shadow: 0 5px 20px 0 #b7b7c6;
+margin: 20px 0;
+padding: 0;
+float: left;
+font-size: 13px;
+font-style: normal;}
+.login input[type="submit"]:hover {background: #17c;}
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {background-color: #8181cd;border-color: #05a;}
+@media all and (max-width:450px){
+.login {width: 95%;}
+}
+
+/*/
+/*search
+*/
+.search {
+width: 250px !important;
+height: 34px !important;
+background: transparent !important;
+border: 1px solid #666 !important;
+border-radius: 34px !important;
+box-shadow: none !important;
+color: #222 !important;
+margin-bottom: 0 !important;
+font-size: 14px !important;
+}
+/**/
+/*navbar brand*/
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+/**/
+
+/*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
@@ -10928,7 +10999,8 @@ screen and (min-width:75em) {
 }
 
 body {
-    background-image: url(../images/footer.png);
+   
+    background-image: url('footer.png');
     background-position: bottom center;
     background-repeat: repeat-x;
     background-attachment: fixed;
