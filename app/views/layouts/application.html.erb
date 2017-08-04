@@ -22,9 +22,7 @@
 <body>
   <nav class="navbar navbar-default" role="navigation">
   <div class="container">
-    <div class="navTrigger">
-                  <i></i><i></i><i></i>
-                </div>
+    
     <form class="navbar-form navbar-left">
         <div class="form-group" style="display:inline;">
           <div class="input-group">
@@ -36,13 +34,21 @@
       
       <div class="navbar-brand">
               <a href="deals.html"><%= image_tag("logo.png") %></a>
-          </div>
+      </div>
     
    
-      <div class="navbar-form navbar-right btn-group">
-        <button type="button" class="btn btn-default">Button 1</button>
-        <button type="button" class="btn btn-default">Button 2</button>
-        <button type="button" class="btn btn-default">Button 3</button>
+      <div class="navbar-right">
+        <div class="right_head">
+           <div class="user_pic">
+                              <%= image_tag("nike.png") %>
+          </div>
+                 
+                  <!-- Cart Icon -->
+                  <div class="cart_icon">
+                      <div class="top-bar-right"> <span id="cartImage" class="cart-item">0</span> </div>
+                  </div>
+        </div>
+        
       </div>
       
       

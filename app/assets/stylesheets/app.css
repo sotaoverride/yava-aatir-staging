@@ -68,6 +68,36 @@ font-size: 14px !important;
     margin:0 auto;
 }
 /**/
+/**/
+.right_head{
+    align-items: center;
+display: flex;
+padding: 0 0 0 125px;
+
+}
+/**/
+/*Cart Item*/
+.cart-item{
+margin:4px;
+float:right;
+background: rgba(0, 0, 0, 0) url("cart-icon.png") no-repeat scroll left bottom / cover;
+display: block;
+font-size: 10px;
+font-weight: 700;
+height: 30px;
+padding: 12px 0 0;
+text-align: center;
+transition: background 350ms linear 0s;
+width: 30px;
+cursor: pointer;
+}
+
+
+/**/
+.user_pic{
+    float:right;
+    margin:4px;
+}
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
