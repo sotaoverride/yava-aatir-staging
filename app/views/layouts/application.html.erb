@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YOVA | Welcome</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <%= javascript_include_tag 'app','data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'libs.min','data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'ajaxScripts','turbolinks-track' => true %>
-  
-  
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'app' %>
-
-   
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
-    
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>YOVA | Welcome</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<%= javascript_include_tag 'app','data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'libs.min','data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'ajaxScripts','turbolinks-track' => true %>
+	<%= csrf_meta_tags %><%= stylesheet_link_tag 'app' %>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-default" role="navigation">
-    
-  <div class="container">
-     <div class="navbar-header">
-       
-        <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-     
-    
-      <form class="navbar-form navbar-left">
-          <div class="form-group" style="display:inline;">
-            <div class="inner-addon left-addon">
-              <i class="glyphicon glyphicon-user"></i>
-              <input class="form-control search" type="text">
-            </div>
-          </div>
-      </form>
-      
-        <div class="navbar-brand">
-                <a href="deals.html"><%= image_tag("logo.png") %></a>
-        </div>
-    
-   
-        <div class="navbar-right">
-          <div class="right_head">
-             <div class="user_pic">
-                  <%= image_tag("nike.png") %>
-            </div>
-                   
-                    <!-- Cart Icon -->
-            <div class="cart_icon">
-              <div class="top-bar-right"> <span id="cartImage" class="cart-item">0</span> </div>
-            </div>
-          </div>
-          
-        </div>
-      
-      
-      
-    </div>
-  </div>
-    
-  </div>
-</nav>
-
-    <%= yield %>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle navbar-left" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+				<form class="navbar-form navbar-left">
+					<div class="form-group" style="display:inline;">
+						<div class="inner-addon left-addon">
+							<i class="glyphicon glyphicon-search"></i> <input class="form-control search" type="text">
+						</div>
+					</div>
+				</form>
+				<div class="navbar-brand">
+					<a href="deals.html"><%= image_tag("logo.png") %></a>
+				</div>
+				<div class="navbar-right">
+					<div class="right_head">
+						<div class="user_pic">
+							<%= image_tag("nike.png") %>
+						</div><!-- Cart Icon -->
+						<div class="cart_icon">
+							<div class="top-bar-right">
+								<span class="cart-item" id="cartImage">0</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle navbar-left" data-target=".main-nav" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+				<div class="navbar-center main-nav">
+					<ul>
+						<li class="active_menu">
+							<a href="deals.html">DEALS</a>
+						</li>
+						<li>
+							<a href="explore.html">EXPLORE</a>
+						</li>
+						<li>
+							<a href="request.html">REQUESTS</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col breadcrumb-style">
+			<ol class="breadcrumb">
+				<li>
+					<a href="#">Home</a>
+				</li>
+				<li>
+					<a href="#">Library</a>
+				</li>
+				<li class="active">Data</li>
+			</ol>
+			<h3>Wholesale Men's Shoes</h3>
+		</div>
+	</div><%= yield %>
 </body>
-
 </html>
