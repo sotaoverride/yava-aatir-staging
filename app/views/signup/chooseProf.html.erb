@@ -1,0 +1,52 @@
+<div class="top-bar top-bar_flex">
+
+      <!-- Center Logo -->
+          <div class="center_logo single_flex">
+              <a href="deals.html"><%= image_tag("logo.png") %></a>
+          </div>
+
+          <div class="top-bar-center  single_flex">
+	        <div class="button-group"> 
+	            <a class="button active">CHOOSE PROFILE</a> 
+	            <a class="button disabled">SELECT CATEGORIES</a> 
+	            <a class="button disabled">REGISTER</a> 
+	            <a class="button disabled">COMPLETE</a> 
+	        </div>
+        </div>
+
+        <div class="home_right_acc_info  single_flex sing_icon_width">
+        	<div class="top-bar-right">
+            <a data-open="login" type="button" class="button login" href="sign-in.html">Sign In</a>
+        	</div>
+        </div> 
+  </div>
+  
+  
+  <div class="box-section container">
+        <div class="row expanded floating-box">
+            <div class="columns">
+                <h1>Choose Profile</h1>
+                <h3>Become a buyer, seller, or both</h3>
+                <div class="row box">
+                    <div class="columns small-4">
+                        <button class="box-content" onclick="location.href = 'choose-categories.html';">
+                            <span class="icon-shoper shoper"></span>
+                            <h4>Buyer</h4>
+                        </button>
+                    </div>
+                    <div class="columns small-4">
+                        <button class="box-content" onclick="location.href = 'choose-categories.html';">
+                            <span class="icon-seller seller"></span>
+                            <h4>Seller</h4>
+                        </button>
+                    </div>
+                    <div class="columns small-4">
+                        <button class="box-content" onclick="location.href = 'choose-categories.html';">
+                            <span class="icon-seller-shoper seller-shoper"></span>
+                            <h4>Buyer &amp; Seller</h4>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

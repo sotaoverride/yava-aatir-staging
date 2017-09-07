@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'signup/register'
+  
+  get 'signup/complete'
+  
+  get 'signup/chooseProf'
+
+  get 'signup/index'
+
+  get 'deal/index'
+
   get 'home/index'
 
   devise_for :users
