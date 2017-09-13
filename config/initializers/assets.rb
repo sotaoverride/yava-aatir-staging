@@ -2,11 +2,13 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( app.css )
-Rails.application.config.assets.precompile += %w( app.js )
-Rails.application.config.assets.precompile += %w( main.js )
-Rails.application.config.assets.precompile += %w( libs.min.js )
-Rails.application.config.assets.precompile += %w( ajaxScripts.js )
+
+Rails.application.config.assets.precompile += %w( font-awesome/fonts/fontawesome-webfont.eot )
+Rails.application.config.assets.precompile += %w( font-awesome/fonts/fontawesome-webfont.woff )
+Rails.application.config.assets.precompile += %w( font-awesome/fonts/fontawesome-webfont.ttf )
+Rails.application.config.assets.precompile += %w( font-awesome/fonts/fontawesome-webfont.svg )
+
+Rails.application.config.assets.precompile += %w( registration.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

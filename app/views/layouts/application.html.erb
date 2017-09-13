@@ -1,51 +1,17 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>YOVA | Welcome</title>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<%= javascript_include_tag 'app','data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'libs.min','data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'ajaxScripts','turbolinks-track' => true %>
-	<%= csrf_meta_tags %><%= stylesheet_link_tag 'app' %>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.oogleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>YOVA | Welcome</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i&amp;subset=latin-ext" rel="stylesheet">
+  <%= javascript_include_tag 'application','data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle navbar-left" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-				<form class="navbar-form navbar-left">
-					<div class="form-group" style="display:inline;">
-						<div class="inner-addon left-addon">
-							<i class="glyphicon glyphicon-search"></i> <input class="form-control search" type="text">
-						</div>
-					</div>
-				</form>
-				<div class="navbar-brand">
-					<a href="deals.html"><%= image_tag("logo.png") %></a>
-				</div>
-				<div class="navbar-right">
-					<div class="right_head">
-						<div class="user_pic">
-							<%= image_tag("nike.png") %>
-						</div><!-- Cart Icon -->
-						<div class="cart_icon">
-							<div class="top-bar-right">
-								<span class="cart-item" id="cartImage">0</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
-	<%= yield %>
+  <%= render "shared/header" %>
+
+  <%# yield %>
 </body>
 </html>

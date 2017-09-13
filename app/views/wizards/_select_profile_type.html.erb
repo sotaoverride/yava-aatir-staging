@@ -1,0 +1,29 @@
+<section class="box-section select-profile-type">
+  <%= link_to 'javascript:void(0)', class: 'next-arrow' do %>
+    <i class='fa fa-chevron-right'></i>
+  <% end %>
+  <div class="row expanded floating-box">
+    <div class="columns">
+      <h1>Choose Profile</h1>
+      <h3>Become a buyer, seller, or both</h3>
+      <div class="row box">
+        <%- className = Enum::Profile::ProfileTypes[:classname] %>
+        <%- Enum::Profile::ProfileTypes[:options].each do |opt| %>
+          <div class="columns small-3">
+            <button class="box-content small" data-profile-type="<%= opt %>">
+              <span class="<%= className[opt] %>"></span>
+              <h4><%= opt.to_s.capitalize %></h4>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= form_for current_user, url: wizards_path, method: :put do |f| %>
+  <%= f.fields_for :profile, current_user.reload.profile do |p| %>
+    <%= p.hidden_field :id %>
+    <%= p.hidden_field :profile_type %>
+  <% end %>
+<% end %>

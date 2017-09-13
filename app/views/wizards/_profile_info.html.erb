@@ -1,0 +1,53 @@
+<section class="box-section box-section_margin">
+  <div class="row expanded form-box">
+    <div class="columns">
+      <h1>Final Step: Register to Yova</h1>
+      <h3>Please register to continue the process</h3>
+      <div class="row">
+        <div class="columns form small-centered">
+          <%= form_for current_user, url: wizards_path, method: :put do |f| %>
+            <%= f.fields_for :profile, current_user.reload.profile do |profile| %>
+              <%= profile.hidden_field :id %>
+              <div class="row">
+                <div class="columns">
+                  <label>Username
+                    <%= f.text_field :username %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>First Name
+                    <%= profile.text_field :first_name %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>Last Name
+                    <%= profile.text_field :last_name %>
+                  </label>
+                </div>
+
+                <div class="columns">
+                  <label>Email Address
+                    <%= f.email_field :email %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>Password
+                    <%= f.password_field :password %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>Confirm Password
+                    <%= f.password_field :password_confirmation %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <button type="submit" class="button float-right" >Next</button>
+                </div>                            
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>							
+  </div>
+</section>

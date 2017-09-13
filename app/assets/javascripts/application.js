@@ -11,6 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require libs.min
+//= require foundation-sites/dist/js/foundation.min
+//= require what-input/dist/what-input
+//= require ajaxScripts
+//= require foundation-datepicker/js/foundation-datepicker
+//= require foundation-datepicker.vi
+//= require jquery-ui
+//= require simpleLightbox.min
+//= require owl.carousel/dist/owl.carousel
+//= require jquery.sticky
+//= require app
+//= require wizard

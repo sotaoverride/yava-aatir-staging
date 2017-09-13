@@ -11,7 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728204234) do
+ActiveRecord::Schema.define(version: 20170912044139) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profile_categories", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "category_id"
+  end
+
+  add_index "profile_categories", ["category_id"], name: "index_profile_categories_on_category_id", using: :btree
+  add_index "profile_categories", ["profile_id"], name: "index_profile_categories_on_profile_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "profile_type"
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "wizard_step",          default: "select_profile_type"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.string   "authorized_product"
+    t.string   "anual_online_revenue"
+    t.string   "sku_in_catalog"
+    t.string   "top_selling_brand"
+    t.string   "sell_used_product"
+    t.string   "map_rpm_policies"
+    t.string   "walmart_supplier"
+    t.string   "ecommerce_url"
+    t.string   "marketplace_provider"
+    t.string   "marketplace_url"
+    t.string   "integration"
+    t.string   "inventory_update"
+    t.string   "average_ships"
+    t.boolean  "own_inventory"
+    t.string   "fulfillment"
+    t.integer  "dropshipper"
+    t.string   "order_to_shiptime"
+    t.string   "shiptime_guarantee"
+    t.string   "freight_carrier"
+    t.string   "return_policy"
+    t.string   "carriers"
+    t.boolean  "physical_store"
+    t.boolean  "fulfill_from_store"
+    t.boolean  "store_pickup"
+    t.string   "avatar"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,9 +81,14 @@ ActiveRecord::Schema.define(version: 20170728204234) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "full_name"
+    t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "profile_categories", "categories"
+  add_foreign_key "profile_categories", "profiles"
+  add_foreign_key "profiles", "users"
 end

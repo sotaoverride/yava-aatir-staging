@@ -1,23 +1,30 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    label:
+      profile:
+        authorized_product: Are you an authorized reseller of your products?
+        anual_online_revenue: Annual online revenue
+        sku_in_catalog: SKUs in catalog
+        top_selling_brand: What are a few of your top selling brands?
+        sell_used_product: Do you sell used products?
+        map_rpm_policies: Do your products adhere to MAP or RPM policies?
+        wallmart_supplier: Are you a supplier on Walmart.com?
+        ecommerce_url: Business e-commerce URL
+        marketplace_provider: Marketplaces
+        marketplace_url: Url to your marketplace
+        integration: How would you integrate with 3rd party marketplaces?
+        inventory_update: What is the frequency at which you update inventory?
+        average_ships: How many orders do you ship on an average day?
+        own_inventory: Do you own inventory?
+        fulfillment: How many fulfillment centers do you operate?
+        dropshipper: How many dropshippers do you use?
+        order_to_shiptime: What is your average order to ship time?
+        shiptime_guarantee: Do you guarantee an order to delivery time?
+        freight_carrier: Do you ship your products via freight carrier?
+        return_policy: What is your returns policy, by policy or practice?
+        carriers: Which carriers do you use?
+        carriers_name: Which carriers do you use?
+        physical_store: Do you operate physical retail stores?
+        fulfill_from_store: Can you fulfill from retail locations?
+        store_pickup: Can you offer in-store pickup?
+        avatar: Change Picture

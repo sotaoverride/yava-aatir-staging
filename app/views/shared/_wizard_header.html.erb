@@ -1,0 +1,21 @@
+<div class="top-bar top-bar_flex">
+
+  <!-- Center Logo -->
+  <div class="center_logo single_flex">
+    <a href="deals.html"><img src="images/logo.png"></a>
+  </div>
+
+  <div class="top-bar-center  single_flex">
+    <div class="button-group"> 
+      <a class="button <%= current_user.reload.profile.select_profile_type? ? 'active' : 'disabled' %>">CHOOSE PROFILE</a> 
+      <a class="button <%= current_user.reload.profile.select_category? ? 'active' : 'disabled' %>">SELECT CATEGORIES</a> 
+      <a class="button <%= current_user.reload.profile.profile_info? || current_user.reload.profile.business_info? ? 'active' : 'disabled' %>">REGISTER</a> 
+      <a class="button <%= current_user.reload.profile.complete? ? 'active' : 'disabled' %>">COMPLETE</a> 
+    </div>
+  </div>
+
+  <div class="home_right_acc_info  single_flex sing_icon_width">
+    <div class="top-bar-right">
+    </div>
+  </div> 
+</div>

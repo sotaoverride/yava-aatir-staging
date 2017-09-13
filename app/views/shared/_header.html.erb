@@ -1,0 +1,11 @@
+<nav class="top-bar top_bar_flex">
+  <div class="top-bar-title">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png' %>
+    <% end %>
+  </div>
+  <div class="top-bar-right">
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'button login' %>
+    <%= link_to 'Sign In', new_user_session_path, class: 'button login' %>
+  </div>
+</nav>

@@ -1,15 +1,55 @@
-<div class="container">
-	<div class="row">
-		<div class="login col-sm-4 col-sm-offset-4 ">
-  <div class="login-triangle"></div>
-  
-  <h2 class="login-header">Log in</h2>
+<div class="sign_in_page_area">
+  <div class="row">
+    <div class="small-8 large-7 medium-7 columns medium-offset-3 large-offset-2">
+      <div class="page_title">
+        <h3>Sign In or <%= link_to 'Sign Up', new_user_registration_path %></h3>
+      </div>
+      <div class="row">
+        <div class="large-6 medium-6 columns">
+          <div class="sign_form">
+            <form>
+              <div class="single_form">
+                <input type="text" name="Email" placeholder="Email">
+                <i class="fa fa-envelope-o"></i>
+              </div>
+              <div class="single_form">
+                <input type="text" name="Password" placeholder="Password">
+                <i class="fa fa-key"></i>
+              </div>
+              <div class="single_form mar_b_s">
+                <a href="forgot-pass.html">Forgot your password? </a>
+              </div>
+              <div class="single_form">
+                <input id="checkbox2" type="checkbox"><label for="checkbox2">Keep me Signed In </label>
+              </div>
+              <div class="single_form">
+                <input name="submit" class="button signup-btn" value="Sign In" type="submit">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="large-6 medium-6 columns">
+          <div class="others_sign">
+            <div class="single_form_S">
+              <div class="facebook-login-button">
+                <i class="fa fa-facebook"></i><span>Sign In with Facebook</span>
+              </div>
+            </div>
+            <div class="single_form_S">
+              <div class="twitter-login-button">
+                <i class="fa fa-google-plus"></i><span>Sign In with Google</span>
+              </div>
+            </div>
+            <div class="single_form_S">
+              <input id="checkbox3" type="checkbox"><label for="checkbox3">Keep me Signed In</label>
+            </div>
+            <div class="single_form_S">
+              <p>Need A  YOVA Account? <%= link_to 'Sign Up', new_user_registration_path %></p>
 
-  <form class="login-container">
-    <p><input type="email" placeholder="Email"></p>
-    <p><input type="password" placeholder="Password"></p>
-    <p><input type="submit" value="Log in"></p>
-  </form>
-</div>
-	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
