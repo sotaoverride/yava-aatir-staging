@@ -10,8 +10,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "shared/header" %>
+  <%= render "shared/authorized_header" %>
 
-  <%# yield %>
+  <%= yield %>
 </body>
 </html>

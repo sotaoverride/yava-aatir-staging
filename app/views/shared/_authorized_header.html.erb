@@ -1,0 +1,68 @@
+<%= render 'shared/categories_nav' %>
+<%= render 'shared/cart' %>
+
+<div class="top_header">
+
+  <div class="top_header_inner">
+    <!-- Left side bar menu Icon -->
+    <div class="side_bar_menu_icon">
+      <div class="navTrigger">
+        <i></i><i></i><i></i>
+      </div>
+
+      <div class="search_bar">
+        <div class="search">
+          <i class="fa fa-search"></i>
+          <input placeholder="Search deals" type="search" name="search">
+        </div>
+      </div>
+    </div>
+    <!-- Center Logo -->
+    <div class="center_logo">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo' %>
+      <% end %>
+    </div>
+    <!-- Header Right -->
+    <div class="right_head">
+      <!-- User info -->
+      <div class="account_info">
+        <div class="user_pic">
+          <%= image_tag current_user.profile.avatar.url, style: 'width: 35px; height: 35px;' %>
+        </div>
+
+        <div class="customer">
+
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <a href="#">Account</a>
+              <ul class="menu no-bullet">
+                <li><a href="javascript:void(0)">My Deals</a></li>
+                <li><a href="javascript:void(0)">My Discounts</a></li>
+                <li><a href="javascript:void(0)">Transactions</a></li>
+                <li><a href="javascript:void(0)">Returns</a></li>
+                <li><a href="javascript:void(0)">Payments</a></li>
+                <li><a href="javascript:void(0)">Order History</a></li>
+                <li><a href="javascript:void(0)">Account Settings</a></li>
+                <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Cart Icon -->
+      <div class="cart_icon">
+        <div class="top-bar-right"> <span id="cartImage" class="cart-item">0</span> </div>
+      </div>
+    </div>
+  </div>
+  <div class="center_menu">
+    <ul>
+
+      <li><a href="deals.html" >DEALS</a></li>
+      <li class="active_menu"><a href="explore.html">EXPLORE</a></li>
+      <li><a href="request.html">REQUESTS</a></li>
+
+    </ul>
+  </div>
+</div>

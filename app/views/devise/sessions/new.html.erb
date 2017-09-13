@@ -7,25 +7,25 @@
       <div class="row">
         <div class="large-6 medium-6 columns">
           <div class="sign_form">
-            <form>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="single_form">
-                <input type="text" name="Email" placeholder="Email">
+                <%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
                 <i class="fa fa-envelope-o"></i>
               </div>
               <div class="single_form">
-                <input type="text" name="Password" placeholder="Password">
+                <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
                 <i class="fa fa-key"></i>
               </div>
               <div class="single_form mar_b_s">
-                <a href="forgot-pass.html">Forgot your password? </a>
+                <a href="javascript:void(0)">Forgot your password? </a>
               </div>
               <div class="single_form">
-                <input id="checkbox2" type="checkbox"><label for="checkbox2">Keep me Signed In </label>
+                <%= f.check_box :remember_me %><%= f.label :remember_me, 'Keep me Signed In' %>
               </div>
               <div class="single_form">
-                <input name="submit" class="button signup-btn" value="Sign In" type="submit">
+                <%= f.submit "Sign In", class: 'button signup-btn' %>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
         <div class="large-6 medium-6 columns">
