@@ -71,4 +71,5 @@ end
 #  updated_at             :datetime         not null
 #  full_name              :string
 #  username               :string
+#  stripe_id              :string
 #

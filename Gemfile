@@ -7,6 +7,7 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
+gem 'rails-ujs', '0.1.0'
 
 gem 'pg', '0.20'
 gem 'taps'
@@ -56,6 +57,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+# Rails env configuration
+gem 'figaro', '1.1.1'
 
 # Uploader gem
 gem 'carrierwave', '~> 1.0'

@@ -1,0 +1,54 @@
+<!-- Start Content -->
+<section data-stripe-key="<%= ENV['PUBLISHABLE_KEY'] %>" class="box-section subscription-details box-section_margin-3">
+  <div class="row expanded floating-box">
+    <div class="columns">
+      <div class="row box">
+        <div class="columns subscription small-11 small-centered">
+          <div class="row">
+            <div class="columns small-6">
+              <h1>Subscription Plan</h1>
+              <div class="sub-box">
+                <div class="sub-plan">
+                  <strong>$29.99<span>/mo</span></strong>
+                </div>
+                <div class="sub-coupon">
+                  <div class="sub-plan">
+                    <strong>$0<span>/mo</span></strong>
+                  </div>                                    
+                  <input class="coupon" placeholder="Enter your coupon" type="text">
+                </div>
+              </div>
+              <p class="text-center eap">Enter an <strong>Early Adopter Program (EAP)</strong> code for a coupon to the YOVA subscription plan.</p>
+              <div class="switch-toggle">
+                <input id="monthly" name="view" type="radio" checked>
+                <label for="monthly" onclick="">Monthly</label>
+
+                <input id="coupon" name="view" type="radio">
+                <label for="coupon" onclick="">Coupon</label>
+
+                <a class="button"></a>
+              </div>
+              <div class="columns">
+                <button type="button" class="button upgrade expanded"  onclick="location.href = 'approval.html';">Upgrade now</button>
+              </div>
+            </div>
+            <%= form_tag wizards_path, method: :put, class: 'columns small-6', id: 'subscribe-stripe-form' do  %>
+              <div class="columns">
+                <label>Credit Card Name
+                  <input type="text">
+                </label>
+              </div>
+              <div class="columns">
+                <label>Credit Card Info
+                  <div id='card-element'></div>
+                </label>
+              </div>
+              <div id='card-errors'></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://js.stripe.com/v3/"></script>

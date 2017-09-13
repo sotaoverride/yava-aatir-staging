@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require libs.min
 //= require foundation-sites/dist/js/foundation.min
@@ -24,3 +25,4 @@
 //= require jquery.sticky
 //= require app
 //= require wizard
+//= require stripe

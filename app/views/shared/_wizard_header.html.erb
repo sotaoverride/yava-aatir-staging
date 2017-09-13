@@ -9,8 +9,8 @@
     <div class="button-group"> 
       <a class="button <%= current_user.reload.profile.select_profile_type? ? 'active' : 'disabled' %>">CHOOSE PROFILE</a> 
       <a class="button <%= current_user.reload.profile.select_category? ? 'active' : 'disabled' %>">SELECT CATEGORIES</a> 
-      <a class="button <%= current_user.reload.profile.profile_info? || current_user.reload.profile.business_info? ? 'active' : 'disabled' %>">REGISTER</a> 
-      <a class="button <%= current_user.reload.profile.complete? ? 'active' : 'disabled' %>">COMPLETE</a> 
+      <a class="button <%= current_user.reload.profile.profile_info? || current_user.reload.profile.business_info? || current_user.reload.profile.stripe_form? ? 'active' : 'disabled' %>">REGISTER</a> 
+      <a class="button <%= current_user.reload.profile.welcome? ? 'active' : 'disabled' %>">COMPLETE</a> 
     </div>
   </div>
 

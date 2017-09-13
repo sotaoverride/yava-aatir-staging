@@ -8,12 +8,24 @@ class WizardsController < ApplicationController
   end
 
   def update
-    if current_user.process_wizard(user_params)
+    if params.has_key?(:user) && current_user.process_wizard(user_params)
       sign_in(current_user, bypass: true) if params[:user][:password]
 
       redirect_to wizards_path
+    elsif params.has_key?(:stripeToken)
+      customer = Stripe::Customer.create(email: current_user.email, source: params[:stripeToken])
+      Stripe::Subscription.create(customer: customer.id, items: [{ plan: ENV['PLAN'] }])
+
+      current_user.update_column(:stripe_id, customer.id)
+      current_user.profile.update_column(:wizard_step, current_user.profile.next_step)
+      redirect_to wizards_path
     else
-      render :show
+      if params.has_key?(:user)
+        render :show
+      else
+        current_user.profile.update_column(:wizard_step, current_user.profile.next_step)
+        redirect_to root_path
+      end
     end
   end
 
