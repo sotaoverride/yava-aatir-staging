@@ -43,7 +43,7 @@
                 <li><a href="javascript:void(0)">Returns</a></li>
                 <li><a href="javascript:void(0)">Payments</a></li>
                 <li><a href="javascript:void(0)">Order History</a></li>
-                <li><a href="javascript:void(0)">Account Settings</a></li>
+                <li><%= link_to 'Account Settings', account_path %></li>
                 <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>

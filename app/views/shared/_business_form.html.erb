@@ -1,0 +1,129 @@
+<div class="columns text-center">
+  <%= image_tag p.object.avatar.url, class: 'thumbnail', id: 'avatar-image' %>
+  <div class="upload float-center">
+    <%= p.label :avatar %>
+    <%= p.file_field :avatar, class: 'show-for-sr' %>
+  </div>
+</div>
+<div class="columns">
+  <%= p.label :authorized_product %>
+  <%= p.select :authorized_product, Enum::Profile::SomeProduct[:options] %>
+</div>
+<div class="columns">
+  <%= p.label :anual_online_revenue %>
+  <%= p.select :anual_online_revenue, Enum::Profile::Revenue[:options] %>
+</div>
+<div class="columns">
+  <%= p.label :sku_in_catalog %>
+  <%= p.select :sku_in_catalog, Enum::Profile::SKU[:options] %>
+</div>
+<div class="columns">
+  <%= p.label :top_selling_brand %>
+  <%= p.text_field :top_selling_brand %>
+</div>
+<div class="columns">
+  <%= p.label :sell_used_product %>
+  <%= p.select :sell_used_product, Enum::Profile::SomeProduct[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :map_rpm_policies %>
+  <%= p.select :map_rpm_policies, Enum::Profile::MapPolicies[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :walmart_supplier %>
+  <%= p.select :walmart_supplier, Enum::Profile::SellOnWallmart[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :ecommerce_url %>
+  <%= p.text_field :ecommerce_url %>
+</div>
+<div class='columns'>
+  <%= p.label :marketplace_provider %>
+  <%= p.select :marketplace_provider, Enum::Profile::OnlineStores[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :marketplace_url %>
+  <%= p.text_field :marketplace_url %>
+</div>
+<div class='columns'>
+  <%= p.label :integration %>
+  <%= p.select :integration, Enum::Profile::Integration[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :inventory_update %>
+  <%= p.select :inventory_update, Enum::Profile::UpdateFrequency[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :average_ships %>
+  <%= p.select :average_ships, Enum::Profile::OrderFrequency[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :own_inventory %>
+  <%= p.select :own_inventory, { 'Yes' => true, 'No' => false } %>
+</div>
+<div class='columns'>
+  <%= p.label :fulfillment %>
+  <%= p.text_field :fulfillment %>
+</div>
+<div class='columns'>
+  <%= p.label :dropshipper %>
+  <%= p.number_field :dropshipper %>
+</div>
+<div class='columns'>
+  <%= p.label :order_to_shiptime %>
+  <%= p.select :order_to_shiptime, Enum::Profile::ShipTime[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :shiptime_guarantee %>
+  <%= p.select :shiptime_guarantee, Enum::Profile::ShipTimeGuarantee[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :freight_carrier %>
+  <%= p.select :freight_carrier, Enum::Profile::Sometimes[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :return_policy %>
+  <%= p.select :return_policy, Enum::Profile::ReturnPolicy[:options] %>
+</div>
+<div class='columns'>
+  <%= p.label :carriers_name %>
+  <% Enum::Profile::Carriers[:options].each do |carrier| %>
+    <label>
+      <%= p.check_box :carriers_name, {multiple: true}, carrier %>
+      <%= carrier %>
+    </label>
+  <% end %>
+</div>
+<div class='columns'>
+  <%= p.label :physical_store %>
+  <label class='pull-left'>
+    <%= p.radio_button :physical_store, true %>
+    Yes
+  </label>
+  <label class='pull-left'>
+    <%= p.radio_button :physical_store, false %>
+    No
+  </label>
+</div>
+<div class='columns hide physical-store-related'>
+  <%= p.label :fulfill_from_store %>
+  <label class='pull-left'>
+    <%= p.radio_button :fulfill_from_store, true %>
+    Yes
+  </label>
+  <label class='pull-left'>
+    <%= p.radio_button :fulfill_from_store, false %>
+    No
+  </label>
+</div>
+<div class='columns hide physical-store-related'>
+  <%= p.label :store_pickup %>
+  <label class='pull-left'>
+    <%= p.radio_button :store_pickup, true %>
+    Yes
+  </label>
+  <label class='pull-left'>
+    <%= p.radio_button :store_pickup, false %>
+    No
+  </label>
+</div>

@@ -1,0 +1,112 @@
+<section class="box-section sign_in_page_area account-edit-wrapper">
+  <div class="row expanded form-box extended">
+    <div class="columns">
+      <h1>Account Settings</h1>
+      <div class="row">
+        <div class="columns menu">
+          <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
+            <li class="tabs-title is-active"><a href="#change-username" aria-selected="true">Change Username</a></li>
+            <li class="tabs-title"><a href="#change-password">Change Password</a></li>
+            <li class="tabs-title "><a href="#company-info">Change Company Info</a></li>
+            <li class="tabs-title "><a href="#shipping-address">Shipping Addresses</a></li>
+            <li class="tabs-title "><a href="#payment-options">Payment Options</a></li>
+          </ul>
+        </div>
+        <div class="columns form small-centered" data-last-active='<%= @active_tab %>'>
+
+          <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
+            <div class="tabs-panel is-active" id="change-username">
+              <%= form_for current_user, url: account_path, method: :patch do |f| %>
+                <div class="columns">
+                  <%= render 'shared/error_message', object: current_user %>
+                </div>
+                <div class="columns">
+                  <label>Username
+                    <%= f.text_field :username %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>Type your current password
+                    <%= f.password_field :current_password %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <button type="submit" name="current_tab" value="change-username" class="button float-right">Save Changes</button>
+                </div>                                  
+              <% end %>
+            </div>
+
+            <div class="tabs-panel" id="change-password">
+              <%= form_for current_user, url: account_path, method: :patch do |f| %>
+                <%= render 'shared/error_message', object: current_user %>
+                <div class="columns">
+                  <label>Current Password
+                    <%= f.password_field :current_password %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>New Password
+                    <%= f.password_field :password %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <label>Confirm Password
+                    <%= f.password_field :password_confirmation %>
+                  </label>
+                </div>
+                <div class="columns">
+                  <button type="submit" name="current_tab" value='change-password' class="button float-right">Save Changes</button>
+                </div>   
+              <% end %>
+            </div>
+            <div class="tabs-panel " id="company-info">
+              <%= form_for current_user, url: account_path, method: :patch do |f| %>
+                <%= f.fields_for :profile, current_user.profile do |p| %>
+                  <%= render 'shared/error_message', object: current_user %>
+                  <div class="row">
+                    <%= render "shared/business_form", p: p, f: f %>
+                    <div class="columns">
+                      <button type="submit" name="current_tab" value='company-info' class="button float-right">Save Changes</button>
+                    </div>                            
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+
+
+            <div class="tabs-panel" id="shipping-address">
+              <div class="Shipping_box">
+                <button class="button" type="button" data-open="add_new_address">+ Add New Shipping Address</button>
+                <div class="single_address">
+                  <input type="radio" name="Address" value="first_address" id="first_address" class="add_input" checked>
+                  <label for="first_address">BASHIR BASHIR</label>
+                  <span>28 6TH AVE S 108 <br/>HOPKINS, MN 55343</span> 
+                </div>
+                <div class="info_edit">
+                  <a href="#">Edit</a> | <a href="#">Delete</a> | <span>Default shipping</span>
+                </div>
+              </div>
+            </div>
+            <div class="tabs-panel" id="payment-options">
+              <button class="button" type="button" data-open="add_new_pay">+ Add New Payment</button>
+              <div class="single_address">
+                <label for="first_address">
+                  <div class="card_img_s">
+                    <img src="images/visa.png" alt="png">
+                  </div>
+                </label>
+                <span>Debit ****1740 0.8% OFF <br/>BASHIR A BASHIR</span> 
+                <span class="expre_date">
+                  Expries 08/2017
+                </span>
+              </div>
+              <div class="info_edit mar_b_in">
+                <a href="#"><a href="#">Delete</a> | <span>Default payment method</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>							
+  </div>
+</section>

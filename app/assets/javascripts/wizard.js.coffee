@@ -1,6 +1,6 @@
 $(document).on 'turbolinks:load', () ->
 # FINAL STEP
-  $finalQuestionWrapper = $('.final-question')
+  $finalQuestionWrapper = $('.final-question, .account-edit-wrapper')
 
   ##
   # Toggle related physical store

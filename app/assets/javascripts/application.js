@@ -26,3 +26,4 @@
 //= require app
 //= require wizard
 //= require stripe
+//= require accounts

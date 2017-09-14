@@ -5,7 +5,7 @@ class WizardsController < ApplicationController
 
   def show
     current_user.create_profile unless current_user.profile
-    @step = params.has_key?(:step) ? current_user.profile.index_to_step(params[:step]) : current_user.wizard_step
+    @step = params[:step] ? current_user.profile.index_to_step(params[:step]) : current_user.reload.wizard_step
   end
 
   def update
@@ -22,6 +22,7 @@ class WizardsController < ApplicationController
       redirect_to wizards_path
     else
       if params.has_key?(:user)
+        @step = params[:step] ? current_user.profile.index_to_step(params[:step]) : current_user.reload.wizard_step
         render :show
       else
         current_user.profile.update_column(:wizard_step, current_user.profile.next_step)
