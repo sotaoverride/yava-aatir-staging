@@ -3,7 +3,7 @@
   <div class="row expanded floating-box">
     <div class="columns">
       <div class="row box">
-        <div class="columns subscription small-11 small-centered">
+        <%= form_tag wizards_path, method: :put, id: 'subscribe-stripe-form', class: 'columns subscription small-11 small-centered' do  %>
           <div class="row">
             <div class="columns small-6">
               <h1>Subscription Plan</h1>
@@ -29,10 +29,10 @@
                 <a class="button"></a>
               </div>
               <div class="columns">
-                <button type="button" class="button upgrade expanded"  onclick="location.href = 'approval.html';">Upgrade now</button>
+                <button type="submit" class="button upgrade expanded">Upgrade now</button>
               </div>
             </div>
-            <%= form_tag wizards_path, method: :put, class: 'columns small-6', id: 'subscribe-stripe-form' do  %>
+            <div class="columns small-6">
               <div class="columns">
                 <label>Credit Card Name
                   <input type="text">
@@ -44,9 +44,9 @@
                 </label>
               </div>
               <div id='card-errors'></div>
-            <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

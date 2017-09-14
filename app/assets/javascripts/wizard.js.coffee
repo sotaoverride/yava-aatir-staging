@@ -1,4 +1,4 @@
-$(document).ready () ->
+$(document).on 'turbolinks:load', () ->
 # FINAL STEP
   $finalQuestionWrapper = $('.final-question')
 
@@ -50,6 +50,7 @@ $(document).ready () ->
 
 # SELECT PROFILE TYPE SCRIPT
   $profileTypeWrapper = $('.select-profile-type')
+  $profileTypeWrapper.find('.next-arrow').addClass('hide')
 
   ##
   # Event on click next
@@ -68,6 +69,11 @@ $(document).ready () ->
     selectedType = $.map($profileTypeWrapper.find('button.active'), (val) =>
       $(val).data('profile-type')
     )
+
+    if selectedType.length > 0
+      $profileTypeWrapper.find('.next-arrow').removeClass('hide')
+    else
+      $profileTypeWrapper.find('.next-arrow').addClass('hide')
 
     $('#user_profile_attributes_profile_type').val(selectedType)
 # END OF SELECT PROFILE TYPE SCRIPT

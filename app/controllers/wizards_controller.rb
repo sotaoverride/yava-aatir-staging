@@ -5,6 +5,7 @@ class WizardsController < ApplicationController
 
   def show
     current_user.create_profile unless current_user.profile
+    @step = params.has_key?(:step) ? current_user.profile.index_to_step(params[:step]) : current_user.wizard_step
   end
 
   def update
@@ -12,7 +13,7 @@ class WizardsController < ApplicationController
       sign_in(current_user, bypass: true) if params[:user][:password]
 
       redirect_to wizards_path
-    elsif params.has_key?(:stripeToken)
+    elsif current_user.profile.stripe_form?
       customer = Stripe::Customer.create(email: current_user.email, source: params[:stripeToken])
       Stripe::Subscription.create(customer: customer.id, items: [{ plan: ENV['PLAN'] }])
 

@@ -1,11 +1,11 @@
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
   if $('[data-stripe-key]').length > 0
     publishable_key = $('[data-stripe-key]').data('stripe-key')
     stripe = Stripe(publishable_key)
     elements = stripe.elements()
     style = {
       base: {
-        fontSize: '18px',
+        fontSize: '13px',
         color: '#adafdf',
         fontWeight: '400',
       }

@@ -28,6 +28,10 @@ class Profile < ActiveRecord::Base
     Enum::Profile::WizardStep[:options].index(wizard_step.to_sym)
   end
 
+  def index_to_step(index)
+    Enum::Profile::WizardStep[:options][index.to_i].to_s
+  end
+
   # Setter and getter for category_ids
   def category_ids=(new_ids)
     new_ids_array = new_ids.to_s.split(',').map(&:to_i)

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
     $(document).foundation();
     //$('select[data-prompt]').foundationSelect();
     $('#upload-csv .dropify').dropify({
@@ -178,7 +178,7 @@ $(document).ready(function () {
 
 
 
-    jQuery(document).ready(function (e) {
+    jQuery(document).on('turbolinks:load', function (e) {
     function t(t) {
         e(t).bind("click", function (t) {
             t.preventDefault();

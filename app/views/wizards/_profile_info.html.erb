@@ -5,6 +5,17 @@
       <h3>Please register to continue the process</h3>
       <div class="row">
         <div class="columns form small-centered">
+          <div class="small-12 columns">
+            <%- if current_user.errors.full_messages.length > 0 %>
+              <div class='callout alert'>
+                <ul>
+                  <% current_user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
           <%= form_for current_user, url: wizards_path, method: :put do |f| %>
             <%= f.fields_for :profile, current_user.reload.profile do |profile| %>
               <%= profile.hidden_field :id %>
