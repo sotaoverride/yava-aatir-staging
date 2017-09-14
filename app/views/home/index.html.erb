@@ -1,2 +1,38 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="main_product_area">
+  <div class="row">
+    <div class="columns medium-12 large-12 small-12">
+      <div class="breadcom">
+        <p>Home &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp; Jet Wholesale&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i>  &nbsp; Wholesale Grocery&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp; <span class="last_breadcom">Wholesale Beverages</span></p>
+        <h3>Wholesale Beverages </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row category_filter">
+    <div class="border_bottom small-12 large-12 medium-12 columns" id="sticker">
+      <div class="border_bottom_p">
+        <div class="single_fliter width_one">
+          <p>Filter by:</p>
+          <%= render "filter_by" %>
+        </div>
+
+        <div class="single_fliter width_two">
+          <p>Sort by:</p>
+          <%= render "sort_by" %>
+        </div>
+
+        <div class="single_fliter width_five">
+          <%= render "new_request" %>
+        </div>
+
+      </div>         
+    </div>
+  </div>
+
+  <div class="row product_margin_top Explore">
+
+    <%= render "product", products: @products %>
+
+  </div>
+
+</div><!-- Explore page end -->

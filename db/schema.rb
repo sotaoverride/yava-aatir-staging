@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913041207) do
+ActiveRecord::Schema.define(version: 20170914142235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 20170913041207) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "product_images", force: :cascade do |t|
+    t.string   "img"
+    t.boolean  "primary_picture"
+    t.integer  "product_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "product_images", ["product_id"], name: "index_product_images_on_product_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "standard_price"
+    t.integer  "quantity"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "profile_categories", force: :cascade do |t|
     t.integer "profile_id"
@@ -68,6 +90,27 @@ ActiveRecord::Schema.define(version: 20170913041207) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "request_tiers", force: :cascade do |t|
+    t.integer  "request_id"
+    t.integer  "quantity"
+    t.decimal  "value_reduction"
+    t.integer  "value_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "request_tiers", ["request_id"], name: "index_request_tiers_on_request_id", using: :btree
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "requests", ["product_id"], name: "index_requests_on_product_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -89,7 +132,12 @@ ActiveRecord::Schema.define(version: 20170913041207) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "product_images", "products"
+  add_foreign_key "products", "users"
   add_foreign_key "profile_categories", "categories"
   add_foreign_key "profile_categories", "profiles"
   add_foreign_key "profiles", "users"
+  add_foreign_key "request_tiers", "requests"
+  add_foreign_key "requests", "products"
+  add_foreign_key "requests", "users"
 end

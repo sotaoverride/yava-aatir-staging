@@ -66,3 +66,6 @@ gem 'carrierwave', '~> 1.0'
 
 # Payment processing
 gem 'stripe', '3.3.1'
+
+## FOR STAGING ONLY TO CREATE DUMMY DATA
+gem 'ffaker', '2.6.0'

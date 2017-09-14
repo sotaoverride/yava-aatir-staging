@@ -1,0 +1,49 @@
+<% products.each do |product| %>
+  <div class="medium-3 columns">
+    <a href="explore-details.html">
+      <div class="single_products">
+        <div class="Products_img">
+          <%= image_tag product.primary_image, class: 'img-response', style: 'width: 150px; height: 150px;' %>
+        </div>
+
+        <div class="product_price">
+          <p>78% OFF</p>
+        </div>
+
+        <div class="Products_title">
+          <h3><%= product.title %> <br/><a href="#" class="name"></a></h3>
+          <div class="sub_fil">
+            <div class="category_name_filter">
+              <span class="category_name"><a href="#">Hopkins</a></span>
+              <span class="category_name"><a href="#">Minnesota</a></span>
+              <span class="category_name"><a href="#"><i class="fa fa-link"></i></a></span>
+            </div>
+          </div>
+
+          <div class="commit_area">
+            <div class="commit_count">
+              <p><span class="commit_num" ><%= product.requests.length %></span> REQUESTS</p>
+              <p><span class="commit_num">300</span> UNITS</p>
+
+            </div>
+            <div class="Request_btn">
+              <button class="commits_btn" type="button" data-open="product_pop_dic">REQUEST </button>
+              <button class="commits_btn" type="button" data-open="product_pop_dic_sell">SELL </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="pro_timmer no-padding-2">
+          <h3 class="std_price"><span>$180.56</span> Standard Price </h3>
+          <div class="midle_bar"></div>
+          <h3> <span>$150.56</span> Requested Price</h3>
+        </div>
+
+      </div>
+    </a>
+  </div>
+<% end %>
+<%= render "modal_discount" %>
+<%= render "modal_seller_disc" %>
+<%= render "modal_seller_period" %>
