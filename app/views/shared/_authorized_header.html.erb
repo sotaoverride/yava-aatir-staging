@@ -59,8 +59,8 @@
   <div class="center_menu">
     <ul>
 
-      <li><a href="<%= root_path %>" >DEALS</a></li>
-      <li class="active_menu"><a href="<%= root_path %>">EXPLORE</a></li>
+      <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>
+      <li class="<%= 'active_menu' if controller_name == 'home' %>"><a href="<%= root_path %>">EXPLORE</a></li>
       <li><a href="<%= root_path %>">REQUESTS</a></li>
 
     </ul>
