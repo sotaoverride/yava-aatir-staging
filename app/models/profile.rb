@@ -24,6 +24,10 @@ class Profile < ActiveRecord::Base
     Enum::Profile::WizardStep[:options][current_step_index + 1]
   end
 
+  def prev_step
+    Enum::Profile::WizardStep[:options][current_step_index - 1]
+  end
+
   def current_step_index
     Enum::Profile::WizardStep[:options].index(wizard_step.to_sym)
   end

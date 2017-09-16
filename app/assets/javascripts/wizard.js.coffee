@@ -25,6 +25,7 @@ $(document).on 'turbolinks:load', () ->
 
 # SELECT CATEGORY SCRIPT
   $selectCategoryWrapper = $('.select-category')
+  $selectCategoryWrapper.find('.next-arrow').addClass('hide')
 
   ##
   # Event on click next
@@ -42,6 +43,11 @@ $(document).on 'turbolinks:load', () ->
       $(this).addClass('active')
     selectedType = $.map $selectCategoryWrapper.find('button.active'), (val) =>
       $(val).data('category-id')
+
+    if selectedType.length > 0
+      $selectCategoryWrapper.find('.next-arrow').removeClass('hide')
+    else
+      $selectCategoryWrapper.find('.next-arrow').addClass('hide')
 
     $('#user_profile_attributes_category_ids').val(selectedType)
 

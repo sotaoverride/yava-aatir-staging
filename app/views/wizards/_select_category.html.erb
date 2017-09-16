@@ -5,6 +5,9 @@
         <%= link_to 'javascript:void(0)', class: 'next-arrow' do %>
           <i class='fa fa-chevron-right'></i>
         <% end %>
+        <%= link_to wizards_path(step: 0), class: 'prev-arrow' do %>
+          <i class='fa fa-chevron-left'></i>
+        <% end %>
         <h1>Select Wholesale Categories</h1>
         <h3>Choose the wholesale categories that apply to your business</h3>
         <div class="row search-wrappers">

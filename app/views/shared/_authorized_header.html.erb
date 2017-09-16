@@ -20,7 +20,7 @@
     <!-- Center Logo -->
     <div class="center_logo">
       <%= link_to root_path do %>
-        <%= image_tag 'logo' %>
+        <%= image_tag 'logo.png' %>
       <% end %>
     </div>
     <!-- Header Right -->
@@ -61,7 +61,7 @@
 
       <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>
       <li class="<%= 'active_menu' if controller_name == 'home' %>"><a href="<%= root_path %>">EXPLORE</a></li>
-      <li><a href="<%= root_path %>">REQUESTS</a></li>
+      <li class="<%= 'active_menu' if controller_name == 'requests' %>"><a href="<%= requests_path %>">REQUESTS</a></li>
 
     </ul>
   </div>

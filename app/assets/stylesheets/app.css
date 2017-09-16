@@ -9553,6 +9553,13 @@ body.sticky-search .search-bar {
   font-size: 30px;
 }
 
+.box-section .prev-arrow {
+  position: absolute;
+  top: 3px;
+  left: 30px;
+  font-size: 30px;
+}
+
 .box-section.enter-details {
     min-height: 780px
 }
