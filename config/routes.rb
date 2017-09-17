@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get :deal, on: :member
   end
 
+  resources :carts, only: [:index]
+
   # Root to explore page
   root to: 'home#index'
 end
