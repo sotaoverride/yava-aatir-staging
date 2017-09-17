@@ -1,0 +1,122 @@
+<div class="cart_page_main_area">
+  <div class="row">
+    <div class="medium-10 columns medium-offset-1">
+      <div class="row">
+        <div class="medium-12 small-12 large-12 columns">
+          <div class="payment_breadcrumb">
+            <h3><span class="active_bread">1 <i class="fa fa-angle-right"></i></span> <span class="active_bread">2 <i class="fa fa-angle-right"></i> </span>
+              <span class="active_bread">3. Review Order</span>
+            </h3>
+            <%= link_to 'back', order_path('payment'), class: 'back_btn' %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-8 small-8 large-8 columns">
+          <div class="order_review_page">
+            <div class="blue_warning">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <p>
+                <p> Your card will not be charged until the group buy has been completed successfully.</p>
+            </div>
+            <div class="address_box" data-open="pay_add">
+              <h3>Deliver to</h3>
+              <div class="box_inner_shi">
+                <p>John Doe</p>
+                <p>28 Mainstreet North </p>
+                <p>Suite 100</p>
+                <p>Minneapolis, MN 55343</p>
+              </div>
+            </div>
+            <div class="address_box" data-open="pay_medtho">
+              <h3>Pay with</h3>
+              <div class="box_inner_shi">
+                <div class="card_img_s">
+                  <%= image_tag 'visa.png', alt: 'png' %>
+                </div>
+                <div class="payment_text">
+                  <p>Debit ****1240 </p>
+                  <p>JOHN A DOE</p>
+                </div>
+              </div>
+            </div>
+            <div class="address_box">
+              <h3>Shipping Options</h3>
+              <p>The options below are tied to your delivery address.</p>
+              <div class="Shipping_option">
+                <div class="Shipping_op_header">
+                  <h3><i class="fa fa-truck"></i> Shipment 1 <span>of 1 </span></h3>
+                  <p><small>1 items fulfilled by Venor </small></p>
+                  <div class="Shipping_type">
+                    <input type="radio" name="Shipping_type" value="Standard" id="Standard" checked> <label for="Standard"> <strong>Standard</strong> Get it by <span class="date_mark">Sat, Aug 12</span></label>                    <br/>
+                    <input type="radio" name="Shipping_type" value="Economy" id="Economy" checked> <label for="Economy"> <strong>Economy</strong> <span class="save_mark">– Save $0.25</span> Get it by <span class="date_mark"> Tue, Aug 15</span></label>
+                  </div>
+                </div>
+                <div class="order_details_shi">
+                  <div class="shi_img">
+                    <%= image_tag 'airmax.jpg' %>
+                  </div>
+                  <div class="small_ship_de">
+                    <p>Versace Eau Fraiche Mini for Men, 0.17 Oz</p>
+                    <div class="ship_price">
+                      <p><small>Started $5.88</small></p>
+                      <p><span>$5.83</span></p>
+                    </div>
+                    <p>Quantity: 1</p>
+                    <p>Size: 0.17 oz / 5 ML</p>
+                    <p><strong>No returns, but call if you aren't 100% satisfied</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="medium-4 small-4 large-4 columns ">
+          <div class="cart_side_bar">
+            <h3 class="order_details">Order Details</h3>
+            <div class="cart_check_out_details">
+              <table>
+                <tr>
+                  <td>Starting Subtotal</td>
+                  <td class="price_value">$47.07</td>
+                </tr>
+                <tr>
+                  <td>Extra Savings</td>
+                  <td class="price_value">-$0.57</td>
+                </tr>
+                <tr>
+                  <td>Subtotal</td>
+                  <td class="price_value">$46.50</td>
+                </tr>
+                <tr>
+                  <td>Shipping Fee</td>
+                  <td class="price_value">$0.00</td>
+                </tr>
+                <tr>
+                  <td>Estimated Tax</td>
+                  <td class="price_value">$0.00</td>
+                </tr>
+                <tr>
+                  <td><strong>Order Total</strong></td>
+                  <td class="price_value"><strong>$46.50</strong></td>
+                </tr>
+              </table>
+              <div class="coupon_btn">
+                <div class="input-group">
+                  <input class="input-group-field" type="text" placeholder="Add Coupon Code">
+                  <div class="input-group-button">
+                    <input type="submit" class="button" value="Apply">
+                  </div>
+                </div>
+              </div>
+              <div class="check_sub_btn">
+                <%= link_to 'CONTINUE', order_path('complete') %>
+                <p><i class="fa fa-lock"></i> Secure Checkout</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+<div class="cart_page_main_area">
+  <div class="row">
+    <div class="medium-12 small-12 large-12 columns">
+      <div class="payment_breadcrumb">
+        <h3><span class="active_bread">1 <i class="fa fa-angle-right"></i></span> <span class="active_bread">2. Payment Method <i class="fa fa-angle-right"></i></span>          <span>3</span></h3>
+        <%= link_to 'back', order_path('shipping'), class: 'back_btn' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-8 small-8 large-8 columns large-offset-2 medium-offset-2">
+      <div class="row">
+        <div class="medium-6 small-6 large-6 columns">
+          <div class="check_card_box">
+            <form>
+              <div class="card_info">
+                <h3>Card Info</h3>
+                <div class="row">
+                  <div class="medium-12 columns">
+                    <label>Card Number
+                        <input type="text" >
+                      </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="medium-6 columns">
+                    <label>Card Number
+                        <input type="text" >
+                      </label>
+                  </div>
+                  <div class="medium-6 columns">
+                    <p>All major cards accepted.</p>
+                    <%= image_tag 'card.jpg' %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="medium-12 columns">
+                    <label>Expiration Date
+                        <input type="text" placeholder="MM/YY">
+                      </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="medium-12 columns">
+                    <label>Security Code
+                        <input type="text" >
+                      </label>
+                  </div>
+                </div>
+              </div>
+              <div class="same_as_bill">
+                <h3><span class="toggle_btn button_style">Billing address is same as Shipping <div class="check_icon"><i class="fa fa-check"></i> </div></span></h3>
+              </div>
+              <div class="shipping_addresss">
+                <h3>Shipping Adresss</h3>
+                <div class="shipping_toggle_form">
+                  <div class="row">
+                    <div class="medium-12 columns">
+                      <label>First Name
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Last Name
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Street Address
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Apt., Floor, Unit (Optional)
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Billing Zip Code
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Phone Number
+                          <input type="text" >
+                        </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="medium-6 small-6 large-6 columns ">
+          <div class="cart_side_bar">
+            <h3 class="order_details">Order Details</h3>
+            <div class="cart_check_out_details">
+              <table>
+                <tr>
+                  <td>Starting Subtotal</td>
+                  <td class="price_value">$47.07</td>
+                </tr>
+                <tr>
+                  <td>Extra Savings</td>
+                  <td class="price_value">-$0.57</td>
+                </tr>
+                <tr>
+                  <td>Subtotal</td>
+                  <td class="price_value">$46.50</td>
+                </tr>
+                <tr>
+                  <td>Shipping Fee</td>
+                  <td class="price_value">$0.00</td>
+                </tr>
+                <tr>
+                  <td>Estimated Tax</td>
+                  <td class="price_value">$0.00</td>
+                </tr>
+                <tr>
+                  <td><strong>Order Total</strong></td>
+                  <td class="price_value"><strong>$46.50</strong></td>
+                </tr>
+              </table>
+              <div class="coupon_btn">
+                <div class="input-group">
+                  <input class="input-group-field" type="text" placeholder="Add Coupon Code">
+                  <div class="input-group-button">
+                    <input type="submit" class="button" value="Apply">
+                  </div>
+                </div>
+              </div>
+              <div class="check_sub_btn">
+                <%= link_to 'CONTINUE', order_path('review') %>
+                <p><i class="fa fa-lock"></i> Secure Checkout</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

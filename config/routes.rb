@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :carts, only: [:index]
+  resources :orders, only: [:index, :show]
 
   # Root to explore page
   root to: 'home#index'

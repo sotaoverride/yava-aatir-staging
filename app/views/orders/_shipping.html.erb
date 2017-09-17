@@ -1,0 +1,119 @@
+<div class="cart_page_main_area">
+  <div class="row">
+    <div class="medium-12 small-12 large-12 columns">
+      <div class="payment_breadcrumb">
+        <h3><span class="active_bread">1.Shipping Address <i class="fa fa-angle-right"></i></span> <span>2 <i class="fa fa-angle-right"></i></span>          <span>3</span></h3>
+        <%= link_to 'back', carts_path, class: 'back_btn' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-6 large-6 small-8 ">
+      <div class="Shipping_tab_add Shipping_Add">
+        <div class="row collapse">
+          <div class="medium-12 columns">
+            <ul class="vertical tabs" data-tabs id="addres-tabs">
+              <li class="tabs-title is-active"> <span class="dot_circel"></span><a href="#panel1v">Residential Address</a></li>
+              <li class="tabs-title"> <span class="dot_circel"></span><a href="#panel2v">Business Address</a></li>
+            </ul>
+          </div>
+          <div class="medium-12 columns">
+            <div class="tabs-content" data-tabs-content="addres-tabs">
+              <div class="tabs-panel is-active" id="panel1v">
+                <div class="shipping_addresss_tab">
+                  <div class="row">
+                    <div class="medium-12 columns">
+                      <label>First Name
+                        <input type="text" >
+                      </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Last Name
+                        <input type="text" >
+                      </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Street Address
+                        <input type="text" >
+                      </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Apt., Floor, Unit (Optional)
+                        <input type="text" >
+                      </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Zip Code
+                        <input type="text" >
+                      </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Phone Number
+                        <input type="text" >
+                      </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <input type="radio" name="make_def_Address" value="make_def_Address" id="make_def_Address">
+                      <label for="make_def_Address">Make this my default shipping address.</label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <%= link_to 'Save & Continue', order_path('payment'), class: 'button sub_btn_add' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs-panel" id="panel2v">
+                <div class="shipping_addresss_tab">
+                  <div class="row">
+                    <div class="medium-12 columns">
+                      <label>Business Name
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>First Name
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Last Name
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Street Address
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Apt., Floor, Unit (Optional)
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Zip Code
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <label>Phone Number
+                          <input type="text" >
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <input type="radio" name="make_def_Address" value="make_def_Address" id="make_def_Address">
+                      <label for="make_def_Address">Make this my default shipping address.</label>
+                    </div>
+                    <div class="medium-12 columns">
+                      <button class="button sub_btn_add" type="button">Save & Continue</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
