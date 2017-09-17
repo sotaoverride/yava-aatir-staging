@@ -5,5 +5,7 @@ class DealsController < ApplicationController
 
   ##
   # deals/active
-  def show; end
+  def show
+    @page = params[:id] || 'active'
+  end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:index, :new]
   resources :products, only: [:show, :new] do
     get :deal, on: :member
+    get :existing, on: :collection
   end
 
   resources :carts, only: [:index]

@@ -37,8 +37,8 @@
             <li>
               <a href="#">Account</a>
               <ul class="menu no-bullet">
-                <li><a href="javascript:void(0)">My Deals</a></li>
-                <li><a href="javascript:void(0)">My Discounts</a></li>
+                <li><%= link_to 'My Deals', deal_path('active') %></li>
+                <li><%= link_to 'My Discounts', deal_path('item') %></li>
                 <li><a href="javascript:void(0)">Transactions</a></li>
                 <li><a href="javascript:void(0)">Returns</a></li>
                 <li><a href="javascript:void(0)">Payments</a></li>

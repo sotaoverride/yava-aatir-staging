@@ -38,7 +38,7 @@ $(document).on('turbolinks:load', function () {
     }
   });
   $('.item-table table tbody tr').hover(function () {
-    $(this).children().last().append('<button data-toggle="edit-item" class="edit" type="button" data-open="product_pop_dic"><i class="fa fa-pencil" aria-hidden="true"></i></button>');
+    $(this).children().last().append('<button data-toggle="edit-item" class="edit" type="button" data-open="product_pop_dic_sell"><i class="fa fa-pencil" aria-hidden="true"></i></button>');
   }, function () {
     $(this).children().last().find('button:last').remove();
   });
