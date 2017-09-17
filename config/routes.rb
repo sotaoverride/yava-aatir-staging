@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :deals,    only: [:index]
   resources :requests, only: [:index, :new]
-  resources :products, only: [:show] do
+  resources :products, only: [:show, :new] do
     get :deal, on: :member
   end
 
