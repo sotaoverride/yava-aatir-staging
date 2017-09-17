@@ -31,10 +31,12 @@
 
   <div class="row product_margin_top Explore">
 
-    <%= render "product", products: @products %>
+    <%= render "products/explore_product", products: @products %>
 
   </div>
 
 </div><!-- Explore page end -->
 
-<%= render "home/footer" %>
+<%= render "modal_discount" %>
+<%= render "modal_seller_disc" %>
+<%= render "modal_seller_period" %>

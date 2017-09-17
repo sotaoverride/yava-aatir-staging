@@ -1,6 +1,6 @@
 <% products.each do |product| %>
   <div class="medium-3 columns">
-    <a href="explore-details.html">
+    <a href="<%= product_path(1) %>">
       <div class="single_products">
         <div class="Products_img">
           <%= image_tag product.primary_image, class: 'img-response', style: 'width: 150px; height: 150px;' %>
@@ -44,6 +44,3 @@
     </a>
   </div>
 <% end %>
-<%= render "modal_discount" %>
-<%= render "modal_seller_disc" %>
-<%= render "modal_seller_period" %>

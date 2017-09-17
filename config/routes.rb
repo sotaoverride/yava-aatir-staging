@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resource :wizards,   only: [:show, :update]
 
   resources :deals,    only: [:index]
-  resources :requests, only: [:index]
+  resources :requests, only: [:index, :new]
+  resources :products, only: [:show] do
+    get :deal, on: :member
+  end
 
   # Root to explore page
   root to: 'home#index'

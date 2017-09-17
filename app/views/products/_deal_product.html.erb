@@ -1,0 +1,51 @@
+<% num_items.times do %>
+  <div class="small-6 medium-6 large-3  columns">
+    <a href="<%= deal_product_path(1) %>">
+      <div class="single_products">
+        <div class="Products_img">
+          <%= image_tag 'shoe-big.jpg', alt: 'shoe-big' %>
+        </div>
+        <div class="product_price">
+          <h3>$178.99</h3>
+          <p>8% OFF</p>
+        </div>
+
+
+        <div class="Products_title">
+          <h3>Nike Sport Shoes Fingertap Max <br/><a href="#" class="name">Nike Wholesale</a></h3>
+          <div class="sub_fil">
+            <div class="category_name_filter">
+              <span class="category_name"><a href="#" data-open="product_pop_dic_buyer">DISCOUNT TABLE</a></span>
+              <span class="category_name"><a href="#">10 COMMITS</a></span>
+              <span class="category_name"><a href="#">MN</a></span>
+            </div>
+
+          </div>
+
+          <div class="commit_area">
+            <div class="commit_bar">
+              <span class="active_bar full_bar"></span>
+            </div>
+            <div class="commit_count">
+
+
+              <button class="commits_btn" type="button">COMMIT</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pro_timmer no-padding">
+          <div class="time">
+            <div class="time-box">
+              <span><em>01</em>days</span>
+              <span><em>00</em>hours</span>
+              <span><em>12</em>min</span>
+              <span><em>52</em>sec</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </a>
+  </div>
+<% end %>

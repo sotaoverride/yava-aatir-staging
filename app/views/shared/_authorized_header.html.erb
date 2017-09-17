@@ -56,13 +56,15 @@
       </div>
     </div>
   </div>
-  <div class="center_menu">
-    <ul>
+  <%- unless controller_name == 'products' && (action_name == 'show' || action_name == 'deal') %>
+    <div class="center_menu">
+      <ul>
 
-      <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>
-      <li class="<%= 'active_menu' if controller_name == 'home' %>"><a href="<%= root_path %>">EXPLORE</a></li>
-      <li class="<%= 'active_menu' if controller_name == 'requests' %>"><a href="<%= requests_path %>">REQUESTS</a></li>
+        <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>
+        <li class="<%= 'active_menu' if controller_name == 'home' %>"><a href="<%= root_path %>">EXPLORE</a></li>
+        <li class="<%= 'active_menu' if controller_name == 'requests' %>"><a href="<%= requests_path %>">REQUESTS</a></li>
 
-    </ul>
-  </div>
+      </ul>
+    </div>
+  <% end %>
 </div>
