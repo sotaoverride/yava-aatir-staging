@@ -1,6 +1,10 @@
-.sticky-wrapper { width: 100% !important; height: 60px !important; }
+.sticky-wrapper { width: 100% !important; }
 label.pull-left { margin-right: 10px; }
 #avatar-image { height: 140px; width: 140px; }
+
+.sticky-wrapper.default-height {
+  height: auto !important;
+}
 
 #card-element {
   border: 1px solid #8181cd;

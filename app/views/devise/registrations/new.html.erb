@@ -32,7 +32,10 @@
                 <input id="checkbox1" type="checkbox"><label for="checkbox1">Keep me signed in on this computer</label>
               </div>
               <div class="single_form checkbox">
-                <%= f.check_box :agreement %><label for="user_agreement">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Statement</a> </label>
+                <div id='user_agreement_wrapper'>
+                  <%= f.check_box :agreement %>
+                </div>
+                <label for="user_agreement">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Statement</a> </label>
               </div>
               <div class="single_form">
                 <input name="submit" class="button signup-btn" value="Sign Up" type="submit">
@@ -53,7 +56,8 @@
               </div>
             </div>
             <div class="single_form_S">
-              <input id="checkbox3" type="checkbox"><label for="checkbox3">Keep me signed in on this computer</label>
+              <input id="checkbox3" type="checkbox">
+              <label for="checkbox3">Keep me signed in on this computer</label>
             </div>
             <div class="single_form_S">
               <p>Already have a YOVA Account? <%= link_to 'Sign In', new_user_session_path  %></p>

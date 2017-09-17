@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :account,   only: [:show, :update]
   resource :wizards,   only: [:show, :update]
 
-  resources :deals,    only: [:index]
+  resources :deals,    only: [:index, :show]
   resources :requests, only: [:index, :new]
   resources :products, only: [:show, :new] do
     get :deal, on: :member

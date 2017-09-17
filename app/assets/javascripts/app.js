@@ -247,11 +247,17 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
-  $("#sticker").sticky({ topSpacing: 115, center:true, className:"hey" });
+  $("#sticker").sticky({ wrapperClassName: 'sticky-wrapper default-height', topSpacing: 115, center:true, className:"hey" });
+  $("#sticker-2").sticky({ wrapperClassName: 'sticky-wrapper default-height', topSpacing: 70, center:true, className:"hey" });
+  $("#sticker-3").sticky({ wrapperClassName: 'sticky-wrapper default-height', topSpacing: 110, center:true, className:"hey" });
 
-  $("#sticker-2").sticky({ topSpacing: 70, center:true, className:"hey" });
+  $('#sticker, #sticker-2, #sticker-3').on('sticky-start', function(){
+    $(this).parents('.sticky-wrapper').removeClass('default-height');
+  });
 
-  $("#sticker-3").sticky({ topSpacing: 110, center:true, className:"hey" });
+  $('#sticker, #sticker-2, #sticker-3').on('sticky-end', function(){
+    $(this).parents('.sticky-wrapper').addClass('default-height');
+  });
 
   $("#add_tier").click(function () {
     $("#mytable").each(function () {

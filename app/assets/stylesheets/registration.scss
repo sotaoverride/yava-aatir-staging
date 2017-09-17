@@ -8,11 +8,7 @@
 @import "registration/callout";
 @import "app";
 
-.signup-form {
-  .checkbox { 
-    .field_with_errors {
-      float: left;
-      margin-right: .5rem;
-    }
-  }
+#user_agreement_wrapper {
+  float: left;
+  margin-right: .5rem;
 }
