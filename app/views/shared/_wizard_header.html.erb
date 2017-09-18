@@ -7,10 +7,10 @@
 
   <div class="top-bar-center  single_flex">
     <div class="button-group"> 
-      <a href='<%= wizards_path(step: 0) %>' class="button <%= current_user.reload.profile.current_step_index >= 0 ? 'active' : 'disabled' %>">CHOOSE PROFILE</a> 
-      <a href='<%= wizards_path(step: 1) %>' class="button <%= current_user.reload.profile.current_step_index >= 1 ? 'active' : 'disabled' %>">SELECT CATEGORIES</a> 
-      <a href='<%= wizards_path(step: 4) %>' class="button <%= current_user.reload.profile.current_step_index >= 4 ? 'active' : 'disabled' %>">REGISTER</a> 
-      <a href='<%= wizards_path(step: 5) %>' class="button <%= current_user.reload.profile.current_step_index >= 5 ? 'active' : 'disabled' %>">COMPLETE</a> 
+      <a href='<%= wizards_path(step: 0) %>' class="button <%= current_user.reload.profile.current_step_index >= 0 && params[:step].to_i >= 0 ? 'active' : 'disabled' %>">CHOOSE PROFILE</a> 
+      <a href='<%= wizards_path(step: 1) %>' class="button <%= current_user.reload.profile.current_step_index >= 1 && params[:step].to_i >= 1 ? 'active' : 'disabled' %>">SELECT CATEGORIES</a> 
+      <a href='<%= wizards_path(step: 4) %>' class="button <%= current_user.reload.profile.current_step_index >= 4 && params[:step].to_i >= 4 ? 'active' : 'disabled' %>">REGISTER</a> 
+      <a href='<%= wizards_path(step: 5) %>' class="button <%= current_user.reload.profile.current_step_index >= 5 && params[:step].to_i >= 5 ? 'active' : 'disabled' %>">COMPLETE</a> 
     </div>
   </div>
 
