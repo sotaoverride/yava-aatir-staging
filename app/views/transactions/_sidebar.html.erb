@@ -11,6 +11,9 @@
         <%= link_to 'Returns', returns_transactions_path, class: "#{'side_bar_active' if current_page?(controller: 'transactions', action: 'returns')}" %>
       </li>
       <li>
+        <%= link_to 'Order History', order_path('history'), class: "#{'side_bar_active' if current_page?(controller: 'orders', action: 'show', id: 'history')}" %>
+      </li>
+      <li>
         <%= link_to 'Payments', payments_transactions_path, class: "#{'side_bar_active' if current_page?(controller: 'transactions', action: 'payments')}" %>
       </li>
       <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
