@@ -29,9 +29,9 @@ class User < ActiveRecord::Base
 
   ##
   # Processing wizard form
-  def process_wizard(params)
+  def process_wizard(params, step)
     if self.update_attributes(params)
-      self.profile.update_column(:wizard_step, profile.next_step) if profile.next_step
+      self.profile.update_column(:wizard_step, profile.next_step) if profile.next_step && profile.current_step_index.to_i == (step.to_i - 1)
       return true
     else
       return false

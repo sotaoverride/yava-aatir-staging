@@ -1,3 +1,4 @@
+<%= title 'Sign Up - Application Submitted' %>
 <section class="box-section">
   <div class="row expanded floating-box finish">
     <div class="columns text-center">
@@ -49,6 +50,6 @@
     </div>        
     <h3>Invitation Sent!</h3>
     <p>We have sent your invitations to your colleagues</p>
-    <%= link_to 'CLOSE', wizards_path, method: :patch, class: 'button' %>
+    <%= link_to 'CLOSE', wizards_path(step: 6), method: :patch, class: 'button' %>
   </div>
 </div>

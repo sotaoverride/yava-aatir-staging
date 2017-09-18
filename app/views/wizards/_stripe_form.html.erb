@@ -1,9 +1,9 @@
-<!-- Start Content -->
+<%= title('Sign Up - Subscription') %>
 <section data-stripe-key="<%= ENV['PUBLISHABLE_KEY'] %>" class="box-section subscription-details box-section_margin-3">
   <div class="row expanded floating-box">
     <div class="columns">
       <div class="row box">
-        <%= form_tag wizards_path, method: :put, id: 'subscribe-stripe-form', class: 'columns subscription small-11 small-centered' do  %>
+        <%= form_tag wizards_path(step: 5), method: :put, id: 'subscribe-stripe-form', class: 'columns subscription small-11 small-centered' do  %>
           <div class="row">
             <div class="columns small-6">
               <h1>Subscription Plan</h1>
@@ -29,10 +29,12 @@
                 <a class="button"></a>
               </div>
               <div class="columns">
-                <button type="submit" class="button upgrade expanded">Upgrade now</button>
+                <button type="button" class="button upgrade expanded hide validate">Validate Coupon</button>
+                <button type="submit" class="button upgrade expanded upgrade">Upgrade now</button>
               </div>
             </div>
             <div class="columns small-6">
+              <input type='hidden' name='cost' id='cost' value='2999' />
               <div class="columns">
                 <label>Credit Card Name
                   <input type="text">
@@ -44,6 +46,9 @@
                 </label>
               </div>
               <div id='card-errors'></div>
+              <div class="columns">
+                <button type="submit" class="button upgrade expanded hide upgrade-right-side">Upgrade now</button>
+              </div>
             </div>
           </div>
         <% end %>

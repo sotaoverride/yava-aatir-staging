@@ -1,3 +1,4 @@
+<%= title('Sign Up - Choose Profile') %>
 <section class="box-section select-profile-type">
   <%= link_to 'javascript:void(0)', class: 'next-arrow' do %>
     <i class='fa fa-chevron-right'></i>
@@ -21,7 +22,7 @@
   </div>
 </section>
 
-<%= form_for current_user, url: wizards_path, method: :put do |f| %>
+<%= form_for current_user, url: wizards_path(step: 1), method: :put do |f| %>
   <%= f.fields_for :profile, current_user.reload.profile do |p| %>
     <%= p.hidden_field :id %>
     <%= p.hidden_field :profile_type %>

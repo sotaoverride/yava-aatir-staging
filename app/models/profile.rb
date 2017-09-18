@@ -8,6 +8,13 @@ class Profile < ActiveRecord::Base
   validates :wizard_step, inclusion: Enum::Profile::WizardStep[:options].map(&:to_s)
   validate :profile_type_included_in_constant, unless: Proc.new { |p| p.profile_type.blank? }
 
+  validates :top_selling_brand, presence: true, on: [:update], if: Proc.new { |p| p.top_selling_brand_changed? }
+  validates :ecommerce_url, presence: true, on: [:update], if: Proc.new { |p| p.ecommerce_url_changed? }
+  validates :marketplace_url, presence: true, on: [:update], if: Proc.new { |p| p.marketplace_url_changed? }
+  validates :fulfillment, presence: true, on: [:update], if: Proc.new { |p| p.fulfillment_changed? }
+  validates :dropshipper, presence: true, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
+  validates :carriers, presence: true, on: [:update], if: Proc.new { |p| p.carriers_changed? }
+
   accepts_nested_attributes_for :profile_categories, allow_destroy: true
 
   attr_accessor :category_ids, :carriers_names

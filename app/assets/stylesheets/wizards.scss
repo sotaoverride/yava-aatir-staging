@@ -33,3 +33,5 @@ label.pull-left { margin-right: 10px; }
     .search-wrappers { width: 970px; }
   }
 }
+
+.field_with_errors > input{ border: 1px solid red !important; }

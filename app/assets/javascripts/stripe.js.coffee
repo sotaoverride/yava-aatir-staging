@@ -1,4 +1,28 @@
 $(document).on 'turbolinks:load', ->
+  $('.floating-box .subscription>.row .switch-toggle label[for="monthly"]').on('click', () ->
+    $('.floating-box .subscription .sub-box > .sub-coupon').fadeOut(125)
+    $('.floating-box .subscription .sub-box > .sub-plan').delay(125).fadeIn(125)
+    $('button.upgrade').removeClass('hide')
+    $('button.validate, button.upgrade-right-side').addClass('hide')
+  )
+
+  $('.floating-box .subscription>.row .switch-toggle label[for="coupon"]').on('click', () ->
+    $('.floating-box .subscription .sub-box > .sub-plan').fadeOut(125);
+    $('.floating-box .subscription .sub-box > .sub-coupon').delay(125).fadeIn(125);
+    $('button.upgrade').addClass('hide')
+    $('button.validate').removeClass('hide')
+  )
+
+  $('button.validate').on('click', () ->
+    coupon = $('input.coupon').val()
+    if coupon.toLowerCase() == 'yova'
+      $('input.coupon, .sub-coupon .sub-plan').toggle()
+      $('input#cost').val('0')
+      $('button.validate').addClass('hide')
+      $('button.upgrade-right-side').removeClass('hide')
+    else
+      $('input.coupon').parents('.sub-coupon').addClass('field_with_errors')
+  )
   if $('[data-stripe-key]').length > 0
     publishable_key = $('[data-stripe-key]').data('stripe-key')
     stripe = Stripe(publishable_key)

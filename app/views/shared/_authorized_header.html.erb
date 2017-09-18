@@ -39,9 +39,9 @@
               <ul class="menu no-bullet">
                 <li><%= link_to 'My Deals', deal_path('active') %></li>
                 <li><%= link_to 'My Discounts', deal_path('item') %></li>
-                <li><a href="javascript:void(0)">Transactions</a></li>
-                <li><a href="javascript:void(0)">Returns</a></li>
-                <li><a href="javascript:void(0)">Payments</a></li>
+                <li><%= link_to 'Transactions', transactions_path %></li>
+                <li><%= link_to 'Returns', returns_transactions_path %></li>
+                <li><%= link_to 'Payments', payments_transactions_path %></li>
                 <li><a href="javascript:void(0)">Order History</a></li>
                 <li><%= link_to 'Account Settings', account_path %></li>
                 <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
@@ -56,7 +56,7 @@
       </div>
     </div>
   </div>
-  <%- unless (controller_name == 'products' && (['show', 'deal'].include?(action_name))) || (controller_name == 'carts') || (controller_name == 'orders') %>
+  <%- unless (controller_name == 'products' && (['show', 'deal'].include?(action_name))) || (['carts', 'orders'].include?(controller_name)) || (controller_name == 'transactions' && action_name == 'index') %>
     <div class="center_menu">
       <ul>
         <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>

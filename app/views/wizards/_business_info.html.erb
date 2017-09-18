@@ -1,3 +1,4 @@
+<%= title('Sign Up - Registration') %>
 <section class="box-section box-section_margin final-question">
   <div class="row expanded form-box">
     <div class="columns">
@@ -5,7 +6,7 @@
       <h3>Please register to continue the process</h3>
       <div class="row">
         <div class="columns form small-centered">
-          <%= form_for current_user, url: wizards_path, method: :put do |f| %>
+          <%= form_for current_user, url: wizards_path(step: 4), method: :put do |f| %>
             <%= f.fields_for :profile, current_user.profile do |p| %>
               <div class="row">
                 <%= render "shared/business_form", p: p, f: f %>

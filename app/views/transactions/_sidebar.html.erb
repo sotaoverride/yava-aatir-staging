@@ -1,0 +1,19 @@
+<div class="medium-3 small-3 large-3 columns ">
+  <div class="cart_side_bar side_bar_menu_history">
+    <ul>
+      <li>
+        <%= link_to 'My Deals', deal_path('active'), class: "#{'side_bar_active' if current_page?(controller: 'deals', action: 'show', id: 'active')}" %>
+      </li>
+      <li>
+        <%= link_to 'Transactions', transactions_path, class: "#{'side_bar_active' if current_page?(controller: 'transactions', action: 'index')}" %>
+      </li>
+      <li>
+        <%= link_to 'Returns', returns_transactions_path, class: "#{'side_bar_active' if current_page?(controller: 'transactions', action: 'returns')}" %>
+      </li>
+      <li>
+        <%= link_to 'Payments', payments_transactions_path, class: "#{'side_bar_active' if current_page?(controller: 'transactions', action: 'payments')}" %>
+      </li>
+      <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </div>
+</div>

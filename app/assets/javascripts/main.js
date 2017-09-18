@@ -232,14 +232,6 @@ $(document).on('turbolinks:load', function () {
             $('body').removeClass('sticky-search');
         }
     });
-    $('.floating-box .subscription>.row .switch-toggle label[for="monthly"]').click(function () {
-        $('.floating-box .subscription .sub-box > .sub-coupon').fadeOut(125);
-        $('.floating-box .subscription .sub-box > .sub-plan').delay(125).fadeIn(125);
-    });
-    $('.floating-box .subscription>.row .switch-toggle label[for="coupon"]').click(function () {
-        $('.floating-box .subscription .sub-box > .sub-plan').fadeOut(125);
-        $('.floating-box .subscription .sub-box > .sub-coupon').delay(125).fadeIn(125);
-    });
 });
 
 function addToCart(keyProduct) {

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     get :existing, on: :collection
   end
 
+  resources :transactions, only: [:index] do
+    get :returns, on: :collection
+    get :payments, on: :collection
+  end
   resources :carts, only: [:index]
   resources :orders, only: [:index, :show]
 

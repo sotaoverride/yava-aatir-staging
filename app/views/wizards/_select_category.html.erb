@@ -1,3 +1,4 @@
+<%= title('Sign Up - Choose Categories') %>
 <section class="box-section select-category">
   <div class="row expanded floating-box">
     <div class="columns">
@@ -36,7 +37,7 @@
       </div>
     </div>							
   </div>
-  <%= form_for current_user, url: wizards_path, method: :put do |f| %>
+  <%= form_for current_user, url: wizards_path(step: 2), method: :put do |f| %>
     <%= f.fields_for :profile, current_user.reload.profile do |p| %>
       <%= p.hidden_field :id %>
       <%= p.hidden_field :category_ids %>
