@@ -1,3 +1,4 @@
+<%= title 'YOVA | DEALS' %>
 <div class="main_product_area">
   <div class="row">
     <div class="columns medium-6 medium-offset-3">
@@ -50,14 +51,111 @@
 <div class="reveal discounts_popup products_add_popup" id="product_pop_add" data-reveal>
   <h3>Add product details</h3>
   <hr/>
-
   <p>Please <a href="#">read</a> our guidelines before adding an product.</p>
-
   <h3>Product URL</h3>
   <input type="text" name="pro_url" placeholder="http://www.productpage.com">
-
   <div class="Modal_footer">
     <button class="button pop_up_btn" data-open="product_pop_add_inner">CONTINUE</button>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="reveal discounts_popup add_por_inner" id="product_pop_add_inner" data-reveal>
+  <h3>Edit my product details</h3>
+  <hr/>
+  <form>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Product URL *</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="text" id="right-label">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Product Name *</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="text" id="right-label">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Product Category *</label>
+      </div>
+      <div class="small-8 columns">
+        <select>
+          <option value="husker">Husker</option>
+          <option value="starbuck">Starbuck</option>
+          <option value="hotdog">Hot Dog</option>
+          <option value="apollo">Apollo</option>
+        </select>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Product Subcategory *</label>
+      </div>
+      <div class="small-8 columns">
+        <select>
+          <option value="husker">Husker</option>
+          <option value="starbuck">Starbuck</option>
+          <option value="hotdog">Hot Dog</option>
+          <option value="apollo">Apollo</option>
+        </select>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Standard Price</label>
+      </div>
+      <div class="small-8 columns">
+        <input type="text" id="right-label">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Unit *</label>
+      </div>
+      <div class="small-8 columns">
+        <select>
+          <option value="husker">Case</option>
+          <option value="starbuck">Carton</option>
+          <option value="hotdog">Pallet</option>
+          <option value="apollo">Box</option>
+        </select>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Product Picture</label>
+      </div>
+      <div class="small-8 columns">
+        <label for="exampleFileUpload" class="button upload_btn">
+          <img src="images/shoes.png" alt="shoes">
+        </label>
+        <input type="file" id="exampleFileUpload" class="show-for-sr">
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns">
+        <label for="right-label" class="text-right">Product Description</label>
+      </div>
+      <div class="small-8 columns">
+        <textarea cols="4"></textarea>
+      </div>
+    </div>
+    <hr/>
+  </form>
+  <div class="submit_data">
+    <button class="button sikp_btn">CANCEL</button>
+    <button class="button add_btn" data-open="product_pop_dic">CONTINUE</button>
   </div>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
