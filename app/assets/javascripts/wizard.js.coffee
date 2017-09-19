@@ -1,4 +1,9 @@
 $(document).on 'turbolinks:load', () ->
+  $('.wizard-link.disabled').on 'click', (e) ->
+    e.preventDefault()
+
+  $('button.prev').on 'click', (e) ->
+    window.location = $(this).data('link')
 # FINAL STEP
   $finalQuestionWrapper = $('.final-question, .account-edit-wrapper')
 

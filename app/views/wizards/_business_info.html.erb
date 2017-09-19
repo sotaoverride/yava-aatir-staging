@@ -11,6 +11,7 @@
               <div class="row">
                 <%= render "shared/business_form", p: p, f: f %>
                 <div class="columns">
+                  <button type="button" data-link="<%= wizards_path(step: 2) %>" class="button prev float-left">Back</button>
                   <button type="submit" class="button float-right">Next</button>
                 </div>                            
               </div>
@@ -18,6 +19,6 @@
           <% end %>
         </div>
       </div>
-    </div>							
+    </div>
   </div>
 </section>

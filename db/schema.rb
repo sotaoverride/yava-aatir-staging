@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914142235) do
+ActiveRecord::Schema.define(version: 20170918030518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,13 @@ ActiveRecord::Schema.define(version: 20170914142235) do
     t.boolean  "fulfill_from_store"
     t.boolean  "store_pickup"
     t.string   "avatar"
+    t.string   "biz_name"
+    t.string   "industry"
+    t.string   "biz_address"
+    t.string   "tax_id"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

@@ -259,19 +259,14 @@ $(document).on('turbolinks:load', function () {
     $(this).parents('.sticky-wrapper').addClass('default-height');
   });
 
-  $("#add_tier").click(function () {
-    $("#mytable").each(function () {
-      var tds = '<tr>';
-      jQuery.each($('tr:last td', this), function () {
-        tds += '<td>' + $(this).html() + '</td>';
-      });
-      tds += '</tr>';
-      if ($('tbody', this).length > 0) {
-        $('tbody', this).append(tds);
-      } else {
-        $(this).append(tds);
-      }
+  $(document).on('click', '#add_tier', function () {
+    $table = $(this).parents('.Modal_footer').prev().find('#mytable');
+    var tds = '<tr>';
+    jQuery.each($('tr:last td', $table), function () {
+      tds += '<td>' + $(this).html() + '</td>';
     });
+    tds += '</tr>';
+    $('tbody', $table).append(tds);
   });
 
 

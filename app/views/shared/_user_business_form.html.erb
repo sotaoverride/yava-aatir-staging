@@ -1,0 +1,42 @@
+<div class="columns text-center">
+  <%= image_tag p.object.avatar.url, class: 'thumbnail', id: 'avatar-image' %>
+  <div class="upload float-center">
+    <%= p.label :avatar %>
+    <%= p.file_field :avatar, class: 'show-for-sr' %>
+  </div>
+</div>
+<div class="columns">
+  <label>Legal Business Name
+    <%= p.text_field :biz_name %>
+	</label>
+</div>
+<div class="columns">
+  <label>Industry
+    <%= p.select :industry, ['Industry1', 'Industry2', 'Industry3'] %>
+	</label>
+</div>
+<div class="columns">
+  <label>Business Address
+    <%= p.text_field :biz_address %>
+	</label>
+</div>
+<div class="columns">
+  <label>Tax ID
+    <%= p.text_field :tax_id %>
+	</label>
+</div>
+<div class="columns">
+  <label>City
+    <%= p.text_field :city %>
+	</label>
+</div>
+<div class="columns small-6">
+  <label>State
+    <%= p.text_field :state %>
+	</label>
+</div>
+<div class="columns small-6">
+  <label>Zip
+    <%= p.text_field :zipcode %>
+	</label>
+</div>

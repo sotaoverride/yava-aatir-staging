@@ -14,6 +14,12 @@ class Profile < ActiveRecord::Base
   validates :fulfillment, presence: true, on: [:update], if: Proc.new { |p| p.fulfillment_changed? }
   validates :dropshipper, presence: true, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
   validates :carriers, presence: true, on: [:update], if: Proc.new { |p| p.carriers_changed? }
+  validates :biz_name, presence: true, on: [:update], if: Proc.new { |p| p.biz_name_changed? }
+  validates :biz_address, presence: true, on: [:update], if: Proc.new { |p| p.biz_address_changed? }
+  validates :tax_id, presence: true, on: [:update], if: Proc.new { |p| p.tax_id_changed? }
+  validates :city, presence: true, on: [:update], if: Proc.new { |p| p.city_changed? }
+  validates :state, presence: true, on: [:update], if: Proc.new { |p| p.state_changed? }
+  validates :zipcode, presence: true, on: [:update], if: Proc.new { |p| p.zipcode_changed? }
 
   accepts_nested_attributes_for :profile_categories, allow_destroy: true
 
@@ -133,4 +139,11 @@ end
 #  fulfill_from_store   :boolean
 #  store_pickup         :boolean
 #  avatar               :string
+#  biz_name             :string
+#  industry             :string
+#  biz_address          :string
+#  tax_id               :string
+#  city                 :string
+#  state                :string
+#  zipcode              :string
 #

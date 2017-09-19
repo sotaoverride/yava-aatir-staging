@@ -12,9 +12,10 @@ class User < ActiveRecord::Base
   validates :full_name, presence: true, on: [:create]
 
   validates :username,
+    presence: true,
     uniqueness: { case_sensitive: false },
     format: { with: /\A[a-zA-Z0-9]+\z/ },
-    length: { in: 4..10 }, on: [:update], unless: Proc.new { |u| u.username.blank? }
+    length: { in: 4..10 }, on: [:update], if: Proc.new { |u| u.username_changed? }
 
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile

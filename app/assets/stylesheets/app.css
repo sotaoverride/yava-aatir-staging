@@ -9540,7 +9540,6 @@ body.sticky-search .search-bar {
 }
 
 .box-section {
-    height: calc(100% - 100px);
     min-height: 660px;
     position: relative;
     margin-top: 120px;
@@ -11077,7 +11076,7 @@ body.sticky-search .search-bar {
     border-width: 1px;
     width: 300px;
     position: absolute;
-    top: 25px;
+    top: 7px;
     left: 21px
 }
 
@@ -11393,9 +11392,32 @@ body.sticky-search .search-bar {
     margin-left: -7px
 }
 
+.form-box .form button.prev:after {
+    content: '';
+    margin-left: 0px;
+}
+
 .form-box .form button:hover:after {
     opacity: 1;
     margin-left: 10px
+}
+
+.form-box .form button.prev:hover:before {
+    opacity: 1;
+    margin-right: 10px;
+}
+
+.form-box .form button.prev:hover:after {
+    margin-left: 0;
+}
+
+.form-box .form button.prev:before {
+    font-family: FontAwesome;
+    transition: opacity 250ms linear, margin-right 250ms linear;
+    content: '\f104';
+    opacity: 0;
+    margin-left: 0px;
+    margin-right: -7px;
 }
 
 .form-box .form .thumbnail {
@@ -14205,7 +14227,7 @@ Custom CSS===***==
     height: 100%;
     width: 0px;
     position: fixed;
-    z-index: 9999;
+    z-index: 9999999;
     top: 0;
     left: 0px;
     background-color: #fff;

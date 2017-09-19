@@ -53,6 +53,7 @@ class WizardsController < ApplicationController
         :marketplace_provider, :marketplace_url, :integration, :inventory_update,
         :average_ships, :own_inventory, :fulfillment, :dropshipper, :order_to_shiptime,
         :shiptime_guarantee, :freight_carrier, :return_policy, :physical_store,
+        :biz_name, :industry, :biz_address, :tax_id, :city, :state, :zipcode,
         :fulfill_from_store, :store_pickup, carriers_name: []
       ])
   end

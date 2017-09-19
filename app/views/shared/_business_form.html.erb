@@ -1,10 +1,4 @@
-<div class="columns text-center">
-  <%= image_tag p.object.avatar.url, class: 'thumbnail', id: 'avatar-image' %>
-  <div class="upload float-center">
-    <%= p.label :avatar %>
-    <%= p.file_field :avatar, class: 'show-for-sr' %>
-  </div>
-</div>
+<%= render 'shared/user_business_form', f: f, p: p %>
 <div class="columns">
   <%= p.label :authorized_product %>
   <%= p.select :authorized_product, Enum::Profile::SomeProduct[:options] %>

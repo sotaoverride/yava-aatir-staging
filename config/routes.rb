@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :carts, only: [:index]
   resources :orders, only: [:index, :show]
 
+  get 'explore', to: 'home#index'
+
   # Root to explore page
-  root to: 'home#index'
+  root to: 'deals#index'
 end

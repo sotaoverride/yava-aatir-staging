@@ -9,8 +9,8 @@
             <li class="tabs-title is-active"><a href="#change-username" aria-selected="true">Change Username</a></li>
             <li class="tabs-title"><a href="#change-password">Change Password</a></li>
             <li class="tabs-title "><a href="#company-info">Change Company Info</a></li>
-            <li class="tabs-title "><a href="#shipping-address">Shipping Addresses</a></li>
-            <li class="tabs-title "><a href="#payment-options">Payment Options</a></li>
+            <li class="tabs-title "><a href="#panel4v">Shipping Addresses</a></li>
+            <li class="tabs-title "><a href="#panel5v">Payment Options</a></li>
           </ul>
         </div>
         <div class="columns form small-centered" data-last-active='<%= @active_tab %>'>
@@ -65,7 +65,7 @@
                 <%= f.fields_for :profile, current_user.profile do |p| %>
                   <%= render 'shared/error_message', object: current_user %>
                   <div class="row">
-                    <%= render "shared/business_form", p: p, f: f %>
+                    <%= render "shared/user_business_form", p: p, f: f %>
                     <div class="columns">
                       <button type="submit" name="current_tab" value='company-info' class="button float-right">Save Changes</button>
                     </div>                            
@@ -75,7 +75,7 @@
             </div>
 
 
-            <div class="tabs-panel" id="shipping-address">
+            <div class="tabs-panel" id="panel4v">
               <div class="Shipping_box">
                 <button class="button" type="button" data-open="add_new_address">+ Add New Shipping Address</button>
                 <div class="single_address">
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </div>
-            <div class="tabs-panel" id="payment-options">
+            <div class="tabs-panel" id="panel5v">
               <button class="button" type="button" data-open="add_new_pay">+ Add New Payment</button>
               <div class="single_address">
                 <label for="first_address">

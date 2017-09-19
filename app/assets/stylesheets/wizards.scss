@@ -35,3 +35,7 @@ label.pull-left { margin-right: 10px; }
 }
 
 .field_with_errors > input{ border: 1px solid red !important; }
+
+.column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+  float: left;
+}
