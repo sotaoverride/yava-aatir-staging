@@ -259,16 +259,18 @@ $(document).on('turbolinks:load', function () {
     $(this).parents('.sticky-wrapper').addClass('default-height');
   });
 
-  $(document).on('click', '#add_tier', function () {
+  var addNewDiscountRow = function(){
     $table = $(this).parents('.Modal_footer').prev().find('#mytable');
+    console.log(this);
     var tds = '<tr>';
     jQuery.each($('tr:last td', $table), function () {
       tds += '<td>' + $(this).html() + '</td>';
     });
     tds += '</tr>';
     $('tbody', $table).append(tds);
-  });
+  }
 
+  $('#add_tier').click(addNewDiscountRow);
 
   $("#add_tier-2").click(function () {
     $("#mytable-2").each(function () {

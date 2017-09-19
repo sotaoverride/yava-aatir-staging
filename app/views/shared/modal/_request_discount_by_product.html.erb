@@ -1,21 +1,18 @@
-<div class="reveal discounts_popup" id="product_pop_dic_sell" data-reveal>
-  <h3>Assign Discounts by Product</h3>
-
-  <p>Please select a Product to start assigning  discounts</p>
+<div class="reveal discounts_popup" id="product_pop_dic" data-reveal>
+  <h3>Request Discounts by Product</h3>
+  <p>Please select a Product to Request  discounts</p>
 
   <div class="search_pro">
     <span class="fa fa-search"></span>
-    <input placeholder="Search term">
+    <input placeholder="Search products">
   </div>
-
 
   <div class="select_pro_pop " id="edit-item">
     <ul class="no-bullet items">
-      <li>
+      <li class="selected">
         <div class="iradio_minimal checked" style="position: relative;">
           <input name="shoe" style="position: absolute; opacity: 0;" type="radio">
           <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">
-
           </ins>
         </div>
         <%= image_tag 'shoe.jpg' %> Nike Sport Shoes Fingertap Max <span class="price">USD 140 /box</span>
@@ -24,7 +21,6 @@
         <div class="iradio_minimal" style="position: relative;">
           <input name="shoe" style="position: absolute; opacity: 0;" type="radio">
           <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">
-
           </ins>
         </div>
         <%= image_tag 'shoe.jpg' %> Nike Sport Shoes Fingertap Max <span class="price">USD 140 /box</span>
@@ -33,7 +29,6 @@
         <div class="iradio_minimal" style="position: relative;">
           <input name="shoe" style="position: absolute; opacity: 0;" type="radio">
           <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">
-
           </ins>
         </div>
         <%= image_tag 'shoe.jpg' %> Nike Sport Shoes Fingertap Max <span class="price">USD 140 /box</span>
@@ -42,7 +37,6 @@
         <div class="iradio_minimal" style="position: relative;">
           <input name="shoe" style="position: absolute; opacity: 0;" type="radio">
           <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">
-
           </ins>
         </div>
         <%= image_tag 'shoe.jpg' %> Nike Sport Shoes Fingertap Max <span class="price">USD 140 /box</span>
@@ -51,7 +45,6 @@
         <div class="iradio_minimal" style="position: relative;">
           <input name="shoe" style="position: absolute; opacity: 0;" type="radio">
           <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">
-
           </ins>
         </div>
         <%= image_tag 'shoe.jpg' %> Nike Sport Shoes Fingertap Max <span class="price">USD 140 /box</span>
@@ -62,20 +55,20 @@
 
   <br/>
 
-  <p>Create tiered discount for the  select product</p>
+  <p>Add Quantity and Request Price</p>
   <div class="select_pro_pop_details">
-    <div class="single_row single_row_height">
+    <div class="single_row">
       <table class="unstriped" id="mytable">
         <thead>
           <tr>
             <th>Quantity</th>
-
+            <th>Price</th>
             <th colspan="2">
               <div class="switch-toggle switch-ios">
-                <input id="dollar-amount" name="view" type="radio" checked value="dollar">
-                <label for="dollar-amount" onclick="">Dollar Amount</label>
-                <input id="percentage" name="view" type="radio" value="percentage">
-                <label for="percentage" onclick="">Percentage</label>
+                <input id="dollar-amount-by-product" name="view" type="radio" checked value="dollar">
+                <label for="dollar-amount-by-product" onclick="">Dollar Amount</label>
+                <input id="percentage-by-product" name="view" type="radio" value="percentage">
+                <label for="percentage-by-product" onclick="">Percentage</label>
                 <a class="button"></a>
               </div>
             </th>
@@ -85,66 +78,24 @@
           <tr>
             <td>
               <div class="flex_t">
-                <label>&nbsp; 1 &nbsp;&nbsp; to &nbsp;&nbsp;</label>
                 <input type="text" value="5">
               </div>
-
             </td>
-            <th> &nbsp;</th>
             <td>
               <div class="usd_box">
                 <p>USD</p>
                 <input type="text" value="9">
               </div>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="flex_t">
-                <label>&nbsp; 6 &nbsp;&nbsp; to &nbsp;&nbsp;</label>
-                <input type="text" value="8">
-              </div>
-            </td>
-            <td>
-
-              <label>
-                <input type="checkbox" >
-                Maximun tier
-              </label>
-            </td>
-
-            <td>
-              <div class="usd_box">
-                <p>USD</p>
-                <input type="text" value="8">
-                <div class="close_btn"><i class="fa fa-times" aria-hidden="true"></i></div>
-              </div>
-
-            </td>                  
+            <td> &nbsp;</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="Modal_footer">
-    <a href="javascript:void(0)" id="add_tier">+ Add Tier</a>
-    <button class="button pop_up_btn" data-open="product_pop_dic_inner">NEXT</button>
-  </div>
-  <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 
-<div class="reveal discounts_popup" id="product_pop_dic_inner" data-reveal>
-  <h3>Add Promotion Preiod</h3>
-  <p>Enter a Time Preiod for Your Promotion</p>
-  <div class="add_date">
-    <p>How many Days ? </p>
-    <input type="text" name="">
-  </div>
-  <div class="submit_data">
-    <button class="button sikp_btn">BACK </button>
-    <button class="button add_btn">SUBMIT</button>
+  <div class="Modal_footer">
+    <button class="button pop_up_btn">SUBMIT</button>
   </div>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
