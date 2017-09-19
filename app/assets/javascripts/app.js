@@ -1,4 +1,16 @@
 $(document).on('turbolinks:load', function () {
+  $('.active-deals').slick({
+      infinite: false
+      , swipe: false
+      , slidesToShow: 5
+      , slidesToScroll: 1
+  });
+
+  $('[data-demo-click]').on('click', function(){
+    url = $(this).data('demo-click');
+    window.location = url;
+  });
+
   $(document).foundation();
   //$('select[data-prompt]').foundationSelect();
   $('#upload-csv .dropify').dropify({
