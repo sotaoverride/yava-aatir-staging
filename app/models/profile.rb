@@ -8,6 +8,9 @@ class Profile < ActiveRecord::Base
   validates :wizard_step, inclusion: Enum::Profile::WizardStep[:options].map(&:to_s)
   validate :profile_type_included_in_constant, unless: Proc.new { |p| p.profile_type.blank? }
 
+  validates :last_name, presence: true, on: [:update], if: Proc.new { |p| p.last_name_changed? }
+  validates :first_name, presence: true, on: [:update], if: Proc.new { |p| p.first_name_changed? }
+
   validates :top_selling_brand, presence: true, on: [:update], if: Proc.new { |p| p.top_selling_brand_changed? }
   validates :ecommerce_url, presence: true, on: [:update], if: Proc.new { |p| p.ecommerce_url_changed? }
   validates :marketplace_url, presence: true, on: [:update], if: Proc.new { |p| p.marketplace_url_changed? }
