@@ -1,41 +1,40 @@
 <% num_times.times.each do %>
   <div class="columns medium-6  large-6">
-    <a href="<%= product_path(1) %>" class="hover_btn">
-      <div class="single_request">
-        <div class="row">
-          <div class="columns medium-3">
-            <div class="res_product_img">
-              <%= image_tag 'alpha.jpg', alt: 'alpha' %>
-            </div>
+    <a href="<%= product_path(1) %>" class="hover_btn"></a>
+    <div class="single_request">
+      <div class="row">
+        <div class="columns medium-3">
+          <div class="res_product_img">
+            <%= image_tag 'alpha.jpg', alt: 'alpha' %>
           </div>
-          <div class="columns medium-9">
-            <div class="Req_details Products_title">
-              <h3>Nike Sport Shoes Fingertap Max <br/><a href="#" class="name">– by Rapture</a></h3>
-              <div class="widget_req">
-                <div class="seller_details">
-                  <a href="#">Men's Apparel</a>
-                  <a href="#">T-Shirt</a>
-                  <span class="category_name"><a href="#"><i class="fa fa-link"></i></a></span>
-                </div>
+        </div>
+        <div class="columns medium-9">
+          <div class="Req_details Products_title">
+            <h3>Nike Sport Shoes Fingertap Max <br/><a href="#" class="name">– by Rapture</a></h3>
+            <div class="widget_req">
+              <div class="seller_details">
+                <a href="#">Men's Apparel</a>
+                <a href="#">T-Shirt</a>
+                <span class="category_name"><a href="#"><i class="fa fa-link"></i></a></span>
+              </div>
 
+            </div>
+            <div class="price_req">
+              <p class="std_price">Standard Price: <span>$180.56</span></p>
+              <p>Requested Price: <span>$150.56</span></p>
+            </div>
+            <div class="req_btn">
+              <div class="req_numer">
+                <p>Requests: <span>50</span></p>
               </div>
-              <div class="price_req">
-                <p class="std_price">Standard Price: <span>$180.56</span></p>
-                <p>Requested Price: <span>$150.56</span></p>
-              </div>
-              <div class="req_btn">
-                <div class="req_numer">
-                  <p>Requests: <span>50</span></p>
-                </div>
-                <div class="reqest_btns">
-                  <button class="re_btn" type="button" data-open="product_pop_dic">edit </button>
-                  <button class="re_btn" type="button">cancel </button>
-                </div>
+              <div class="reqest_btns">
+                <button class="re_btn" type="button" data-open="product_pop_dic">edit </button>
+                <button class="re_btn" type="button">cancel </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 <% end %>

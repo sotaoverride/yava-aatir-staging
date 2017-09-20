@@ -11,7 +11,7 @@
       <div class="blue_warning midle_area">
         <i class="fa fa-info-circle" aria-hidden="true"></i>
         <p>
-          <p> Want to track your committed order? Visit your <a href="<%= orders_path %>">Order History</a> </p>
+          <p> Want to track your committed order? Visit your <a href="<%= order_path('history') %>">Order History</a> </p>
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
           </div>
           <div class="columns medium-2">
             <div class="single_h">
-              <p>Visit your <a href="<%= orders_path %>" class="bold_text">Order History</a> to track your order.</p>
+              <p>Visit your <a href="<%= order_path('history') %>" class="bold_text">Order History</a> to track your order.</p>
               <div class="pending_charge">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                 <p>See a pending charge on your card? The actual charge will go through once the group order is completed. Learn

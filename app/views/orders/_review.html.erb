@@ -121,3 +121,265 @@
     </div>
   </div>
 </div>
+
+<div class="reveal" id="pay_add" data-reveal>
+  <div class="Shipping_box">
+    <h3>Shipping Addresses</h3>
+    <button class="button" type="button" data-open="add_new_address">+ Add New Shipping Address</button>
+    <div class="single_address">
+      <input type="radio" name="Address" value="first_address" id="first_address" class="add_input" checked>
+      <label for="first_address">JOHN DOE</label>
+      <span>28 Mainstreet North Suite 100 <br/>MINNEAPOLIS, MN 55343</span> 
+    </div>
+  </div>
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="reveal" id="add_new_address" data-reveal>
+  <h1>Shipping Address</h1>
+  <div class="Shipping_tab_add">
+    <div class="row collapse">
+      <div class="medium-12 columns">
+        <ul class="vertical tabs" data-tabs id="addres-tabs">
+          <li class="tabs-title is-active"> <span class="dot_circel"></span><a href="#panel1v" >Residential Address</a></li>
+          <li class="tabs-title"> <span class="dot_circel"></span><a href="#panel2v">Business Address</a></li>
+        </ul>
+      </div>
+      <div class="medium-12 columns">
+        <div class="tabs-content" data-tabs-content="addres-tabs">
+          <div class="tabs-panel is-active" id="panel1v">
+            <div class="shipping_addresss_tab">
+              <div class="row">
+                <div class="medium-12 columns">
+                  <label>First Name
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Last Name
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Street Address
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Apt., Floor, Unit (Optional)
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Zip Code
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Phone Number
+                    <input type="text" >
+                  </label>
+                </div>
+
+                <div class="medium-12 columns">
+                  <input type="radio" name="make_def_Address" value="make_def_Address" id="make_def_Address"> <label for="make_def_Address">Make this my default shipping address.</label>
+                </div>
+
+                <div class="medium-12 columns">
+                  <button class="button sub_btn_add" type="button">Save & Continue</button>
+                  <button class="button sub_btn_add" data-close aria-label="Close reveal" type="button"> Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="tabs-panel" id="panel2v">
+            <div class="shipping_addresss_tab">
+              <div class="row">
+                <div class="medium-12 columns">
+                  <label>Business Name
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>First Name
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Last Name
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Street Address
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Apt., Floor, Unit (Optional)
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Zip Code
+                    <input type="text" >
+                  </label>
+                </div>
+                <div class="medium-12 columns">
+                  <label>Phone Number
+                    <input type="text" >
+                  </label>
+                </div>
+
+                <div class="medium-12 columns">
+                  <input type="radio" name="make_def_Address" value="make_def_Address" id="make_def_Address"> <label for="make_def_Address">Make this my default shipping address.</label>
+                </div>
+
+                <div class="medium-12 columns">
+                  <button class="button sub_btn_add" type="button">Save & Continue</button>
+                  <button class="button sub_btn_add" data-close aria-label="Close reveal" type="button"> Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="reveal" id="pay_medtho" data-reveal>
+
+  <div class="Shipping_box ">
+    <h3>Payment Method</h3>
+    <button class="button" type="button" data-open="add_new_pay">+ Add New Payment</button>
+    <div class="single_address">
+      <input type="radio" name="Address" value="first_address" id="first_address" class="add_input" checked>
+      <label for="first_address">
+        <div class="card_img_s">
+          <%= image_tag 'visa.png', alt: 'png' %>
+        </div>
+      </label>
+      <span>Debit ****1240  <br/>JOHN A DOE</span> 
+      <span class="expre_date">
+        Expries 08/2019
+      </span>
+    </div>
+  </div>
+
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="reveal" id="add_new_pay" data-reveal>
+  <div class="card_info no-border">
+    <h3>Card Info</h3>
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Card Number
+          <input type="text" >
+        </label>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="medium-6 columns">
+        <label>Card Number
+          <input type="text" >
+        </label>
+      </div>
+      <div class="medium-6 columns">
+        <p>All major cards accepted.</p>
+        <%= image_tag 'card.jpg' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Expiration Date
+          <input type="text" placeholder="MM/YY">
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Security Code
+          <input type="text" >
+        </label>
+      </div>
+
+    </div>
+  </div>
+  <div class="check_box">
+    <div class="single_check">
+      <input id="checkbox1" type="checkbox"><label for="checkbox1">Make this my default payment.</label>
+    </div>
+    <div class="check_card_box-2">
+
+      <div class="single_check same_as_bill">
+        <input id="checkbox2" type="checkbox" class="toggle_btn" checked><label for="checkbox2">Billing address is same as Shipping.</label>
+
+      </div>
+    </div>
+
+    <div class="shipping_addresss">
+      <h3>Shipping Adresss</h3>
+      <div class="shipping_toggle_form">
+        <div class="row">
+          <div class="medium-12 columns">
+            <label>First Name
+              <input type="text" >
+            </label>
+          </div>
+          <div class="medium-12 columns">
+            <label>Last Name
+              <input type="text" >
+            </label>
+          </div>
+          <div class="medium-12 columns">
+            <label>Street Address
+              <input type="text" >
+            </label>
+          </div>
+          <div class="medium-12 columns">
+            <label>Apt., Floor, Unit (Optional)
+              <input type="text" >
+            </label>
+          </div>
+          <div class="medium-12 columns">
+            <label>Billing Zip Code
+              <input type="text" >
+            </label>
+          </div>
+          <div class="medium-12 columns">
+            <label>Phone Number
+              <input type="text" >
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <button class="button sub_btn_adds" type="button">Save & Continue</button>
+    </div>
+  </div>
+
+
+
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

@@ -23,10 +23,10 @@
         </div>
       </div>
 
-      <div class="row box">
+      <div class="row box" data-category="<%= Category.all.map(&:name) %>">
 
         <% Category.all.each do |category| %>
-          <div class="columns small-4">
+          <div class="columns small-4 category-name <%= category.name.gsub(/&/, 'and').underscore.parameterize %>">
             <button class="box-content" data-category-id="<%= category.id %>">
               <%= image_tag category.image_name, alt: 'icon' %>
               <h4><%= category.name %></h4>

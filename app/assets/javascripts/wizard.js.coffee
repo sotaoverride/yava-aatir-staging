@@ -1,4 +1,18 @@
 $(document).on 'turbolinks:load', () ->
+  $('.search_area_cate input[name="search"]').on 'keyup', () ->
+    value = $(this).val().toLowerCase()
+    if value == ''
+      $('.category-name').show()
+    else
+      $('.category-name').hide()
+      $('[data-category]').data('category').forEach (a) ->
+        a = a.toLowerCase()
+        if a.indexOf(value)>-1
+          a = a.replace(/&/g, 'and')
+          a = a.split(' ').join('-')
+          console.log(a)
+          $(".#{a}").toggle()
+
   $('.wizard-link.disabled').on 'click', (e) ->
     e.preventDefault()
 
