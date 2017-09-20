@@ -13,6 +13,7 @@ class Profile < ActiveRecord::Base
   validates :marketplace_url, presence: true, on: [:update], if: Proc.new { |p| p.marketplace_url_changed? }
   validates :fulfillment, presence: true, on: [:update], if: Proc.new { |p| p.fulfillment_changed? }
   validates :dropshipper, presence: true, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
+  validates :dropshipper, numericality: { greater_than: 0 }, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
   validates :carriers, presence: true, on: [:update], if: Proc.new { |p| p.carriers_changed? }
   validates :biz_name, presence: true, on: [:update], if: Proc.new { |p| p.biz_name_changed? }
   validates :biz_address, presence: true, on: [:update], if: Proc.new { |p| p.biz_address_changed? }
