@@ -6,6 +6,11 @@
   </div>
 </div>
 <div class="columns">
+  <%- if current_user.errors.full_messages.length > 0 %>
+    <div class='callout alert'>
+      All field is required
+    </div>
+  <% end %>
   <label>Legal Business Name
     <%= p.text_field :biz_name %>
 	</label>

@@ -8,6 +8,7 @@
       </div>
       <div class="row">
         <div class="columns form small-centered">
+          
           <%= form_for current_user, url: wizards_path(step: 4), method: :put do |f| %>
             <%= f.fields_for :profile, current_user.profile do |p| %>
               <div class="row">

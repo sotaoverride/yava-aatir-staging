@@ -11,6 +11,11 @@
       </div>
       <div class="row">
         <div class="columns form small-centered">
+          <%- if current_user.errors.full_messages.length > 0 %>
+            <div class='callout alert'>
+              All field is required
+            </div>
+          <% end %>
           <%= form_for current_user, url: wizards_path(step: 3), method: :put do |f| %>
             <%= f.fields_for :profile, current_user.reload.profile do |profile| %>
               <%= profile.hidden_field :id %>
