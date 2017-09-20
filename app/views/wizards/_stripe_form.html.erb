@@ -37,7 +37,7 @@
               <input type='hidden' name='cost' id='cost' value='2999' />
               <div class="columns">
                 <label>Credit Card Name
-                  <input type="text">
+                  <input type="text" value="<%= current_user.profile.full_name %>" name='cc-owner'>
                 </label>
               </div>
               <div class="columns">

@@ -58,9 +58,17 @@ $(document).on 'turbolinks:load', ->
     form.addEventListener 'submit', (event) ->
       event.preventDefault()
 
-      stripe.createToken(card).then (result) ->
-        if result.error
-          errorElement = document.getElementById('card-errors')
-          errorElement.textContent = result.error.message
-        else
-          stripeTokenHandler(result.token, form)
+      ##
+      # cc-name handler
+      ccOwner = $('input[name="cc-owner"]').val()
+
+      if ccOwner == ''
+        $('input[name="cc-owner"]').parents('label').addClass('field_with_errors')
+      else
+        $('input[name="cc-owner"]').parents('label').removeClass('field_with_errors')
+        stripe.createToken(card).then (result) ->
+          if result.error
+            errorElement = document.getElementById('card-errors')
+            errorElement.textContent = result.error.message
+          else
+            stripeTokenHandler(result.token, form)

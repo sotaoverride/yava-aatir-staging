@@ -34,6 +34,10 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def next_step
     Enum::Profile::WizardStep[:options][current_step_index + 1]
   end
