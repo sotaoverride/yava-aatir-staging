@@ -22,7 +22,7 @@
 </div>
 <div class="columns">
   <label>Tax ID
-    <%= p.text_field :tax_id %>
+    <%= p.text_field :tax_id, placeholder: '12-3456789' %>
 	</label>
 </div>
 <div class="columns">
@@ -32,7 +32,7 @@
 </div>
 <div class="columns small-6">
   <label>State
-    <%= p.text_field :state %>
+    <%= p.select :state, region_options_for_select(us_states) %>
 	</label>
 </div>
 <div class="columns small-6">
