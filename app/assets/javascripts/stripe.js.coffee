@@ -1,16 +1,18 @@
 $(document).on 'turbolinks:load', ->
   $('.floating-box .subscription>.row .switch-toggle label[for="monthly"]').on('click', () ->
-    $('.floating-box .subscription .sub-box > .sub-coupon').fadeOut(125)
-    $('.floating-box .subscription .sub-box > .sub-plan').delay(125).fadeIn(125)
-    $('button.upgrade').removeClass('hide')
-    $('button.validate, button.upgrade-right-side').addClass('hide')
+    if $('input#monthly:enabled').length > 0
+      $('.floating-box .subscription .sub-box > .sub-coupon').fadeOut(125)
+      $('.floating-box .subscription .sub-box > .sub-plan').delay(125).fadeIn(125)
+      $('button.upgrade').removeClass('hide')
+      $('button.validate, button.upgrade-right-side').addClass('hide')
   )
 
   $('.floating-box .subscription>.row .switch-toggle label[for="coupon"]').on('click', () ->
-    $('.floating-box .subscription .sub-box > .sub-plan').fadeOut(125);
-    $('.floating-box .subscription .sub-box > .sub-coupon').delay(125).fadeIn(125);
-    $('button.upgrade').addClass('hide')
-    $('button.validate').removeClass('hide')
+    if $('input#coupon:enabled').length > 0
+      $('.floating-box .subscription .sub-box > .sub-plan').fadeOut(125);
+      $('.floating-box .subscription .sub-box > .sub-coupon').delay(125).fadeIn(125);
+      $('button.upgrade').addClass('hide')
+      $('button.validate').removeClass('hide')
   )
 
   $('button.validate').on('click', () ->
@@ -20,6 +22,7 @@ $(document).on 'turbolinks:load', ->
       $('input#cost').val('0')
       $('button.validate').addClass('hide')
       $('button.upgrade-right-side').removeClass('hide')
+      $('input#coupon, input#monthly').attr('disabled', 'disabled')
     else
       $('input.coupon').parents('.sub-coupon').addClass('field_with_errors')
   )
