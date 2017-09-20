@@ -1,9 +1,11 @@
 <%= title('Sign Up - Registration') %>
-<section class="box-section box-section_margin final-question">
+<section class="box-section final-question">
   <div class="row expanded form-box">
     <div class="columns">
-      <h1>Final Step: Register to Yova</h1>
-      <h3>Please register to continue the process</h3>
+      <div class='header_search_fixed' id='sticker-2'>
+        <h1>Final Step: Register to Yova</h1>
+        <h3>Please register to continue the process</h3>
+      </div>
       <div class="row">
         <div class="columns form small-centered">
           <%= form_for current_user, url: wizards_path(step: 4), method: :put do |f| %>

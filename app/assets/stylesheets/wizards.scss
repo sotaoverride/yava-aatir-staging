@@ -6,6 +6,15 @@ label.pull-left { margin-right: 10px; }
   height: auto !important;
 }
 
+.profile-info, .final-question {
+  .form-box h1 {
+    margin-top: 0;
+  }
+  .hey {
+    #sticker-2 { width: 100% !important; left: 0 }
+  }
+}
+
 #card-element {
   border: 1px solid #8181cd;
   border-radius: 10px;
