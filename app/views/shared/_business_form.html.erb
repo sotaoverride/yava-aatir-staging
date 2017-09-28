@@ -1,83 +1,123 @@
 <%= render 'shared/user_business_form', f: f, p: p %>
 <div class="columns">
-  <%= p.label :authorized_product %>
-  <%= p.select :authorized_product, Enum::Profile::SomeProduct[:options] %>
+  <label>
+    <%= p.label :authorized_product %>
+    <%= p.select :authorized_product, Enum::Profile::SomeProduct[:options] %>
+  </label>
 </div>
 <div class="columns">
-  <%= p.label :anual_online_revenue %>
-  <%= p.select :anual_online_revenue, Enum::Profile::Revenue[:options] %>
+  <label>
+    <%= p.label :anual_online_revenue %>
+    <%= p.select :anual_online_revenue, Enum::Profile::Revenue[:options] %>
+  </label>
 </div>
 <div class="columns">
-  <%= p.label :sku_in_catalog %>
-  <%= p.select :sku_in_catalog, Enum::Profile::SKU[:options] %>
+  <label>
+    <%= p.label :sku_in_catalog %>
+    <%= p.select :sku_in_catalog, Enum::Profile::SKU[:options] %>
+  </label>
 </div>
 <div class="columns">
-  <%= p.label :top_selling_brand %>
-  <%= p.text_field :top_selling_brand %>
+  <label>
+    <%= p.label :top_selling_brand %>
+    <%= p.text_field :top_selling_brand %>
+  </label>
 </div>
 <div class="columns">
-  <%= p.label :sell_used_product %>
-  <%= p.select :sell_used_product, Enum::Profile::SomeProduct[:options] %>
+  <label>
+    <%= p.label :sell_used_product %>
+    <%= p.select :sell_used_product, Enum::Profile::SomeProduct[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :map_rpm_policies %>
-  <%= p.select :map_rpm_policies, Enum::Profile::MapPolicies[:options] %>
+  <label>
+    <%= p.label :map_rpm_policies %>
+    <%= p.select :map_rpm_policies, Enum::Profile::MapPolicies[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :walmart_supplier %>
-  <%= p.select :walmart_supplier, Enum::Profile::SellOnWallmart[:options] %>
+  <label>
+    <%= p.label :walmart_supplier %>
+    <%= p.select :walmart_supplier, Enum::Profile::SellOnWallmart[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :ecommerce_url %>
-  <%= p.text_field :ecommerce_url %>
+  <label>
+    <%= p.label :ecommerce_url %>
+    <%= p.text_field :ecommerce_url %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :marketplace_provider %>
-  <%= p.select :marketplace_provider, Enum::Profile::OnlineStores[:options] %>
+  <label>
+    <%= p.label :marketplace_provider %>
+    <%= p.select :marketplace_provider, Enum::Profile::OnlineStores[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :marketplace_url %>
-  <%= p.text_field :marketplace_url %>
+  <label>
+    <%= p.label :marketplace_url %>
+    <%= p.text_field :marketplace_url %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :integration %>
-  <%= p.select :integration, Enum::Profile::Integration[:options] %>
+  <label>
+    <%= p.label :integration %>
+    <%= p.select :integration, Enum::Profile::Integration[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :inventory_update %>
-  <%= p.select :inventory_update, Enum::Profile::UpdateFrequency[:options] %>
+  <label>
+    <%= p.label :inventory_update %>
+    <%= p.select :inventory_update, Enum::Profile::UpdateFrequency[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :average_ships %>
-  <%= p.select :average_ships, Enum::Profile::OrderFrequency[:options] %>
+  <label>
+    <%= p.label :average_ships %>
+    <%= p.select :average_ships, Enum::Profile::OrderFrequency[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :own_inventory %>
-  <%= p.select :own_inventory, { 'Yes' => true, 'No' => false } %>
+  <label>
+    <%= p.label :own_inventory %>
+    <%= p.select :own_inventory, { 'Yes' => true, 'No' => false } %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :fulfillment %>
-  <%= p.text_field :fulfillment %>
+  <label>
+    <%= p.label :fulfillment %>
+    <%= p.text_field :fulfillment %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :dropshipper %>
-  <%= p.number_field :dropshipper %>
+  <label>
+    <%= p.label :dropshipper %>
+    <%= p.number_field :dropshipper %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :order_to_shiptime %>
-  <%= p.select :order_to_shiptime, Enum::Profile::ShipTime[:options] %>
+  <label>
+    <%= p.label :order_to_shiptime %>
+    <%= p.select :order_to_shiptime, Enum::Profile::ShipTime[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :shiptime_guarantee %>
-  <%= p.select :shiptime_guarantee, Enum::Profile::ShipTimeGuarantee[:options] %>
+  <label>
+    <%= p.label :shiptime_guarantee %>
+    <%= p.select :shiptime_guarantee, Enum::Profile::ShipTimeGuarantee[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :freight_carrier %>
-  <%= p.select :freight_carrier, Enum::Profile::Sometimes[:options] %>
+  <label>
+    <%= p.label :freight_carrier %>
+    <%= p.select :freight_carrier, Enum::Profile::Sometimes[:options] %>
+  </label>
 </div>
 <div class='columns'>
-  <%= p.label :return_policy %>
-  <%= p.select :return_policy, Enum::Profile::ReturnPolicy[:options] %>
+  <label>
+    <%= p.label :return_policy %>
+    <%= p.select :return_policy, Enum::Profile::ReturnPolicy[:options] %>
+  </label>
 </div>
 <div class='columns'>
   <%= p.label :carriers_name %>

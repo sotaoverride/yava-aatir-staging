@@ -1,4 +1,5 @@
 $(document).on 'turbolinks:load', () ->
+  # simple search on choose_categories page
   $('.search_area_cate input[name="search"]').on 'keyup', () ->
     value = $(this).val().toLowerCase()
     if value == ''
@@ -102,3 +103,18 @@ $(document).on 'turbolinks:load', () ->
 
     $('#user_profile_attributes_profile_type').val(selectedType)
 # END OF SELECT PROFILE TYPE SCRIPT
+
+# START OF SHOW HELP TEXT ON FORM
+  $form = $('form[data-errors]')
+  errors = $form.data('errors')
+  formName = $form.data('form-name')
+  console.log(errors)
+  $.each errors, (key, value) ->
+    if value.length > 0
+      keys = key.split('.')
+      fieldName = "[#{keys[0]}]"
+      fieldName = "[#{keys[0]}_attributes][#{keys[1]}]" if keys.length > 1
+
+      console.log fieldName
+      label = $("[name='#{formName}#{fieldName}']").parents('label')
+      label.after("<p class='help-text' style='color: red;'>#{keys[keys.length - 1]} #{value.join(',')}</p>")
