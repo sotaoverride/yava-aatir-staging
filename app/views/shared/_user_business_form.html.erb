@@ -37,7 +37,7 @@
 </div>
 <div class="columns small-6">
   <label>State
-    <%= p.select :state, region_options_for_select(us_states) %>
+    <%= p.select :state, options_for_select(us_states, p.object.state) %>
 	</label>
 </div>
 <div class="columns small-6">

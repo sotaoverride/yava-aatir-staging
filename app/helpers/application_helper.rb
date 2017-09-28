@@ -5,6 +5,6 @@ module ApplicationHelper
 
   def us_states
     us = Carmen::Country.coded('us')
-    us.subregions.select { |u| u.type == 'state' }
+    us.subregions.select { |u| u.type == 'state' }.map { |state| [state.name, state.code] }
   end
 end
