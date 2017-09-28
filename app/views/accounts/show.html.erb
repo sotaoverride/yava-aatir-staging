@@ -22,6 +22,11 @@
                   <%= render 'shared/error_message', object: current_user %>
                 </div>
                 <div class="columns">
+                  <label>Email
+                    <%= f.email_field :email %>
+                  </label>
+                </div>
+                <div class="columns">
                   <label>Username
                     <%= f.text_field :username %>
                   </label>
@@ -73,7 +78,6 @@
                 <% end %>
               <% end %>
             </div>
-
 
             <div class="tabs-panel" id="panel4v">
               <div class="Shipping_box">
