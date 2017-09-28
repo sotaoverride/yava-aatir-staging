@@ -28,3 +28,4 @@
 //= require wizard
 //= require stripe
 //= require accounts
+//= require products
