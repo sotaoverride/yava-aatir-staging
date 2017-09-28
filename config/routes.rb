@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'user/registrations'
+  }
 
   resource :account,   only: [:show, :update]
   resource :wizards,   only: [:show, :update]

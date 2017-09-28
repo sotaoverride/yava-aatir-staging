@@ -1,8 +1,9 @@
 <div class="top-bar top-bar_flex">
-
   <!-- Center Logo -->
   <div class="center_logo single_flex">
-    <a href="deals.html"><img src="images/logo.png"></a>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <%= image_tag 'logo.png' %>
+    <% end %>
   </div>
 
   <div class="top-bar-center  single_flex">
@@ -16,6 +17,7 @@
 
   <div class="home_right_acc_info  single_flex sing_icon_width">
     <div class="top-bar-right">
+      <%= link_to 'Sign In', destroy_user_session_path, method: :delete, class: 'button login' %>
     </div>
   </div> 
 </div>
