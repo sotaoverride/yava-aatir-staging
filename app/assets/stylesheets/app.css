@@ -14350,7 +14350,7 @@ Custom CSS===***==
     height: 100%;
     width: 0px;
     position: fixed;
-    z-index: 9999;
+    z-index: 9999999;
     top: 0;
     right: 0px;
     background-color: #fff;
