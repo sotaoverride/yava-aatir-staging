@@ -11,7 +11,6 @@ $(document).on 'turbolinks:load', () ->
         if a.indexOf(value)>-1
           a = a.replace(/&/g, 'and')
           a = a.split(' ').join('-')
-          console.log(a)
           $(".#{a}").toggle()
 
   $('.wizard-link.disabled').on 'click', (e) ->
@@ -108,7 +107,6 @@ $(document).on 'turbolinks:load', () ->
   $form = $('form[data-errors]')
   errors = $form.data('errors')
   formName = $form.data('form-name')
-  console.log(errors)
   $.each errors, (key, value) ->
     if value.length > 0
       keys = key.split('.')

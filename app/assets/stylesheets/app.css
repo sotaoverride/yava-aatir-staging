@@ -363,7 +363,7 @@ body.modal-open {
     }
     .switch-ios.switch-toggle label {
         height: 2.4em;
-        color: #black;
+        color: black;
         line-height: 2.4em;
         vertical-align: middle
     }
