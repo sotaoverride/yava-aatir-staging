@@ -56,7 +56,9 @@
       </div>
     </div>
   </div>
-  <%- unless (controller_name == 'products' && (['show', 'deal'].include?(action_name))) || (['carts', 'orders'].include?(controller_name)) || (controller_name == 'transactions' && action_name == 'index') %>
+  <%- unless (controller_name == 'products' && (['show', 'deal'].include?(action_name))) ||
+              (['carts', 'orders', 'static'].include?(controller_name)) ||
+              (controller_name == 'transactions' && action_name == 'index') %>
     <div class="center_menu">
       <ul>
         <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>

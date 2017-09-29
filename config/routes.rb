@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   get 'explore', to: 'home#index'
 
-  # Root to explore page
+  get 'terms', to: 'static#terms'
+  get 'privacy', to: 'static#privacy'
+
+  # Root to deals page
   root to: 'deals#index'
 end

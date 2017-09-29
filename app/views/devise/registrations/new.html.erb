@@ -35,7 +35,7 @@
                 <div id='user_agreement_wrapper'>
                   <%= f.check_box :agreement %>
                 </div>
-                <label for="user_agreement">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Statement</a> </label>
+                <label for="user_agreement">I agree to the <a href="<%= terms_path %>">Terms of Use</a> and <a href="<%= privacy_path %>">Privacy Statement</a> </label>
               </div>
               <div class="single_form">
                 <input name="submit" class="button signup-btn" value="Sign Up" type="submit">
