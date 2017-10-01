@@ -5,48 +5,22 @@
         Categories <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
       </a>
       <ul class="dropdown-menu max_height">
-        <li>
-          <a href="javascript:void(0)"><div class="dot active_dot"></div>Grocery</a> 
-          <div class="sub_drop_menu">
+        <% Category.parents_only.each do |category| %>
+          <li>
+            <%= link_to 'javascript:void(0)' do %>
+              <div class='dot'></div><%= category.name %>
+            <% end %>
             <ul>
-              <li><a href="javascript:void(0)"><div class="dot active_dot"></div>Grocery 1</a></li>
-              <li><a href="javascript:void(0)"><div class="dot"></div>Grocery 2</a></li>
-              <li><a href="javascript:void(0)"><div class="dot"></div>Grocery 3</a></li>
-              <li><a href="javascript:void(0)"><div class="dot"></div>Grocery 4</a></li>
+              <% category.childrens.each do |child| %>
+                <li>
+                  <%= link_to 'javascript:void(0)' do %>
+                    <div class='dot'></div><%= child.name %>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Household Products</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Health & Wellness</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Beauty & Personal Care</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Baby</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Pet Supplies</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Electronics</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div>Office Products</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Tools & Hardware</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Business Essentials</a> 
-        </li>
-        <li>
-          <a href="javascript:void(0)"><div class="dot"></div> Best Sellers</a> 
-        </li>   
-
+          </li>
+        <% end %>
       </ul>
     </li>
   </ul>

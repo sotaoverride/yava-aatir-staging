@@ -13,12 +13,14 @@ end
 #
 # Table name: products
 #
-#  id             :integer          not null, primary key
-#  user_id        :integer
-#  title          :string
-#  description    :text
-#  standard_price :decimal(, )
-#  quantity       :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  title           :string
+#  description     :text
+#  standard_price  :decimal(, )
+#  quantity        :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  category_id     :integer
+#  sub_category_id :integer
 #

@@ -3,46 +3,49 @@
   <div class="row">
     <div class="columns medium-6 medium-offset-3">
       <div class="add_product_box">
-        <h3>Add New Product</h3>
-        <hr/>
-        <div class="add_product_box_inner">
-          <h3>Choose a category to assign your product to</h3>
-          <select id="poll__community" class="form__selectmenu">
-                <option disabled="">Select category</option>
-                <option value="audiophile">Grocery</option>
-                <option value="everyday carry">Household Products</option>
-                <option value="men's apparel">Health & Wellness</option>
-                <option value="auto">Beauty & Personal Care</option>
-                <option value="hobby shop">Baby</option>
-                <option value="mechanical keyboards">Pet Supplies</option>
-                <option value="tech">Electronics</option>
-                <option value="quilting">Office Products</option>
-                <option value="writing">Tools & Hardware</option>
-                <option value="ultralight">Business Essentials</option>
-                </select>
-          <br/>
-          <br/>
-          <h3>Choose a subcategory</h3>
-          <select id="poll__community" class="form__selectmenu">
-                <option disabled="">Select subcategory</option>
-                <option value="audiophile">Audiophile</option>
-                <option value="everyday carry">Everyday Carry</option>
-                <option value="men's apparel">Men's Apparel</option>
-                <option value="auto">Auto</option>
-                <option value="hobby shop">Hobby Shop</option>
-                <option value="mechanical keyboards">Mechanical Keyboards</option>
-                <option value="tech">Tech</option>
-                <option value="quilting">Quilting</option>
-                <option value="writing">Writing</option>
-                </select>
-          <br/>
-          <br/>
-          <span class="add_btn_pro" data-open="product_pop_add">
-            <%= image_tag 'add-plus.png', alt: 'add-plus' %>
-            <p>ADD PRODUCT</p>
-          </span>
+        <%= form_for @product do |f| %>
+          <h3>Add New Product</h3>
           <hr/>
-        </div>
+          <div class="add_product_box_inner">
+            <h3>Choose a category to assign your product to</h3>
+            <%= f.select :category_id %>
+            <select id="poll__community" class="form__selectmenu">
+              <option disabled="">Select category</option>
+              <option value="audiophile">Grocery</option>
+              <option value="everyday carry">Household Products</option>
+              <option value="men's apparel">Health & Wellness</option>
+              <option value="auto">Beauty & Personal Care</option>
+              <option value="hobby shop">Baby</option>
+              <option value="mechanical keyboards">Pet Supplies</option>
+              <option value="tech">Electronics</option>
+              <option value="quilting">Office Products</option>
+              <option value="writing">Tools & Hardware</option>
+              <option value="ultralight">Business Essentials</option>
+            </select>
+            <br/>
+            <br/>
+            <h3>Choose a subcategory</h3>
+            <select id="poll__community" class="form__selectmenu">
+                  <option disabled="">Select subcategory</option>
+                  <option value="audiophile">Audiophile</option>
+                  <option value="everyday carry">Everyday Carry</option>
+                  <option value="men's apparel">Men's Apparel</option>
+                  <option value="auto">Auto</option>
+                  <option value="hobby shop">Hobby Shop</option>
+                  <option value="mechanical keyboards">Mechanical Keyboards</option>
+                  <option value="tech">Tech</option>
+                  <option value="quilting">Quilting</option>
+                  <option value="writing">Writing</option>
+            </select>
+            <br/>
+            <br/>
+            <span class="add_btn_pro" data-open="product_pop_add">
+              <%= image_tag 'add-plus.png', alt: 'add-plus' %>
+              <p>ADD PRODUCT</p>
+            </span>
+            <hr/>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
