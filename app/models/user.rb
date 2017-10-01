@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   attr_accessor :agreement
 
@@ -19,6 +20,17 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
+
+  ##
+  # omniauth callback
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
+      user.email = auth.info.email
+      user.full_name = auth.info.name
+      user.provider_image = auth.info.image
+      user.save
+    end
+  end
 
   ##
   # create profile if no profile found linked
@@ -73,4 +85,6 @@ end
 #  full_name              :string
 #  username               :string
 #  stripe_id              :string
+#  provider               :string
+#  uid                    :string
 #

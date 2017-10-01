@@ -46,12 +46,12 @@
         <div class="large-6 medium-6 columns">
           <div class="others_sign">
             <div class="single_form_S">
-              <div class="facebook-login-button">
+              <div data-omniauth-href="<%= user_facebook_omniauth_authorize_path %>" class="facebook-login-button">
                 <i class="fa fa-facebook"></i><span>Sign Up with Facebook</span>
               </div>
             </div>
             <div class="single_form_S">
-              <div class="twitter-login-button">
+              <div data-omniauth-href="<%= user_google_oauth2_omniauth_authorize_path %>" class="twitter-login-button">
                 <i class="fa fa-google-plus"></i><span>Sign Up with Google</span>
               </div>
             </div>
