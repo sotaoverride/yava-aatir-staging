@@ -35,7 +35,7 @@ class WizardsController < ApplicationController
         @step = params[:step] ? current_user.profile.index_to_step(params[:step].to_i - 1) : current_user.reload.wizard_step
         render :show
       else
-        current_user.profile.update_column(:wizard_step, current_user.profile.next_step) if current_user.profile.next_step
+        current_user.profile.update_column(:wizard_step, current_user.profile.next_step) if current_user.profile.is_next_step_processable?
         redirect_to root_path
       end
     end

@@ -27,6 +27,29 @@ RSpec.describe Profile, type: :model do
       profile.wizard_step = Enum::Profile::WizardStep[:options].last
       expect(profile.next_step).to eq(nil)
     end
+
+    it 'should return true if next step is available and not complete' do
+      expect(profile.is_next_step_processable?(profile.current_step_index + 1)).to be_truthy
+    end
+
+    it 'should return false if next step is 4 and step passed is 2' do
+      profile.wizard_step = Enum::Profile::WizardStep[:options][3]
+      expect(profile.next_step).to eq(Enum::Profile::WizardStep[:options][4])
+      expect(profile.is_next_step_processable?(2)).to be_falsey
+    end
+
+    it 'should return false if next step is complete and user not accepted yet' do
+      profile.wizard_step = Enum::Profile::WizardStep[:options][5]
+      expect(profile.welcome?).to be_truthy
+      expect(profile.is_next_step_processable?(6)).to be_falsey
+    end
+
+    it 'should return true if next step is complete and user already accepted' do
+      profile.user.update_column(:approved, true)
+      profile.wizard_step = Enum::Profile::WizardStep[:options][5]
+      expect(profile.welcome?).to be_truthy
+      expect(profile.is_next_step_processable?(6)).to be_truthy
+    end
   end
 
   describe 'assigne category' do

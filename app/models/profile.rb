@@ -54,6 +54,10 @@ class Profile < ActiveRecord::Base
     Enum::Profile::WizardStep[:options].index(wizard_step.to_sym)
   end
 
+  def is_next_step_processable?(step=self.current_step_index + 1)
+    (self.next_step && self.current_step_index.to_i == (step - 1) && !self.welcome?) || (self.welcome? && self.user.approved == true)
+  end
+
   def index_to_step(index)
     Enum::Profile::WizardStep[:options][index.to_i].to_s
   end

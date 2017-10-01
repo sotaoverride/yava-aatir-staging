@@ -44,7 +44,8 @@ class User < ActiveRecord::Base
   # Processing wizard form
   def process_wizard(params, step)
     if self.update_attributes(params)
-      self.profile.update_column(:wizard_step, profile.next_step) if profile.next_step && profile.current_step_index.to_i == (step.to_i - 1)
+      self.profile.update_column(:wizard_step, profile.next_step) if profile.is_next_step_processable?(step.to_i)
+
       return true
     else
       return false
@@ -87,4 +88,6 @@ end
 #  stripe_id              :string
 #  provider               :string
 #  uid                    :string
+#  provider_image         :string
+#  approved               :boolean          default(FALSE)
 #

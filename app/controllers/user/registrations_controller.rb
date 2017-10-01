@@ -10,7 +10,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     user = User.where(email: params[:user][:email], full_name: params[:user][:full_name]).first
-    if params[:user][:agreement] == 0 || user.nil? || user && user.profile && user.profile.complete?
+    if params[:user][:agreement] == 0 || user.nil? || user && user.profile && user.profile.welcome?
       super
     else
       # if the email is already registered but it not complete registration yet
