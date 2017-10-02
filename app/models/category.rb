@@ -7,6 +7,7 @@ class Category < ActiveRecord::Base
   belongs_to :parent, foreign_key: :parent_id, class_name: 'Category'
 
   scope :parents_only, -> { where(parent_id: nil) }
+  scope :childs, -> { where("parent_id IS NOT NULL") }
 end
 
 # == Schema Information

@@ -1,4 +1,10 @@
 module Enum
+  module Product
+    Units = {
+      options: ['Case', 'Carton', 'Pallet', 'Box']
+    }
+  end
+
   module Profile
     ProfileTypes = {
       options: [:retailer, :wholesaler, :distributor, :manufacturer],

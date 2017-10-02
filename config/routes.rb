@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :deals,    only: [:index, :show]
   resources :requests, only: [:index, :new]
-  resources :products, only: [:show, :new] do
+  resources :products, only: [:show, :new, :create] do
     get :deal, on: :member
     get :existing, on: :collection
   end
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
   resources :carts, only: [:index]
   resources :orders, only: [:index, :show]
+
+  resources :categories, only: [:index]
 
   get 'explore', to: 'home#index'
 

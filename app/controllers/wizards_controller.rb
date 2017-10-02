@@ -1,7 +1,7 @@
 class WizardsController < ApplicationController
   layout 'wizard'
   skip_before_action :setup_account
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :uncomplete_account_only
 
   def show
     current_user.create_profile unless current_user.reload.profile
@@ -56,5 +56,9 @@ class WizardsController < ApplicationController
         :biz_name, :industry, :biz_address, :tax_id, :city, :state, :zipcode,
         :fulfill_from_store, :store_pickup, carriers_name: []
       ])
+  end
+
+  def uncomplete_account_only
+    redirect_to root_path if current_user.approved?
   end
 end

@@ -17,10 +17,12 @@ end
 #  user_id         :integer
 #  title           :string
 #  description     :text
-#  standard_price  :decimal(, )
+#  standard_price  :integer
 #  quantity        :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  category_id     :integer
 #  sub_category_id :integer
+#  product_url     :string
+#  unit            :string
 #

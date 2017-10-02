@@ -1,0 +1,28 @@
+<%= simple_form_for product, wrapper: 'product_form', html: { id: 'product-form' } do |f| %>
+  <%= f.input :product_url, required: true %>
+  <%= f.input :title, label: 'Product Name', required: true %>
+  <%= f.input :category_id, collection: Category.parents_only.map { |c| [c.name, c.id] }, label: 'Product Category', required: true %>
+  <%= f.input :sub_category_id, collection: [], label: 'Product Subcategory', required: true %>
+  <%= f.input :standard_price, required: true, input_html: { step: '0.01' } %>
+  <%= f.input :unit, required: true, collection: Enum::Product::Units[:options] %>
+  <div class="row">
+    <div class="small-4 columns">
+      <label for="right-label" class="text-right">Product Picture</label>
+    </div>
+    <div class="small-8 columns">
+      <label for="exampleFileUpload" class="button upload_btn">
+        <%= image_tag 'shoes.png' %>
+      </label>
+      <input type="file" id="exampleFileUpload" class="show-for-sr">
+    </div>
+  </div>
+  <%= f.input :description %>
+  <hr/>
+  <div class="submit_data">
+    <button type='button' class="button sikp_btn">CANCEL</button>
+    <button type='button' class="button add_btn" data-open="product_pop_dic">CONTINUE</button>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+<% end %>
