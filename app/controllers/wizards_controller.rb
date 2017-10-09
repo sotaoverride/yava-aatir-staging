@@ -59,6 +59,6 @@ class WizardsController < ApplicationController
   end
 
   def uncomplete_account_only
-    redirect_to root_path if current_user.approved?
+    redirect_to root_path if current_user.approved? && current_user.profile.complete?
   end
 end

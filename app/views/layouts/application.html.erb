@@ -32,6 +32,6 @@
 
   <%= yield %>
 
-  <%= render 'home/footer' unless (controller_name == 'deals' && action_name == 'show') %>
+  <%= render 'shared/filter/footer' unless (controller_name == 'deals' && action_name == 'show') %>
 </body>
 </html>

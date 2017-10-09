@@ -61,9 +61,9 @@
               (controller_name == 'transactions' && action_name == 'index') %>
     <div class="center_menu">
       <ul>
-        <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= deals_path %>" >DEALS</a></li>
-        <li class="<%= 'active_menu' if controller_name == 'home' %>"><a href="<%= explore_path %>">EXPLORE</a></li>
-        <li class="<%= 'active_menu' if controller_name == 'requests' %>"><a href="<%= requests_path %>">REQUESTS</a></li>
+        <li class="<%= 'active_menu' if controller_name == 'deals' %>"><a href="<%= specific_deals_url %>" >DEALS</a></li>
+        <li class="<%= 'active_menu' if controller_name == 'explore' %>"><a href="<%= specific_explores_url %>">EXPLORE</a></li>
+        <li class="<%= 'active_menu' if controller_name == 'requests' %>"><a href="<%= specific_requests_url %>">REQUESTS</a></li>
       </ul>
     </div>
   <% end %>

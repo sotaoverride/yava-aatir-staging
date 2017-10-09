@@ -51,6 +51,7 @@ gem 'carrierwave', '~> 1.0'
 
 # Payment processing
 gem 'stripe', '3.3.1'
+gem 'friendly_id', '~> 5.1.0'
 
 ## FOR STAGING ONLY TO CREATE DUMMY DATA
 gem 'ffaker', '2.6.0'

@@ -1,6 +1,9 @@
 class Category < ActiveRecord::Base
+  extend FriendlyId
+
   has_many :profile_categories
   has_many :profiles, through: :profile_categories
+  friendly_id :name, use: :slugged
 
   # Self relationships
   has_many :childrens, foreign_key: :parent_id, class_name: 'Category'

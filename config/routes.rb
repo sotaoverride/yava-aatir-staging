@@ -9,6 +9,20 @@ Rails.application.routes.draw do
 
   resources :deals,    only: [:index, :show]
   resources :requests, only: [:index, :new]
+  resources :explores, only: [:index]
+
+  resources :categories, only: [:index] do
+    resources :deals, only: [:index]
+    resources :requests, only: [:index]
+    resources :explores, only: [:index]
+
+    resources :subcategories, only: [] do
+      resources :deals, only: [:index]
+      resources :requests, only: [:index]
+      resources :explores, only: [:index]
+    end
+  end
+
   resources :products, only: [:show, :new, :create] do
     get :deal, on: :member
     get :existing, on: :collection
@@ -20,10 +34,6 @@ Rails.application.routes.draw do
   end
   resources :carts, only: [:index]
   resources :orders, only: [:index, :show]
-
-  resources :categories, only: [:index]
-
-  get 'explore', to: 'home#index'
 
   get 'terms', to: 'static#terms'
   get 'privacy', to: 'static#privacy'

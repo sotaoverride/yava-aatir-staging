@@ -3,8 +3,7 @@
   <div class="row">
     <div class="columns medium-12 large-12 small-12">
       <div class="breadcom">
-        <p>Home &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp; Jet Wholesale&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i>  &nbsp; Wholesale Grocery&nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp; <span class="last_breadcom">Wholesale Beverages</span></p>
-        <h3>Wholesale Beverages </h3>
+        <%= breadcrumbs %>
       </div>
     </div>
   </div>
@@ -14,16 +13,16 @@
       <div class="border_bottom_p">
         <div class="single_fliter width_one">
           <p>Filter by:</p>
-          <%= render "filter_by" %>
+          <%= render "shared/filter/filter_by" %>
         </div>
 
         <div class="single_fliter width_two">
           <p>Sort by:</p>
-          <%= render "sort_by" %>
+          <%= render "shared/filter/sort_by" %>
         </div>
 
         <div class="single_fliter width_five">
-          <%= render "new_request" %>
+          <%= render "shared/filter/new_request" %>
         </div>
 
       </div>         
