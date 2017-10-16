@@ -1,0 +1,11 @@
+<% if @product.errors.messages.length == 0 %>
+  $('.modal-form-wrapper').html("<%=j render 'products/new/modal_form', product: @product, subcategories: @product.category.childrens.map { |c| [c.name, c.id] } %>");
+  $(document).foundation();
+  $('#product_pop_add').foundation('close');
+  $('#product_pop_add_inner').foundation('open');
+  $('#product_pop_add_inner').on('closed.zf.reveal', function(){
+    $(this).remove();
+  });
+<% else %>
+  $('.error-wrapper').html("<p class='help-text' style='color: red;'><%= @product.errors.full_messages.join(', ') %></p>");
+<% end %>

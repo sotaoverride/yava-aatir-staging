@@ -2,6 +2,10 @@ class ProductImage < ActiveRecord::Base
   belongs_to :product
 
   mount_uploader :img, ProductImageUploader
+
+  def image
+    image_url.presence || ''
+  end
 end
 
 # == Schema Information
@@ -14,4 +18,5 @@ end
 #  product_id      :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  image_url       :string
 #

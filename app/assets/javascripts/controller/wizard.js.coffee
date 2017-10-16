@@ -113,6 +113,5 @@ $(document).on 'turbolinks:load', () ->
       fieldName = "[#{keys[0]}]"
       fieldName = "[#{keys[0]}_attributes][#{keys[1]}]" if keys.length > 1
 
-      console.log fieldName
       label = $("[name='#{formName}#{fieldName}']").parents('label')
       label.after("<p class='help-text' style='color: red;'>#{keys[keys.length - 1]} #{value.join(',')}</p>")

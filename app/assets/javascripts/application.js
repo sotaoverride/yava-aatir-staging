@@ -23,9 +23,7 @@
 //= require simpleLightbox.min
 //= require owl.carousel/dist/owl.carousel
 //= require jquery.sticky
-//= require app
-//= require main
-//= require wizard
-//= require stripe
-//= require accounts
-//= require products
+//= require ./vendor/app
+//= require ./vendor/main
+//
+//= require_tree ./controller

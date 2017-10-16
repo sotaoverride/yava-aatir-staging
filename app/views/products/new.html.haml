@@ -1,0 +1,26 @@
+= title 'YOVA | DEALS'
+.main_product_area
+  .row
+    .columns.medium-6.medium-offset-3
+      .add_product_box
+        %h3 Add New Product
+        %hr
+        .add_product_box_inner
+          %h3 Choose a category to assign your product to
+          = select_tag :category_id, options_from_collection_for_select(Category.parents_only, 'id', 'name'), {prompt: 'Choose a Category',  class: 'form__selectmenu', data: { action: 'select-category', category_url: categories_path(format: :json) } }
+          .category-id-errors-wrapper
+          %br
+          %br
+          %h3 Choose a subcategory
+          = select_tag :sub_category_id, [], { class: 'form__selectmenu', data: { action: 'select-subcategory' } }
+          .sub-category-id-errors-wrapper
+          %br
+          %br
+          %span#open-product_pop_add.add_btn_pro.reveal-open
+            = image_tag 'add-plus.png', alt: 'add-plus'
+            %p ADD PRODUCT
+
+.modal-form-wrapper
+
+= render 'products/new/modal_product_url', product: @product
+= render 'shared/modal/request_discount_by_product'

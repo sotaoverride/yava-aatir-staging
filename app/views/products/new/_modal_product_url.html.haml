@@ -1,0 +1,17 @@
+#product_pop_add.reveal.discounts_popup.products_add_popup{ data: { reveal: true } }
+  %h3 Add product details
+  %hr
+  = form_for product, url: fetch_products_path, remote: true, html: { class: 'input-product-url' }  do |f|
+    = f.hidden_field :category_id, data: { target: 'product-category' }
+    = f.hidden_field :sub_category_id, data: { target: 'product-subcategory' }
+    %p
+      Please
+      = link_to 'read', 'javascript:void()'
+      our guidelines before adding an product.
+      %h3 Product URL
+      = f.text_field :product_url, placeholder: 'http://www.productpage.com'
+      .error-wrapper
+      .Modal_footer
+        = f.submit 'CONTINUE', class: 'button pop_up_btn'
+      %button.close-button{ data: { close: true }, aria: { label: 'Close reveal' }, type: 'button' }
+        %span{ aria: { hidden: true } } &times;

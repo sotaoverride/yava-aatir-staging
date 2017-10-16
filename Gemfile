@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower-rails', '~> 0.11.0'
 gem 'carmen-rails', '~> 1.0.0'
 gem 'simple_form', '3.5.0'
+gem 'haml-rails', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,3 +56,6 @@ gem 'friendly_id', '~> 5.1.0'
 
 ## FOR STAGING ONLY TO CREATE DUMMY DATA
 gem 'ffaker', '2.6.0'
+
+## Scrapping meta tags tool
+gem 'metainspector', '5.4.1'

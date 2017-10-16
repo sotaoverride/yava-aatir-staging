@@ -1,0 +1,10 @@
+
+Add Deal Flow:
+  ✔ Fetch from meta data
+  ✔ Change product category on modal form
+  ✔ Create product with upload images
+  ✔ Standard price should be converted to cent
+  ☐ Assign discount / Create Deals
+
+Assign discount:
+  ☐ Assign discount 

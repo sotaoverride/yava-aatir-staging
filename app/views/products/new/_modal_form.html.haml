@@ -1,0 +1,26 @@
+.reveal.discounts_popup.add_por_inner#product_pop_add_inner{ data: { reveal: true } }
+  %h3 Edit my product details
+  %hr
+  = simple_form_for product, wrapper: 'product_form', html: { id: 'product-form' } do |f|
+    = f.input :product_url, required: true
+    = f.input :title, label: 'Product Name', required: true
+    = f.input :category_id, collection: Category.parents_only.map { |c| [c.name, c.id] }, include_blank: false, label: 'Product Category', required: true, input_html: { data: { action: 'select-category', category_url: categories_path(format: :json) } }
+    = f.input :sub_category_id, collection: subcategories.presence || [], include_blank: false, label: 'Product Subcategory', required: true, input_html: { data: { action: 'select-subcategory'} }
+    = f.input :price_amount, as: :numeric, label: 'Standard Price', required: true, input_html: { step: '0.01' }
+    = f.input :unit, required: true, collection: Enum::Product::Units[:options]
+    .row
+      .small-4.columns
+        %label.text-right{ for: 'right-label' } Product Picture
+      .small-8.columns
+        = f.fields_for :product_images do |pi|
+          %label.button.upload_btn
+            = image_tag pi.object.image, alt: 'Attach', style: 'width: 82px;'
+            = pi.file_field :img, class: 'show-for-sr', data: { action: 'select-product-image' }
+            = pi.hidden_field :image_url
+
+    = f.input :description
+    %hr
+    .submit-data
+      %button.button.sikp_btn{ type: 'button', data: { close: '' }, aria: { label: 'Close reveal'} } CANCEL
+      = f.submit 'CONTINUE', class: 'button add_btn'
+    %button.close-button{ type: 'button', data: { close: 'true' }, aria: { label: 'Close reveal'} }

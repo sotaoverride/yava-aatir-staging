@@ -1,4 +1,5 @@
 $(document).on 'turbolinks:load', () ->
+
   # OMNIAUTH LOGIN - WE NEED THIS SINCE 3rd PARTY LOGIN BUTTON USE DIV -
   $('[data-omniauth-href]').on 'click', ->
     window.location = $(this).data('omniauth-href')
