@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
+#
 class ProductsController < ApplicationController
-  def show; end
+  def show
+    @product = Product.friendly.find(params[:id])
+  end
 
   def new
     @product = Product.new
@@ -7,7 +12,11 @@ class ProductsController < ApplicationController
 
   # scraping the meta tag
   def fetch
-    @product = Product.new(params.require(:product).permit(:category_id, :sub_category_id, :product_url)).fetch_from_url
+    @product = Product.new(
+      params
+        .require(:product)
+        .permit(:category_id, :sub_category_id, :product_url)
+    ).fetch_from_url
   end
 
   def create

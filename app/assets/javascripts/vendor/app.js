@@ -51,9 +51,11 @@ $(document).on('turbolinks:load', function () {
   $('.items input').on('ifToggled', function () {
     $(this).closest('li').toggleClass('selected')
   })
+  /*
   $('.items input').iCheck({
     radioClass: 'iradio_minimal'
   })
+  */
   $('.refund-request table tbody tr td.option .approve').click(function () {
     $('.refund-request table tbody tr td.option > .button').fadeOut(function () {
       $('.refund-request table tbody tr td.option .input-group, .refund-request table tbody tr td.option .cancel').fadeIn().css('display', 'table')

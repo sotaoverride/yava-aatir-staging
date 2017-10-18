@@ -1,0 +1,9 @@
+$('#modal-wrapper').html("<%=j render 'shared/modal/request_discount_by_product', request: @request, products: @products %>");
+$(document).foundation();
+$('#product_pop_dic').foundation('open');
+$('#product_pop_dic').on('closed.zf.reveal', function(){
+  $(this).remove();
+});
+$('.items input').iCheck({
+  radioClass: 'iradio_minimal iradio_request'
+});

@@ -45,8 +45,6 @@
 
 
   <div class="row product_margin_top">
-    <%= render 'products/request_product', num_times: 8 %>
+    <%= render 'products/request_product', requests: @requests %>
   </div>
 </div>
-
-<%= render "shared/modal/request_discount_by_product" %>

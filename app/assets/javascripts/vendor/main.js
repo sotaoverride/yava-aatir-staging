@@ -1,6 +1,10 @@
 var cart = [];
 var keyOfOrder;
 $(document).on('turbolinks:load', function () {
+    $(document).on('page:fetch',  function() { $('body').css( 'cursor', 'progress' ); });
+    $(document).on('page:change', function() { $('body').css( 'cursor', 'default' ); });
+
+
     $('#nextStep5').click(function () {
         var items = $(".itemForUpdate");
         var keyProduct = [];

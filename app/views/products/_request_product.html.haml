@@ -1,0 +1,38 @@
+- requests.each do |request|
+  .columns.medium-6.large-6
+    - product = request.product
+    = link_to product, class: 'hover_btn' do
+      .single_request
+        .row
+          .columns.medium-3
+            .res_product_img
+              = image_tag product.primary_image, alt: 'alpha'
+          .columns.medium-9
+            .Req_details.Products_title
+              %h3
+                = product.title
+                %br/
+                %a.name{:href => "#"} – by Rapture
+              .widget_req
+                .seller_details
+                  %a{:href => "#"} Men's Apparel
+                  %a{:href => "#"} T-Shirt
+                  %span.category_name
+                    %a{:href => "#"}
+                      %i.fa.fa-link
+              .price_req
+                %p.std_price
+                  Standard Price:
+                  %span= number_to_currency(product.price_amount)
+                %p
+                  Requested Price:
+                  %span= number_to_currency(request.asked_price)
+              .req_btn
+                .req_numer
+                  %p
+                    Requests:
+                    %span 50
+                .reqest_btns
+                  = link_to edit_request_path(request.id), remote: true do
+                    %button.re_btn{:type => "button"} edit
+                  %button.re_btn{:type => "button"} cancel

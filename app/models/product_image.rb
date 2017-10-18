@@ -4,7 +4,7 @@ class ProductImage < ActiveRecord::Base
   mount_uploader :img, ProductImageUploader
 
   def image
-    image_url.presence || ''
+    image_url.presence || img.url.presence || ''
   end
 end
 

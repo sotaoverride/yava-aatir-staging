@@ -1,0 +1,58 @@
+#product_pop_dic.reveal.discounts_popup{"data-reveal" => ""}
+  = simple_form_for request, remote: true do |f|
+    %h3 Request Discounts by Product
+    %p Please select a Product to Request discounts
+    .search_pro
+      %span.fa.fa-search
+      %input{:placeholder => "Search products"}/
+    #edit-item.select_pro_pop
+      %ul.no-bullet.items
+        - products.each do |product|
+          %li
+            = f.radio_button :product_id, product.id
+            = image_tag product.primary_image
+            %span.product-title
+              = product.title
+            %span.price= "USD 140 /box"
+    %br/
+    %p Add Quantity and Request Price
+    .select_pro_pop_details
+      .single_row
+        %table#mytable.unstriped
+          %thead
+            %tr
+              %th Quantity
+              %th Price
+              %th{:colspan => "2"}
+                .switch-toggle.switch-ios
+                  = f.radio_button :discount_type, 'amount'
+                  %label{:for => 'request_discount_type_amount'} Dollar Amount
+                  = f.radio_button :discount_type, 'percentage'
+                  %label{:for => 'request_discount_type_percentage'} Percentage
+                  %a.button
+          %tbody
+            %tr
+              %td
+                .flex_t
+                  = f.text_field :quantity
+              %td
+                .usd_box
+                  %p USD
+                  = f.text_field :amount
+              %td  
+    .Modal_footer
+      %button.button.pop_up_btn{ type: 'submit' } SUBMIT
+    %button.close-button{"aria-label" => "Close reveal", "data-close" => "", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+
+#product_pop_dic_inner.reveal.discounts_popup{"data-reveal" => ""}
+  %h3 Add Promotion Preiod
+  %p Enter a Time Preiod for Your Promotion
+  .add_date
+    %p How many Days ?
+    %input{:name => "", :type => "text"}/
+  .submit_data
+    %button.button.sikp_btn BACK
+    %button.button.add_btn SUBMIT
+  %button.close-button{"aria-label" => "Close reveal", "data-close" => "", :type => "button"}
+    %span{"aria-hidden" => "true"} ×

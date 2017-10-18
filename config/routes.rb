@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resource :wizards,   only: %i[show update]
 
   resources :deals,    only: %i[index show]
-  resources :requests, only: %i[index new]
+  resources :requests, only: %i[index new create edit update] do
+    get :add
+  end
   resources :explores, only: %i[index]
 
   resources :categories, only: %i[index] do
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: %i[show new create] do
+  resources :products, path: 'p', only: %i[show new create] do
     get :deal, on: :member
     collection do
       post :fetch

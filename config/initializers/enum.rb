@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
 module Enum
+  module Request
+    DISCOUNT_TYPE = %w[amount percentage].freeze
+  end
+
   module Product
     Units = {
       options: ['Case', 'Carton', 'Pallet', 'Box']

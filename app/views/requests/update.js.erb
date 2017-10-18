@@ -1,0 +1,6 @@
+<% if @request.errors.any? %>
+  alert("<%= raw(@request.errors.full_messages.join(', ')) %>");
+<% else %>
+  $('#product_pop_dic').foundation('close');
+  alert('Your request updated');
+<% end %>

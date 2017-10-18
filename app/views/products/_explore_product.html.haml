@@ -1,0 +1,43 @@
+- products.each do |product|
+  .medium-3.columns
+    %a{:href => "#{product_path(product)}"}
+      .single_products
+        .Products_img
+          = image_tag 'shoe.jpg', class: 'img-response', style: 'width: 150px; height: 150px;'
+        .product_price
+          %p 78% OFF
+        .Products_title
+          %h3
+            = product.title
+            %br/
+            %a.name{:href => "#"}
+          .sub_fil
+            .category_name_filter
+              %span.category_name
+                %a{:href => "#"} Hopkins
+              %span.category_name
+                %a{:href => "#"} Minnesota
+              %span.category_name
+                %a{:href => "#"}
+                  %i.fa.fa-link
+          .commit_area
+            .commit_count
+              %p
+                %span.commit_num= product.requests.length
+                REQUESTS
+              %p
+                %span.commit_num= product.requests.map(&:quantity).sum
+                UNITS
+            .Request_btn
+              = link_to request_add_path(product.id), remote: true do
+                %button.commits_btn{ type: "button" } REQUEST
+              %button.commits_btn{"data-open" => "product_pop_dic_sell", :type => "button"} SELL
+        .pro_timmer.no-padding-2
+          %h3.std_price
+            %span $180.56
+            Standard Price
+          .midle_bar
+          %h3
+            %span $150.56
+            Requested Price
+  

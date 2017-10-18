@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
     length: { in: 4..10 }, on: [:update], if: Proc.new { |u| u.username_changed? }
 
   has_one :profile, dependent: :destroy
+  has_many :requests
+
   accepts_nested_attributes_for :profile
 
   ##

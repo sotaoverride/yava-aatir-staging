@@ -1,0 +1,6 @@
+<% if @request.persisted? %>
+  $('#product_pop_dic').foundation('close');
+  alert('Your request submited');
+<% else %>
+  alert("<%= raw(@request.errors.full_messages.join(', ')) %>");
+<% end %>

@@ -2,12 +2,16 @@
 
 #
 class Product < ActiveRecord::Base
+  extend FriendlyId
+
   belongs_to :user
   belongs_to :category
   belongs_to :sub_category, class_name: 'Category'
 
   has_many :product_images
   has_many :requests
+
+  friendly_id :title, use: :slugged
 
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
@@ -29,8 +33,14 @@ class Product < ActiveRecord::Base
     end
   end
 
+  ##
+  # TODO: needed to be redeveloped to select many products
+  def self.most_used(current_user, priority_product_id)
+    limit(5).order("position(id::text in '#{priority_product_id}') DESC")
+  end
+
   def primary_image
-    product_images.where(primary_picture: true).first.img.url
+    product_images.first.image
   end
 
   def fetch_from_url
@@ -54,4 +64,5 @@ end
 #  sub_category_id :integer
 #  product_url     :string
 #  unit            :string
+#  slug            :string
 #
