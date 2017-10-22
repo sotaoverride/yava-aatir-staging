@@ -35,6 +35,7 @@ group :development, :test do
   gem 'database_cleaner', '1.6.1'
   gem 'factory_girl_rails', '4.8.0'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'rubocop', '~> 0.50.0', require: false
 end
 
 group :development do
