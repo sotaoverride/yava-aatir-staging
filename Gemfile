@@ -36,6 +36,7 @@ group :development, :test do
   gem 'factory_girl_rails', '4.8.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rubocop', '~> 0.50.0', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -43,6 +44,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'annotate', require: false
 end
 
 # Rails env configuration
@@ -60,3 +62,5 @@ gem 'ffaker', '2.6.0'
 
 ## Scrapping meta tags tool
 gem 'metainspector', '5.4.1'
+gem "attr_encrypted", "~> 3.0.0"
+gem 'paper_trail'

@@ -53,21 +53,6 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Enabled: false
 
-Rails:
-  Enabled: true
-Rails/FindEach:
-  Enabled: false
-Rails/HasAndBelongsToMany:
-  Enabled: false
-Rails/Output:
-  Exclude:
-    - lib/app/utils.rb
-Rails/OutputSafety:
-  Exclude:
-    - app/helpers/application_helper.rb
-Rails/SkipsModelValidations:
-  Enabled: false
-
 Style/ClassAndModuleChildren:
   Enabled: false
 Style/ConditionalAssignment:

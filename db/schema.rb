@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018042544) do
+ActiveRecord::Schema.define(version: 20171022172256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "deal_id"
+    t.string   "name",                                              null: false
+    t.text     "description",                                       null: false
+    t.decimal  "price",       precision: 10, scale: 4,              null: false
+    t.decimal  "discount",    precision: 10, scale: 4,              null: false
+    t.decimal  "tax",         precision: 10, scale: 4,              null: false
+    t.integer  "quantity",                                          null: false
+    t.json     "data",                                 default: {}
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+  end
+
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
+  add_index "cart_items", ["deal_id"], name: "index_cart_items_on_deal_id", using: :btree
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "status",           null: false
+    t.integer  "cart_items_count", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -39,6 +66,90 @@ ActiveRecord::Schema.define(version: 20171018042544) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.integer  "deal_id"
+    t.string   "name",                                                  null: false
+    t.text     "description",                                           null: false
+    t.decimal  "price",           precision: 10, scale: 4,              null: false
+    t.decimal  "discount",        precision: 10, scale: 4,              null: false
+    t.decimal  "tax",             precision: 10, scale: 4,              null: false
+    t.integer  "quantity",                                              null: false
+    t.json     "order_item_data",                          default: {}
+  end
+
+  add_index "order_items", ["deal_id"], name: "index_order_items_on_deal_id", using: :btree
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
+  create_table "order_payment_informations", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "payment_method",            null: false
+    t.string   "status",                    null: false
+    t.string   "encrypted_cc_number"
+    t.string   "encrypted_ccv_code"
+    t.string   "encrypted_cc_exp_month"
+    t.string   "encrypted_cc_exp_year"
+    t.string   "encrypted_cc_number_iv"
+    t.string   "encrypted_ccv_code_iv"
+    t.string   "encrypted_cc_exp_month_iv"
+    t.string   "encrypted_cc_exp_year_iv"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "order_payment_informations", ["order_id"], name: "index_order_payment_informations_on_order_id", using: :btree
+
+  create_table "order_payments", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "payment_method",            null: false
+    t.string   "status",                    null: false
+    t.string   "encrypted_cc_number"
+    t.string   "encrypted_ccv_code"
+    t.string   "encrypted_cc_exp_month"
+    t.string   "encrypted_cc_exp_year"
+    t.string   "encrypted_cc_number_iv"
+    t.string   "encrypted_ccv_code_iv"
+    t.string   "encrypted_cc_exp_month_iv"
+    t.string   "encrypted_cc_exp_year_iv"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "order_payments", ["order_id"], name: "index_order_payments_on_order_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cart_id"
+    t.string   "order_number",                               null: false
+    t.string   "ship_address1",                              null: false
+    t.string   "ship_address2",                              null: false
+    t.string   "ship_city",                                  null: false
+    t.string   "ship_state",                                 null: false
+    t.string   "ship_zip",                                   null: false
+    t.string   "ship_country",                               null: false
+    t.string   "bill_address1",                              null: false
+    t.string   "bill_address2",                              null: false
+    t.string   "bill_city",                                  null: false
+    t.string   "bill_state",                                 null: false
+    t.string   "bill_zip",                                   null: false
+    t.string   "bill_country",                               null: false
+    t.string   "email"
+    t.string   "phone"
+    t.string   "order_status",                               null: false
+    t.string   "payment_status",                             null: false
+    t.string   "currency"
+    t.decimal  "total_price",       precision: 10, scale: 4, null: false
+    t.integer  "order_items_count",                          null: false
+    t.json     "order_data"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "product_images", force: :cascade do |t|
     t.string   "img"
@@ -170,6 +281,13 @@ ActiveRecord::Schema.define(version: 20171018042544) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "carts", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_payment_informations", "orders"
+  add_foreign_key "order_payments", "orders"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
   add_foreign_key "profile_categories", "categories"
