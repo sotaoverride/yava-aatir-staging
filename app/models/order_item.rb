@@ -10,8 +10,8 @@
 #  name            :string           not null
 #  description     :text             not null
 #  price           :decimal(10, 4)   not null
-#  discount        :decimal(10, 4)
-#  tax             :decimal(10, 4)
+#  discount        :decimal(10, 4)   not null
+#  tax             :decimal(10, 4)   not null
 #  quantity        :integer          not null
 #  order_item_data :json
 #

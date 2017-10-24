@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022172256) do
+ActiveRecord::Schema.define(version: 20171024032130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,22 @@ ActiveRecord::Schema.define(version: 20171022172256) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "order_addresses", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "first_name",                      null: false
+    t.string   "last_name",                       null: false
+    t.string   "street_address1",                 null: false
+    t.string   "street_address2"
+    t.string   "zip_code",                        null: false
+    t.string   "phone_number",                    null: false
+    t.integer  "address_type",                    null: false
+    t.boolean  "is_default",      default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "order_addresses", ["order_id"], name: "index_order_addresses_on_order_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
@@ -124,20 +140,6 @@ ActiveRecord::Schema.define(version: 20171022172256) do
     t.integer  "user_id"
     t.integer  "cart_id"
     t.string   "order_number",                               null: false
-    t.string   "ship_address1",                              null: false
-    t.string   "ship_address2",                              null: false
-    t.string   "ship_city",                                  null: false
-    t.string   "ship_state",                                 null: false
-    t.string   "ship_zip",                                   null: false
-    t.string   "ship_country",                               null: false
-    t.string   "bill_address1",                              null: false
-    t.string   "bill_address2",                              null: false
-    t.string   "bill_city",                                  null: false
-    t.string   "bill_state",                                 null: false
-    t.string   "bill_zip",                                   null: false
-    t.string   "bill_country",                               null: false
-    t.string   "email"
-    t.string   "phone"
     t.string   "order_status",                               null: false
     t.string   "payment_status",                             null: false
     t.string   "currency"
@@ -146,6 +148,7 @@ ActiveRecord::Schema.define(version: 20171022172256) do
     t.json     "order_data"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.string   "step",                                       null: false
   end
 
   add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
@@ -283,6 +286,7 @@ ActiveRecord::Schema.define(version: 20171022172256) do
 
   add_foreign_key "cart_items", "carts"
   add_foreign_key "carts", "users"
+  add_foreign_key "order_addresses", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_payment_informations", "orders"
   add_foreign_key "order_payments", "orders"

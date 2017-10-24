@@ -6,20 +6,6 @@
 #  user_id           :integer
 #  cart_id           :integer
 #  order_number      :string           not null
-#  ship_address1     :string           not null
-#  ship_address2     :string           not null
-#  ship_city         :string           not null
-#  ship_state        :string           not null
-#  ship_zip          :string           not null
-#  ship_country      :string           not null
-#  bill_address1     :string           not null
-#  bill_address2     :string           not null
-#  bill_city         :string           not null
-#  bill_state        :string           not null
-#  bill_zip          :string           not null
-#  bill_country      :string           not null
-#  email             :string
-#  phone             :string
 #  order_status      :string           not null
 #  payment_status    :string           not null
 #  currency          :string
@@ -28,6 +14,7 @@
 #  order_data        :json
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  step              :string           not null
 #
 
 class Order < ActiveRecord::Base
@@ -45,11 +32,10 @@ class Order < ActiveRecord::Base
   belongs_to :user, inverse_of: :orders
   has_many :order_items, inverse_of: :order
 
-  validates :user_id, :cart_id, :phone, presence: true
-  validates :email, presence: true, format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+  validates :user_id, :cart_id, :step, presence: true
   validates :order_number, presence: true, uniqueness: true
-  validates :ship_address1, :ship_city, :ship_state, :ship_zip, :ship_country, presence: true
-  validates :bill_address1, :bill_city, :bill_state, :bill_zip, :bill_country, presence: true
+  # validates :ship_address1, :ship_city, :ship_state, :ship_zip, :ship_country, presence: true
+  # validates :bill_address1, :bill_city, :bill_state, :bill_zip, :bill_country, presence: true
   validates :order_status, presence: true, inclusion: {
     in: ORDER_STATUS.values,
     message: '%<value> is not a valid order status'
