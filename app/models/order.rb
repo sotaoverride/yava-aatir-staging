@@ -31,6 +31,8 @@ class Order < ActiveRecord::Base
   belongs_to :cart, inverse_of: :order
   belongs_to :user, inverse_of: :orders
   has_many :order_items, inverse_of: :order
+  has_many :transactions, inverse_of: :order
+  has_one :return, inverse_of: :order
 
   validates :user_id, :cart_id, :step, presence: true
   validates :order_number, presence: true, uniqueness: true

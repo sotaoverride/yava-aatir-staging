@@ -20,7 +20,7 @@
 
 class OrderPayment < ActiveRecord::Base
   STATUS = { pending: 'pending', in_process: 'in-process', success: 'success', failed: 'failed' }.freeze
-  PAYMENT_METHOD = { stripe: 'stripe', paypal: 'paypal' }.freeze
+  PAYMENT_METHOD = { stripe: 'stripe' }.freeze
 
   %i[
     cc_number

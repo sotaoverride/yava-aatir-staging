@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024032130) do
+ActiveRecord::Schema.define(version: 20171025054018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -259,6 +259,26 @@ ActiveRecord::Schema.define(version: 20171024032130) do
   add_index "requests", ["product_id"], name: "index_requests_on_product_id", using: :btree
   add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
 
+  create_table "returns", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "status",     null: false
+    t.text     "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "returns", ["order_id"], name: "index_returns_on_order_id", using: :btree
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "order_id"
+    t.decimal  "amount",     precision: 10, scale: 4, null: false
+    t.integer  "txn_type",                            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "transactions", ["order_id"], name: "index_transactions_on_order_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -300,4 +320,6 @@ ActiveRecord::Schema.define(version: 20171024032130) do
   add_foreign_key "request_tiers", "requests"
   add_foreign_key "requests", "products"
   add_foreign_key "requests", "users"
+  add_foreign_key "returns", "orders"
+  add_foreign_key "transactions", "orders"
 end
