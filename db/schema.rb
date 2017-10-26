@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025054018) do
+ActiveRecord::Schema.define(version: 20171026125440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,34 @@ ActiveRecord::Schema.define(version: 20171025054018) do
   end
 
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+
+  create_table "deals", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "promotion_days",     null: false
+    t.integer  "number_of_commits",  null: false
+    t.date     "promotion_start_at", null: false
+    t.integer  "number_of_quantity", null: false
+    t.integer  "status",             null: false
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "deals", ["product_id"], name: "index_deals_on_product_id", using: :btree
+
+  create_table "discounts", force: :cascade do |t|
+    t.integer  "deal_id"
+    t.integer  "quantity_from"
+    t.integer  "quantity_to"
+    t.decimal  "discount_amount",     precision: 10, scale: 2
+    t.decimal  "discount_percentage", precision: 10, scale: 2
+    t.integer  "status",                                       null: false
+    t.text     "description"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "discounts", ["deal_id"], name: "index_discounts_on_deal_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -306,6 +334,8 @@ ActiveRecord::Schema.define(version: 20171025054018) do
 
   add_foreign_key "cart_items", "carts"
   add_foreign_key "carts", "users"
+  add_foreign_key "deals", "products"
+  add_foreign_key "discounts", "deals"
   add_foreign_key "order_addresses", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_payment_informations", "orders"

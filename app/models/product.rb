@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
 
   has_many :product_images
   has_many :requests
+  has_many :deals, inverse_of: :product
 
   friendly_id :title, use: :slugged
 
