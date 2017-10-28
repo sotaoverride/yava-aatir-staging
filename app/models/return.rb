@@ -8,8 +8,8 @@
 #  reason     :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  fees       :decimal(10, 4)
 #
-
 
 class Return < ActiveRecord::Base
   STATUS = {

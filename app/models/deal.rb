@@ -12,6 +12,7 @@
 #  description        :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  request_id         :integer
 #
 
 class Deal < ActiveRecord::Base

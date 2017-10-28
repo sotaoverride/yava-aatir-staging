@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026125440) do
+ActiveRecord::Schema.define(version: 20171028150926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171026125440) do
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "request_id"
   end
 
   add_index "deals", ["product_id"], name: "index_deals_on_product_id", using: :btree
@@ -163,6 +164,19 @@ ActiveRecord::Schema.define(version: 20171026125440) do
   end
 
   add_index "order_payments", ["order_id"], name: "index_order_payments_on_order_id", using: :btree
+
+  create_table "order_shippings", force: :cascade do |t|
+    t.integer  "order_address_id"
+    t.string   "shipping_method"
+    t.string   "tracking_number"
+    t.string   "status"
+    t.string   "shipping_type"
+    t.json     "data"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "order_shippings", ["order_address_id"], name: "index_order_shippings_on_order_address_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
@@ -289,13 +303,27 @@ ActiveRecord::Schema.define(version: 20171026125440) do
 
   create_table "returns", force: :cascade do |t|
     t.integer  "order_id"
-    t.string   "status",     null: false
+    t.string   "status",                              null: false
     t.text     "reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.decimal  "fees",       precision: 10, scale: 4
   end
 
   add_index "returns", ["order_id"], name: "index_returns_on_order_id", using: :btree
+
+  create_table "shipping_details", force: :cascade do |t|
+    t.integer  "order_address_id"
+    t.string   "shipping_method"
+    t.string   "tracking_number"
+    t.integer  "status"
+    t.string   "shipping_type"
+    t.json     "data"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "shipping_details", ["order_address_id"], name: "index_shipping_details_on_order_address_id", using: :btree
 
   create_table "transactions", force: :cascade do |t|
     t.integer  "order_id"
@@ -340,6 +368,7 @@ ActiveRecord::Schema.define(version: 20171026125440) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_payment_informations", "orders"
   add_foreign_key "order_payments", "orders"
+  add_foreign_key "order_shippings", "order_addresses"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
@@ -351,5 +380,6 @@ ActiveRecord::Schema.define(version: 20171026125440) do
   add_foreign_key "requests", "products"
   add_foreign_key "requests", "users"
   add_foreign_key "returns", "orders"
+  add_foreign_key "shipping_details", "order_addresses"
   add_foreign_key "transactions", "orders"
 end
