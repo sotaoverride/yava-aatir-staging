@@ -1,0 +1,14 @@
+<ul class="no-bullet items product_for_discounts">
+  <% if products.present? %>
+    <% products.each do |product| %>
+      <li>
+        <input name="product_ids[]" value= "<%= product.id%>" type="checkbox">
+        <%= image_tag product.primary_image %>
+        <%= display_truncate_content(product.title, 30) %>
+        <span class="price"><%= display_price(product.standard_price)%>/<%= product.unit %></span>
+      </li>
+    <% end %>
+  <% else %>
+    <li>No Product Found</li>
+  <% end %>  
+</ul>

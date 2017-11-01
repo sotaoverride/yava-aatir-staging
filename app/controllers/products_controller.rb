@@ -22,13 +22,26 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to new_product_path, notice: 'Product Added'
+      redirect_to existing_products_path(product: @product.slug)
     else
       render :new
     end
   end
 
-  def existing; end
+  def search
+    keyword = params[:keyword].strip
+    @products = Product.where('title LIKE :keyword OR description LIKE :keyword', keyword: "%#{keyword}%")
+    @products = @products.where(sub_category_id: params[:sub_category_id]) if params[:sub_category_id].present?
+  end
+
+  def existing
+    @product = Product.friendly.find(params[:product])
+    if @product.present?
+      @products = Product.where(sub_category_id: @product.sub_category_id).order('created_at DESC');
+      @deal = Deal.new
+      @deal.product_deals.build
+    end
+  end
 
   private
 

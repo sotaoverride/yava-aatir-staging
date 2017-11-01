@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resource :account,   only: %i[show update]
   resource :wizards,   only: %i[show update]
 
-  resources :deals,    only: %i[index show]
+  resources :deals,    only: %i[index show new create edit update]
   resources :requests, only: %i[index new create edit update] do
     get :add
   end
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     collection do
       post :fetch
       get :existing
+      get :search
     end
   end
 

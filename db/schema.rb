@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028150926) do
+ActiveRecord::Schema.define(version: 20171101042956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,19 +55,17 @@ ActiveRecord::Schema.define(version: 20171028150926) do
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "deals", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "promotion_days",     null: false
-    t.integer  "number_of_commits",  null: false
+    t.integer  "promotion_days"
+    t.integer  "number_of_commits"
     t.date     "promotion_start_at", null: false
-    t.integer  "number_of_quantity", null: false
+    t.integer  "number_of_quantity"
     t.integer  "status",             null: false
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "request_id"
+    t.integer  "user_id"
   end
-
-  add_index "deals", ["product_id"], name: "index_deals_on_product_id", using: :btree
 
   create_table "discounts", force: :cascade do |t|
     t.integer  "deal_id"
@@ -195,6 +193,17 @@ ActiveRecord::Schema.define(version: 20171028150926) do
 
   add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "product_deals", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "deal_id"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_deals", ["deal_id"], name: "index_product_deals_on_deal_id", using: :btree
+  add_index "product_deals", ["product_id"], name: "index_product_deals_on_product_id", using: :btree
 
   create_table "product_images", force: :cascade do |t|
     t.string   "img"
@@ -362,7 +371,6 @@ ActiveRecord::Schema.define(version: 20171028150926) do
 
   add_foreign_key "cart_items", "carts"
   add_foreign_key "carts", "users"
-  add_foreign_key "deals", "products"
   add_foreign_key "discounts", "deals"
   add_foreign_key "order_addresses", "orders"
   add_foreign_key "order_items", "orders"
@@ -371,6 +379,8 @@ ActiveRecord::Schema.define(version: 20171028150926) do
   add_foreign_key "order_shippings", "order_addresses"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"
+  add_foreign_key "product_deals", "deals"
+  add_foreign_key "product_deals", "products"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
   add_foreign_key "profile_categories", "categories"

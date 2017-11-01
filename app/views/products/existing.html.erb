@@ -16,7 +16,15 @@
     </div>
   </div>
 
-  <%= render 'shared/modal/assign_discount_by_product' %>
+  <% if @product.present? %>
+    <%= render 'shared/modal/assign_discount_by_product', products: @products, product: @product, sub_category_id: @product.sub_category_id %>
+      <script>
+        $(document).foundation();
+        $('#product_pop_dic_sell').foundation('open'); 
+      </script>  
+  <% else %>
+    <%= render 'shared/modal/assign_discount_by_product' %>
+  <% end %>
   <%= render 'shared/modal/assign_discount_by_product_category' %>
 
 </div>

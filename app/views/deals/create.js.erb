@@ -1,0 +1,11 @@
+<% if @deal.errors.messages.length == 0 %>
+  $('.modal-form-wrapper').html("<%=j render 'shared/modal/assign_discount_by_product', products: @products, product: @product, sub_category_id: @product.sub_category_id %>");
+  $(document).foundation();
+  $('#product_pop_add').foundation('close');
+  $('#product_pop_dic_sell').foundation('open');
+  $('#product_pop_dic_sell').on('closed.zf.reveal', function(){
+    $(this).remove();
+  });
+<% else %>
+  $('.error-wrapper').html("<p class='help-text' style='color: red;'><%= @deal.errors.full_messages.join(', ') %></p>");
+<% end %>

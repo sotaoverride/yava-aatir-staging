@@ -55,4 +55,12 @@ module ApplicationHelper
       explores_path
     end
   end
+
+  def display_price(price)
+    number_to_currency(price, unit: 'USD')
+  end
+
+  def display_truncate_content(content, length)
+    truncate(content, length: length)
+  end  
 end

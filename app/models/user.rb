@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
   has_many :requests
+  has_many :deals
 
   accepts_nested_attributes_for :profile
 

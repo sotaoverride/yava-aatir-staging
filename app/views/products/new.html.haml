@@ -21,5 +21,12 @@
             %p ADD PRODUCT
 
 .modal-form-wrapper
+  - if @product.errors.present?
+    = render 'products/new/modal_form', product: @product 
+    :javascript
+      $(document).foundation();
+      $('#product_pop_add_inner').foundation('open');
+  - else
+    = render 'products/new/modal_product_url', product: @product
 
-= render 'products/new/modal_product_url', product: @product
+
