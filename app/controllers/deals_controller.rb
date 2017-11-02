@@ -38,12 +38,13 @@ class DealsController < ApplicationController
   def update
     @deal = Deal.find(params[:id])
     promotion_days = params[:deal][:promotion_days]
-
+    
     if params[:deal][:status].blank? && @deal.inactive?
       @deal.status = Deal.statuses[:active]
     end
 
-    @deal.expired_at = @deal.promotion_start_at + promotion_days.to_i.days if promotion_days.present?
+    #@deal.expired_at = @deal.promotion_start_at + promotion_days.to_i.days if promotion_days.present?
+    @deal.expired_at = @deal.promotion_start_at + promotion_days.to_i.days
     @deal.update_attributes(deal_params)  
   end  
 
