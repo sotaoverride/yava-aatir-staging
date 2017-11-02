@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def setup_account
     if current_user
       if current_user.profile
-        redirect_to wizards_path unless !current_user.profile.complete?
+        redirect_to wizards_path unless current_user.profile.complete?
       else
         redirect_to wizards_path
       end
