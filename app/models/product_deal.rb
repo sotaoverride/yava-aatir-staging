@@ -11,4 +11,8 @@
 #
 
 class ProductDeal < ActiveRecord::Base
+  enum status: [:active, :inactive]
+  	
+  belongs_to :product
+  belongs_to :deal
 end

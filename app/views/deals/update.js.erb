@@ -1,0 +1,5 @@
+<% if @deal.errors.messages.length == 0 %>
+  window.location = "<%=  deals_url %>"
+<% else %>
+  $('#error_on_assign_discount').html("<p class='help-text' style='color: red;'><%= @deal.errors.full_messages.join(', ') %></p>");
+<% end %>

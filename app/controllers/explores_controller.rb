@@ -4,5 +4,6 @@ class ExploresController < ApplicationController
 
   def index
     @products = Product.all
+    @deal = Deal.new
   end
 end

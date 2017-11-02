@@ -38,7 +38,7 @@ class Product < ActiveRecord::Base
   end
 
   def primary_image
-    product_images.first.image
+    product_images.first&.image
   end
 
   def fetch_from_url

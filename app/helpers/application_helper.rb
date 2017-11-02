@@ -57,10 +57,16 @@ module ApplicationHelper
   end
 
   def display_price(price)
-    number_to_currency(price, unit: 'USD')
+    number_to_currency(price)
   end
 
   def display_truncate_content(content, length)
     truncate(content, length: length)
+  end
+
+  def remaining_time(expired_date)
+    diff = Time.diff(Time.now.in_time_zone, expired_date.to_time.end_of_day)
+    diff[:day] = diff[:day] + diff[:week] *7 + diff[:month] * 30
+    diff
   end  
 end

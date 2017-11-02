@@ -43,6 +43,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def deal
+  
+  end  
+
   private
 
   def product_params

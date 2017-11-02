@@ -1,15 +1,35 @@
 <div class="reveal discounts_popup" id="product_pop_dic_inner" data-reveal>
   <h3>Add Promotion Preiod</h3>
+  
   <p>Enter a Time Preiod for Your Promotion</p>
-  <div class="add_date">
-    <p>How many Days ? </p>
-    <input type="text" name="">
-  </div>
-  <div class="submit_data">
-    <button class="button sikp_btn">BACK </button>
-    <button class="button add_btn">SUBMIT</button>
-  </div>
+  <%= form_for deal, remote: true, html: {role: 'form', id: 'update_deals_for_promotion', data: {toggle: 'validator'}} do |f|%>
+    <%= hidden_field_tag :source, 'deals' %>
+    <div class="add_date">
+      <p>How many Days ? </p>
+      <%= f.number_field :promotion_days, required: true %>
+    </div>
+    <div class="submit_data">
+      <button class="button sikp_btn" id="back_product_pop_dic_inner" style="float:left">BACK</button>
+      <%= f.submit 'SUBMIT', class: 'button add_btn' %>
+    </div>
+  <% end %>
+  <div class="error-wrapper" id="error_on_assign_discount"></div>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $("#back_product_pop_dic_inner").on('click', function() {
+      $('#product_pop_dic_inner').foundation('close');
+      $('.modal-form-wrapper').html('');
+      $(document).foundation();
+      $('#product_pop_dic_sell').foundation('open');
+    })
+    $("#add_promotion_days").on('click', function() {
+      $('#update_deals_for_promotion').submit();
+    })
+  })
+</script>

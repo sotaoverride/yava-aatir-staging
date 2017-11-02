@@ -1,25 +1,32 @@
-<% num_items.times do %>
+<% if deal_products.present? 
+  deal_products.each do |deal_product| 
+    product = deal_product.product
+    deal = deal_product.deal
+    timer = remaining_time(deal.expired_at)
+    # discounts = deal.discounts
+%>
   <div class="small-6 medium-6 large-3  columns">
     <a href="<%= deal_product_path(1) %>">
       <div class="single_products">
         <div class="Products_img">
-          <%= image_tag 'shoe-big.jpg', alt: 'shoe-big' %>
+          <%= image_tag product.primary_image, alt: 'shoe-big' %>
         </div>
         <div class="product_price">
-          <h3>$178.99</h3>
+          <h3><%= display_price(product.standard_price) %></h3>
           <p>8% OFF</p>
         </div>
 
 
         <div class="Products_title">
-          <h3>Nike Sport Shoes Fingertap Max <br/><a href="#" class="name">Nike Wholesale</a></h3>
+          <h3><%= display_truncate_content(strip_tags(product.description), 40) %><br/>
+          <a href="#" class="name"><%= product.title %></a></h3>
+          
           <div class="sub_fil">
             <div class="category_name_filter">
               <span class="category_name"><a href="javascript:void(0)" data-open="product_discount_table">DISCOUNT TABLE</a></span>
               <span class="category_name"><a href="#">10 COMMITS</a></span>
               <span class="category_name"><a href="#">MN</a></span>
             </div>
-
           </div>
 
           <div class="commit_area">
@@ -27,8 +34,6 @@
               <span class="active_bar full_bar"></span>
             </div>
             <div class="commit_count">
-
-
               <button class="commits_btn" type="button">COMMIT</button>
             </div>
           </div>
@@ -37,10 +42,10 @@
         <div class="pro_timmer no-padding">
           <div class="time">
             <div class="time-box">
-              <span><em>01</em>days</span>
-              <span><em>00</em>hours</span>
-              <span><em>12</em>min</span>
-              <span><em>52</em>sec</span>
+              <span><em><%= timer[:day]%></em>days</span>
+              <span><em><%= timer[:hour]%></em>hours</span>
+              <span><em><%= timer[:minute]%></em>min</span>
+              <span><em><%= timer[:second]%></em>sec</span>
             </div>
           </div>
         </div>
@@ -48,4 +53,7 @@
       </div>
     </a>
   </div>
+<% end
+else %>
+  <div class="small-12 medium-12 large-6">No Deal found !</div>
 <% end %>

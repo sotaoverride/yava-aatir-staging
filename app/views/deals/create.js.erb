@@ -1,9 +1,9 @@
 <% if @deal.errors.messages.length == 0 %>
-  $('.modal-form-wrapper').html("<%=j render 'shared/modal/assign_discount_by_product', products: @products, product: @product, sub_category_id: @product.sub_category_id %>");
+  $('.modal-form-wrapper').html("<%=j render 'shared/modal/assign_other_discount_info', deal: @deal %>");
   $(document).foundation();
-  $('#product_pop_add').foundation('close');
-  $('#product_pop_dic_sell').foundation('open');
-  $('#product_pop_dic_sell').on('closed.zf.reveal', function(){
+  $('#product_pop_dic_sell').foundation('close');
+  $('#product_pop_dic_inner').foundation('open');
+  $('#product_pop_dic_inner').on('closed.zf.reveal', function(){
     $(this).remove();
   });
 <% else %>

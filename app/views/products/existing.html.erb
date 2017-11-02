@@ -15,7 +15,7 @@
       <h3> Products Category Discount</h3>
     </div>
   </div>
-
+  <div class='modal-form-wrapper'></div>
   <% if @product.present? %>
     <%= render 'shared/modal/assign_discount_by_product', products: @products, product: @product, sub_category_id: @product.sub_category_id %>
       <script>
@@ -26,7 +26,6 @@
     <%= render 'shared/modal/assign_discount_by_product' %>
   <% end %>
   <%= render 'shared/modal/assign_discount_by_product_category' %>
-
 </div>
 <br/>
 <br/>

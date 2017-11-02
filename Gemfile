@@ -66,3 +66,5 @@ gem 'metainspector', '5.4.1'
 gem "attr_encrypted", "~> 3.0.0"
 gem 'paper_trail'
 gem 'remotipart', '~>1.2'
+gem 'will_paginate'
+gem 'time_diff'
