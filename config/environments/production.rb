@@ -78,12 +78,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  domain: "gmail.com",
+  config.action_mailer.smtp_settings = {
+  address: "smtp.zoho.com",
+  domain: "zoho.com",
   port: 587,
-  user_name: "jorge@example.org",
-  password: "your_password",
+  user_name: "noreply@yova.io",
+  password: "T6#vyb9r",
   authentication: 'plain',
   enable_starttls_auto: true
 }
