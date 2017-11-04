@@ -21,7 +21,7 @@ class Profile < ActiveRecord::Base
   validates :biz_name, presence: { message: "business name must be given please" }, on: [:update], if: Proc.new { |p| p.biz_name_changed? }
   validates :biz_address, presence: { message: "business address must be given please" }, on: [:update], if: Proc.new { |p| p.biz_address_changed? }
   validates :tax_id, presence: true, on: [:update], if: Proc.new { |p| p.tax_id_changed? }
-  validates :tax_id, format: { with: /\d{2}-\d{7}/, message: "incorect format" }, on: [:update], if: Proc.new { |p| p.tax_id_changed? }
+  validates :tax_id, format: { with: /\d{2}-\d{8}/, message: "incorect format" }, on: [:update], if: Proc.new { |p| p.tax_id_changed? }
   validates :city, presence: true, on: [:update], if: Proc.new { |p| p.city_changed? }
   validates :state, presence: true, on: [:update], if: Proc.new { |p| p.state_changed? }
   validates :zipcode, presence: true, on: [:update], if: Proc.new { |p| p.zipcode_changed? }
