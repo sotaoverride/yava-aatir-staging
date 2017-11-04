@@ -18,8 +18,8 @@ class Profile < ActiveRecord::Base
   validates :dropshipper, presence: true, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
   validates :dropshipper, numericality: { greater_than: 0 }, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
   validates :carriers, presence: true, on: [:update], if: Proc.new { |p| p.carriers_changed? }
-  validates :biz_name, presence: true, on: [:update], if: Proc.new { |p| p.biz_name_changed? }
-  validates :biz_address, presence: true, on: [:update], if: Proc.new { |p| p.biz_address_changed? }
+  validates :biz_name, presence: { message: "business name must be given please" }, on: [:update], if: Proc.new { |p| p.biz_name_changed? }
+  validates :biz_address, presence: { message: "business address must be given please" }, on: [:update], if: Proc.new { |p| p.biz_address_changed? }
   validates :tax_id, presence: true, on: [:update], if: Proc.new { |p| p.tax_id_changed? }
   validates :tax_id, format: { with: /\d{2}-\d{7}/, message: "incorect format" }, on: [:update], if: Proc.new { |p| p.tax_id_changed? }
   validates :city, presence: true, on: [:update], if: Proc.new { |p| p.city_changed? }
