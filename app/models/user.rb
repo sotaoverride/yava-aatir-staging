@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     presence: true,
     uniqueness: { case_sensitive: false },
     format: { with: /\A[a-zA-Z0-9]+\z/ },
-    length: { in: 4..10 }, on: [:update], if: Proc.new { |u| u.username_changed? }
+    length: { in: 4..20 }, on: [:update], if: Proc.new { |u| u.username_changed? }
 
   has_one :profile, dependent: :destroy
   has_many :requests
