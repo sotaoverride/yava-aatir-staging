@@ -1,4 +1,4 @@
-<%- if object.errors.full_messages.length > 0 %>
+<%- if object.errors.length > 0 %>
   <div class='callout alert'>
     <ul>
       <% object.errors.each do |attr,msg| %>
