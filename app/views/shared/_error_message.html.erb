@@ -2,7 +2,7 @@
   <div class='callout alert'>
     <ul>
       <% object.errors.each do |attr,msg| %>
-        <li><%= msg %></li>
+        <li><%= msg.humanize %></li>
       <% end %>
     </ul>
   </div>
