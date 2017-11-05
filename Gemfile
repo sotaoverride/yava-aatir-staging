@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 gem 'thor', '0.19.1'
 gem 'sprockets-rails', '2.3.3'
+gem 'zip-codes'
+
 
 # Authentication
 gem 'devise', '4.3.0'

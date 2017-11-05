@@ -30,6 +30,11 @@
     <%= p.text_field :tax_id, placeholder: '12-3456789' %>
 	</label>
 </div>
+<div class="columns small-6 zipcode_interactive">
+  <label>Zip
+    <%= p.text_field :zip, :class => 'zipcode_interactive' %>
+	</label>
+</div>
 <div class="columns">
   <label>City
     <%= p.text_field :city %>
@@ -40,8 +45,5 @@
     <%= p.select :state, options_for_select(us_states, p.object.state) %>
 	</label>
 </div>
-<div class="columns small-6">
-  <label>Zip
-    <%= p.text_field :zipcode %>
-	</label>
-</div>
+
+

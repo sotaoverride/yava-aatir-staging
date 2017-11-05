@@ -51,4 +51,26 @@ $( document ).ready(function() {
       dataType: "script",
     })
   };
+  
+  $(document).ready(function() {
+  // Interactive Zipcodes
+  $('input.zipcode_interactive').blur(function(data) {
+    var elem_id = $(this).attr("id");
+    var base_id = elem_id.substring(0, elem_id.lastIndexOf("_"));
+    $.get("/localedata/get_zip_data/" + this.value, {},
+    function(data) {
+      var zipcode = $.parseJSON(data);
+      var city = $('#' + base_id + '_city');
+      var state = $('#' + base_id + '_state');
+      var county = $('#' + base_id + '_county');
+      if (zipcode.err) {
+        alert(zipcode.err);
+      } else {
+        city.val(zipcode.city);
+        state.val(zipcode.state)
+        county.val(zipcode.county)
+      }
+    })
+  });
+});
 });  

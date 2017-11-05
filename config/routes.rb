@@ -46,4 +46,6 @@ Rails.application.routes.draw do
 
   # Root to deals page
   root to: 'deals#index'
+  get 'localedata/get_zip_data/:code', :controller => 'mycontrollername', :action => 'get_zip_data'
+
 end

@@ -11,9 +11,9 @@ class Profile < ActiveRecord::Base
   validates :last_name, presence: true, on: [:update], if: Proc.new { |p| p.last_name_changed? }
   validates :first_name, presence: true, on: [:update], if: Proc.new { |p| p.first_name_changed? }
 
-  validates :top_selling_brand, presence: true, on: [:update], if: Proc.new { |p| p.top_selling_brand_changed? }
-  validates :ecommerce_url, presence: true, on: [:update], if: Proc.new { |p| p.ecommerce_url_changed? }
-  validates :marketplace_url, presence: true, on: [:update], if: Proc.new { |p| p.marketplace_url_changed? }
+  validates :top_selling_brand, presence: { message: "top selling brand can't be blank" }, on: [:update], if: Proc.new { |p| p.top_selling_brand_changed? }
+  validates :ecommerce_url, presence: { message: "ecommerce url can't be blank" }, on: [:update], if: Proc.new { |p| p.ecommerce_url_changed? }
+  validates :marketplace_url, presence: { message: "marketplace url can't be blank" }, on: [:update], if: Proc.new { |p| p.marketplace_url_changed? }
   validates :fulfillment, presence: true, on: [:update], if: Proc.new { |p| p.fulfillment_changed? }
   validates :dropshipper, presence: true, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
   validates :dropshipper, numericality: { greater_than: 0 }, on: [:update], if: Proc.new { |p| p.dropshipper_changed? }
